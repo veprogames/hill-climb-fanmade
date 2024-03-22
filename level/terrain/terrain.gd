@@ -18,7 +18,7 @@ func _ready() -> void:
 	ss_2d_shape.close_shape()
 
 func generate() -> PackedVector2Array:
-	var count: int = 256
+	var count: int = 128
 	var x: float = -6400
 	
 	var result = PackedVector2Array()
