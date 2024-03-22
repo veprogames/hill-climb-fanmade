@@ -10,6 +10,9 @@ position = Vector2(942, 352)
 [node name="Camera2D" type="Camera2D" parent="Car"]
 zoom = Vector2(0.46, 0.46)
 position_smoothing_enabled = true
+drag_horizontal_offset = 1.0
+drag_left_margin = 0.9
+editor_draw_drag_margin = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
