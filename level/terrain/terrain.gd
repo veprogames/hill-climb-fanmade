@@ -26,7 +26,7 @@ func _ready() -> void:
 	update_base_vertices()
 
 func get_y(for_x: float) -> float:
-	var amp: float = 300 + for_x / 50.0
+	var amp: float = 300 + for_x / 250.0
 	var y: float = noise.get_noise_1d(for_x / 50.0) * amp + 1000
 	return y
 

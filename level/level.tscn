@@ -1,15 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://ba2rk50g3dcuh"]
 
 [ext_resource type="PackedScene" uid="uid://d0yg0e2kyk0ig" path="res://car/car.tscn" id="1_0gn4l"]
-[ext_resource type="PackedScene" uid="uid://b5snhya0wfkjl" path="res://level/terrain/terrain.tscn" id="2_2528l"]
+[ext_resource type="PackedScene" uid="uid://dq0ciu88go4sk" path="res://level/terrain/simple_terrain.tscn" id="3_51l47"]
 [ext_resource type="PackedScene" uid="uid://dr80skw7ns3ak" path="res://level/level_ui.tscn" id="3_nqxyq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7gcvr"]
 normal = Vector2(1, 0)
 
 [node name="Level" type="Node2D"]
-
-[node name="Terrain" parent="." instance=ExtResource("2_2528l")]
 
 [node name="Car" parent="." instance=ExtResource("1_0gn4l")]
 position = Vector2(0, 400)
@@ -42,3 +40,5 @@ shape = SubResource("WorldBoundaryShape2D_7gcvr")
 
 [node name="LevelUI" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("3_nqxyq")]
 player = NodePath("../../Car")
+
+[node name="SimpleTerrain" parent="." instance=ExtResource("3_51l47")]

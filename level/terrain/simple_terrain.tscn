@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq0ciu88go4sk"]
+
+[ext_resource type="Script" path="res://level/terrain/simple_terrain.gd" id="1_46l8a"]
+[ext_resource type="Texture2D" uid="uid://dxp5xfsio8wo4" path="res://level/terrain/dirt.png" id="2_jkmai"]
+[ext_resource type="PackedScene" uid="uid://bsxg6tkqlm2ro" path="res://level/terrain/generation_border.tscn" id="2_mt7lr"]
+[ext_resource type="Texture2D" uid="uid://c7ckwhjtb5y55" path="res://level/terrain/grass.png" id="3_c7uq6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c15jd"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ompe3"]
+normal = Vector2(1, 0)
+
+[node name="SimpleTerrain" type="StaticBody2D"]
+script = ExtResource("1_46l8a")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("2_jkmai")
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 48.0
+texture = ExtResource("3_c7uq6")
+texture_mode = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="GenerationBorder" parent="." instance=ExtResource("2_mt7lr")]
+
+[node name="WorldborderL" type="StaticBody2D" parent="."]
+position = Vector2(-3000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderL"]
+shape = SubResource("WorldBoundaryShape2D_c15jd")
+
+[node name="WorldborderR" type="StaticBody2D" parent="."]
+position = Vector2(2000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderR"]
+shape = SubResource("WorldBoundaryShape2D_ompe3")
+disabled = true
+
+[connection signal="car_entered" from="GenerationBorder" to="." method="_on_generation_border_car_entered"]
