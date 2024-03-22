@@ -8,6 +8,8 @@ normal = Vector2(1, 0)
 
 [node name="Level" type="Node2D"]
 
+[node name="Terrain" parent="." instance=ExtResource("2_2528l")]
+
 [node name="Car" parent="." instance=ExtResource("1_0gn4l")]
 position = Vector2(1000, 400)
 
@@ -17,8 +19,6 @@ position_smoothing_enabled = true
 drag_horizontal_offset = 1.0
 drag_left_margin = 0.9
 editor_draw_drag_margin = true
-
-[node name="Terrain" parent="." instance=ExtResource("2_2528l")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.462745, 0.8, 0.8, 1)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="WorldBorder" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
 shape = SubResource("WorldBoundaryShape2D_7gcvr")

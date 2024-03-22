@@ -1,11 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5snhya0wfkjl"]
+[gd_scene load_steps=15 format=3 uid="uid://b5snhya0wfkjl"]
 
 [ext_resource type="Script" path="res://level/terrain/terrain.gd" id="1_p5gal"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="2_hwba2"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="2_k0anm"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="3_7sio3"]
+[ext_resource type="Texture2D" uid="uid://c7ckwhjtb5y55" path="res://level/terrain/grass.png" id="3_j01ne"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="4_koq2s"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="5_8sgvn"]
+[ext_resource type="Texture2D" uid="uid://dxp5xfsio8wo4" path="res://level/terrain/dirt.png" id="6_nxpcf"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="7_qmcdl"]
+
+[sub_resource type="Resource" id="Resource_p0s1h"]
+script = ExtResource("3_7sio3")
+_points = {}
+_point_order = Array[int]([])
+_constraints = {}
+_next_key = 0
+_material_overrides = {}
+
+[sub_resource type="Resource" id="Resource_hmrhn"]
+script = ExtResource("2_k0anm")
+textures = Array[Texture2D]([ExtResource("3_j01ne")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = true
+use_taper_texture = true
+fit_mode = 0
+
+[sub_resource type="Resource" id="Resource_8p5eo"]
+script = ExtResource("4_koq2s")
+begin = 0.0
+distance = 360.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_4n8dn"]
+script = ExtResource("5_8sgvn")
+edge_material = SubResource("Resource_hmrhn")
+normal_range = SubResource("Resource_8p5eo")
+weld = true
+render = true
+z_index = 0
+z_as_relative = true
+offset = 0.0
+
+[sub_resource type="Resource" id="Resource_54n1i"]
+script = ExtResource("7_qmcdl")
+_edge_meta_materials = Array[ExtResource("5_8sgvn")]([SubResource("Resource_4n8dn")])
+fill_textures = Array[Texture2D]([ExtResource("6_nxpcf")])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_texture_scale = 1.0
+fill_texture_absolute_position = false
+fill_texture_absolute_rotation = false
+fill_texture_offset = Vector2(0, 0)
+fill_texture_angle_offset = 0.0
+fill_mesh_offset = 0.0
+render_offset = 0.0
 
 [node name="Terrain" type="StaticBody2D"]
+texture_repeat = 2
 script = ExtResource("1_p5gal")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="SS2D_Shape" type="Node2D" parent="."]
+texture_repeat = 2
+script = ExtResource("2_hwba2")
+_points = SubResource("Resource_p0s1h")
+shape_material = SubResource("Resource_54n1i")
+collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.435294, 0.435294, 0.47451, 1)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
