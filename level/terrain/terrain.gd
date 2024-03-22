@@ -19,13 +19,14 @@ func _ready() -> void:
 
 func generate() -> PackedVector2Array:
 	var count: int = 256
+	var x: float = -6400
 	
 	var result = PackedVector2Array()
-	result.append(Vector2(0, 10000))
+	result.append(Vector2(x, 10000))
 	for i in range(count):
-		var x: float = i * 640.0
+		x += 640.0
 		var amp: float = 300 + x / 50.0
 		var y: float = noise.get_noise_1d(x / 50.0) * amp + 1000
 		result.append(Vector2(x, y))
-	result.append(Vector2(count * 640.0, 10000))
+	result.append(Vector2(x, 10000))
 	return result

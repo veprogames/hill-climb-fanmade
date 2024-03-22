@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr80skw7ns3ak"]
+
+[ext_resource type="Script" path="res://level/level_ui.gd" id="1_3muol"]
+
+[node name="LevelUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3muol")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 103.0
+
+[node name="LabelDistance" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"Label_L"

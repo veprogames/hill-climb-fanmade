@@ -25,6 +25,10 @@ window/size/mode=3
 
 enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
 
+[gui]
+
+theme/custom="res://main_theme.tres"
+
 [input]
 
 player_gas={
