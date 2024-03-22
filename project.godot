@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Hill Climb Racing"
+config/name="Hill Climb Racing Fanmade"
 run/main_scene="res://level/level.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
