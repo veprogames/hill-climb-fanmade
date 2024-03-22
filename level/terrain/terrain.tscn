@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5snhya0wfkjl"]
+
+[ext_resource type="Script" path="res://level/terrain/terrain.gd" id="1_p5gal"]
+
+[node name="Terrain" type="StaticBody2D"]
+script = ExtResource("1_p5gal")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.435294, 0.435294, 0.47451, 1)

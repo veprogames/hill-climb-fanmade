@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba2rk50g3dcuh"]
+[gd_scene load_steps=4 format=3 uid="uid://ba2rk50g3dcuh"]
 
 [ext_resource type="PackedScene" uid="uid://d0yg0e2kyk0ig" path="res://car/car.tscn" id="1_0gn4l"]
+[ext_resource type="PackedScene" uid="uid://b5snhya0wfkjl" path="res://level/terrain/terrain.tscn" id="2_2528l"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7gcvr"]
+normal = Vector2(1, 0)
 
 [node name="Level" type="Node2D"]
 
 [node name="Car" parent="." instance=ExtResource("1_0gn4l")]
-position = Vector2(942, 352)
+position = Vector2(1000, 400)
 
 [node name="Camera2D" type="Camera2D" parent="Car"]
 zoom = Vector2(0.46, 0.46)
@@ -14,7 +18,20 @@ drag_horizontal_offset = 1.0
 drag_left_margin = 0.9
 editor_draw_drag_margin = true
 
+[node name="Terrain" parent="." instance=ExtResource("2_2528l")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.462745, 0.8, 0.8, 1)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-597, -297, 543, 701, 1313, 800, 1854, 743, 2425, 843, 3237, 629, 4021, 729, 4720, 401, 5575, 530, 6416, 102, 7228, -197, 7656, 16, 8198, 558, 8839, 929, 9238, 914, 9509, 501, 9823, -12, 10179, -497, 10578, -810, 11063, -1138, 11505, -1167, 11932, -1152, 12246, -1024, 12517, -882, 13044, -682, 13643, 615, 13686, 1627, 6288, 3965, -882, 3737)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_7gcvr")
