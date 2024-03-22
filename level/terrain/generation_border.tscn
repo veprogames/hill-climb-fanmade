@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsxg6tkqlm2ro"]
+
+[ext_resource type="Script" path="res://level/terrain/generation_border.gd" id="1_tgcsf"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7rrl5"]
+normal = Vector2(-1, 0)
+
+[node name="GenerationBorder" type="Area2D"]
+script = ExtResource("1_tgcsf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_7rrl5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5snhya0wfkjl"]
+[gd_scene load_steps=17 format=3 uid="uid://b5snhya0wfkjl"]
 
 [ext_resource type="Script" path="res://level/terrain/terrain.gd" id="1_p5gal"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="2_hwba2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="5_8sgvn"]
 [ext_resource type="Texture2D" uid="uid://dxp5xfsio8wo4" path="res://level/terrain/dirt.png" id="6_nxpcf"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="7_qmcdl"]
+[ext_resource type="PackedScene" uid="uid://bsxg6tkqlm2ro" path="res://level/terrain/generation_border.tscn" id="10_gcav7"]
 
 [sub_resource type="Resource" id="Resource_p0s1h"]
 script = ExtResource("3_7sio3")
@@ -60,6 +61,9 @@ fill_texture_angle_offset = 0.0
 fill_mesh_offset = 0.0
 render_offset = 0.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_n08rh"]
+normal = Vector2(1, 0)
+
 [node name="Terrain" type="StaticBody2D"]
 texture_repeat = 2
 script = ExtResource("1_p5gal")
@@ -69,6 +73,27 @@ texture_repeat = 2
 script = ExtResource("2_hwba2")
 _points = SubResource("Resource_p0s1h")
 shape_material = SubResource("Resource_54n1i")
+tessellation_stages = 2
+tessellation_tolerence = 8.0
+collision_size = 128.0
 collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="GenerationBorder" parent="." instance=ExtResource("10_gcav7")]
+position = Vector2(100, 0)
+
+[node name="WorldborderL" type="StaticBody2D" parent="."]
+position = Vector2(-3000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderL"]
+shape = SubResource("WorldBoundaryShape2D_n08rh")
+
+[node name="WorldborderR" type="StaticBody2D" parent="."]
+position = Vector2(2000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderR"]
+shape = SubResource("WorldBoundaryShape2D_n08rh")
+disabled = true
+
+[connection signal="car_entered" from="GenerationBorder" to="." method="_on_generation_border_car_entered"]
