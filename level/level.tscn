@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba2rk50g3dcuh"]
+[gd_scene load_steps=6 format=3 uid="uid://ba2rk50g3dcuh"]
 
 [ext_resource type="PackedScene" uid="uid://d0yg0e2kyk0ig" path="res://car/car.tscn" id="1_0gn4l"]
 [ext_resource type="PackedScene" uid="uid://bmibn8xke4wm6" path="res://car/car_camera.tscn" id="2_dbrbb"]
 [ext_resource type="PackedScene" uid="uid://dq0ciu88go4sk" path="res://level/terrain/simple_terrain.tscn" id="3_51l47"]
 [ext_resource type="PackedScene" uid="uid://dr80skw7ns3ak" path="res://level/level_ui.tscn" id="3_nqxyq"]
+[ext_resource type="PackedScene" uid="uid://cq4irgy62l4oi" path="res://collectibles/fuel_collectible.tscn" id="5_13xes"]
 
 [node name="Level" type="Node2D"]
 
@@ -30,3 +31,7 @@ color = Color(0.462745, 0.8, 0.8, 1)
 player = NodePath("../../Car")
 
 [node name="SimpleTerrain" parent="." instance=ExtResource("3_51l47")]
+
+[node name="FuelCollectible" parent="." instance=ExtResource("5_13xes")]
+position = Vector2(1217, 735)
+collision_layer = 1

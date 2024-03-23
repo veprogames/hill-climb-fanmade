@@ -58,6 +58,7 @@ player_brake={
 2d_physics/layer_2="Wheel"
 2d_physics/layer_3="Border"
 2d_physics/layer_4="World"
+2d_physics/layer_5="Collectible"
 
 [physics]
 

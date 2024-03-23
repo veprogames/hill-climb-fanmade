@@ -1,6 +1,16 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/Autumn Regular.ttf" id="1_a7ig3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7xgs"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13ies"]
+bg_color = Color(0, 0.870588, 0.517647, 1)
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
 
 [resource]
 default_font = ExtResource("1_a7ig3")
@@ -12,3 +22,7 @@ Label/constants/shadow_offset_x = 6
 Label/constants/shadow_offset_y = 6
 Label_L/base_type = &"Label"
 Label_L/font_sizes/font_size = 72
+ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
+ProgressBar/constants/outline_size = 16
+ProgressBar/styles/background = SubResource("StyleBoxFlat_h7xgs")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_13ies")

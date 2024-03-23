@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://btsnteqbw7vel"]
+
+[ext_resource type="Script" path="res://car/car_collector_area.gd" id="1_lc1js"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcoma"]
+radius = 162.795
+height = 546.65
+
+[node name="CarCollectorArea" type="Area2D"]
+script = ExtResource("1_lc1js")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pcoma")
