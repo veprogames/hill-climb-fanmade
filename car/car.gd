@@ -1,6 +1,8 @@
 class_name Car
 extends RigidBody2D
 
+signal died
+
 const SPEED: float = 180_000.0
 
 var touch_gas: bool = false
@@ -47,6 +49,8 @@ func is_dead() -> bool:
 func _on_head_body_entered(body: Node) -> void:
 	if body is SimpleTerrain:
 		if timer_death.is_stopped():
+			died.emit()
+			
 			timer_death.start()
 			
 			break_neck()

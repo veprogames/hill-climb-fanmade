@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba2rk50g3dcuh"]
+[gd_scene load_steps=5 format=3 uid="uid://ba2rk50g3dcuh"]
 
 [ext_resource type="PackedScene" uid="uid://d0yg0e2kyk0ig" path="res://car/car.tscn" id="1_0gn4l"]
+[ext_resource type="PackedScene" uid="uid://bmibn8xke4wm6" path="res://car/car_camera.tscn" id="2_dbrbb"]
 [ext_resource type="PackedScene" uid="uid://dq0ciu88go4sk" path="res://level/terrain/simple_terrain.tscn" id="3_51l47"]
 [ext_resource type="PackedScene" uid="uid://dr80skw7ns3ak" path="res://level/level_ui.tscn" id="3_nqxyq"]
 
@@ -9,14 +10,8 @@
 [node name="Car" parent="." instance=ExtResource("1_0gn4l")]
 position = Vector2(0, 400)
 
-[node name="Camera2D" type="Camera2D" parent="Car"]
-zoom = Vector2(0.56, 0.56)
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 4.0
-drag_horizontal_offset = 1.0
-drag_left_margin = 0.9
-editor_draw_drag_margin = true
+[node name="CarCamera" parent="Car" node_paths=PackedStringArray("car") instance=ExtResource("2_dbrbb")]
+car = NodePath("..")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -10

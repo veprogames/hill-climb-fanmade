@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmibn8xke4wm6"]
+
+[ext_resource type="Script" path="res://car/car_camera.gd" id="1_h04xi"]
+
+[node name="CarCamera" type="Camera2D"]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 4.0
+drag_horizontal_offset = 1.0
+drag_left_margin = 0.9
+script = ExtResource("1_h04xi")
