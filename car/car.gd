@@ -7,7 +7,7 @@ enum TouchState {
 	Brake,
 }
 
-const SPEED := 180_000.0
+const SPEED: float = 180_000.0
 
 var touch_state: TouchState = TouchState.None
 

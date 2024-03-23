@@ -27,7 +27,7 @@ func _ready() -> void:
 	
 	update_base_vertices()
 
-func add_point(pos: Vector2, index: int = -1):
+func add_point(pos: Vector2, index: int = -1) -> void:
 	if index == -1:
 		points.append(pos)
 	else:
@@ -83,9 +83,9 @@ func get_initial_vertices() -> PackedVector2Array:
 	var x: float = -VERTEX_GAP * 48.0
 	var x_0: float = x
 	
-	var result = PackedVector2Array()
+	var result: PackedVector2Array = PackedVector2Array()
 	result.append(Vector2(x, DEEP_Y))
-	for i in range(count):
+	for i: int in range(count):
 		x += VERTEX_GAP
 		result.append(Vector2(x, get_y(x)))
 	result.append(Vector2(x, DEEP_Y))
