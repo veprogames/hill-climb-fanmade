@@ -23,20 +23,30 @@ func _ready() -> void:
 	var vertices: PackedVector2Array = get_initial_vertices()
 	
 	for vertex: Vector2 in vertices:
-		add_point(vertex)
+		# dont sync polygons over 100 times, just once at the end...
+		_add_point_nosync(vertex)
 	
 	update_base_vertices()
+	
+	# ...here
+	_sync()
 
-func add_point(pos: Vector2, index: int = -1) -> void:
+func _add_point_nosync(pos: Vector2, index: int = -1) -> void:
 	if index == -1:
 		points.append(pos)
 	else:
 		points.insert(index, pos)
-	
+
+func _sync() -> void:
 	line_2d_grass.points = points
 	line_2d_gradient.points = points
 	polygon_2d.polygon = points
 	_update_collision_polygon.call_deferred(points)
+
+func add_point(pos: Vector2, index: int = -1) -> void:
+	_add_point_nosync(pos, index)
+	
+	_sync()
 
 func _update_collision_polygon(points_: PackedVector2Array) -> void:
 	collision_polygon_2d.polygon = points_

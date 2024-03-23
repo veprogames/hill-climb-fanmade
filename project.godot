@@ -33,6 +33,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/vsync/vsync_mode=0
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom="res://main_theme.tres"
