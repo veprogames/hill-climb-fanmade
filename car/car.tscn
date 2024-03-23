@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0yg0e2kyk0ig"]
+[gd_scene load_steps=12 format=3 uid="uid://d0yg0e2kyk0ig"]
 
 [ext_resource type="Texture2D" uid="uid://c8nr83f3w15bk" path="res://car/car.png" id="1_nr2ec"]
 [ext_resource type="Script" path="res://car/car.gd" id="1_roxxv"]
@@ -21,6 +21,9 @@ radius = 62.0725
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nqtwv"]
 bounce = 0.5
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5k6y"]
+radius = 42.17
+
 [node name="Car" type="RigidBody2D"]
 collision_mask = 12
 mass = 8.0
@@ -30,10 +33,6 @@ script = ExtResource("1_roxxv")
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(-51, -33)
 texture = ExtResource("2_t5wce")
-
-[node name="Head" type="Sprite2D" parent="."]
-position = Vector2(-52, -100)
-texture = ExtResource("3_uif0g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 20)
@@ -78,5 +77,36 @@ texture = ExtResource("2_niufl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D2/WheelR"]
 shape = SubResource("CircleShape2D_17q2n")
 
+[node name="Head" type="RigidBody2D" parent="."]
+position = Vector2(-54, -100)
+collision_mask = 8
+mass = 0.4
+max_contacts_reported = 1
+contact_monitor = true
+metadata/_edit_group_ = true
+
+[node name="HeadSprite" type="Sprite2D" parent="Head"]
+texture = ExtResource("3_uif0g")
+
+[node name="PinJoint2DNeck" type="PinJoint2D" parent="Head"]
+position = Vector2(0, 56)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+softness = 2.0
+
+[node name="PinJoint2DHead" type="PinJoint2D" parent="Head"]
+position = Vector2(0, 31)
+node_a = NodePath("../..")
+node_b = NodePath("..")
+softness = 12.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+shape = SubResource("CircleShape2D_b5k6y")
+
 [node name="CarSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_nr2ec")
+
+[node name="TimerDeath" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="body_entered" from="Head" to="." method="_on_head_body_entered"]
