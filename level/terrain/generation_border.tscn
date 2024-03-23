@@ -4,6 +4,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7rrl5"]
 normal = Vector2(-1, 0)
+distance = 3200.0
 
 [node name="GenerationBorder" type="Area2D"]
 script = ExtResource("1_tgcsf")

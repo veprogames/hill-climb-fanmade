@@ -13,8 +13,10 @@ normal = Vector2(1, 0)
 position = Vector2(0, 400)
 
 [node name="Camera2D" type="Camera2D" parent="Car"]
-zoom = Vector2(0.46, 0.46)
+zoom = Vector2(0.56, 0.56)
+process_callback = 0
 position_smoothing_enabled = true
+position_smoothing_speed = 4.0
 drag_horizontal_offset = 1.0
 drag_left_margin = 0.9
 editor_draw_drag_margin = true

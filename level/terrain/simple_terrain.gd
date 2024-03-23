@@ -1,13 +1,14 @@
 class_name SimpleTerrain
 extends StaticBody2D
 
-const VERTEX_GAP: float = 128.0
+const VERTEX_GAP: float = 64.0
 const DEEP_Y: float = 1_000_000.0
 
 var points: PackedVector2Array = PackedVector2Array()
 
 @onready var polygon_2d: Polygon2D = $Polygon2D
-@onready var line_2d: Line2D = $Line2D
+@onready var line_2d_grass: Line2D = $Line2DGrass
+@onready var line_2d_gradient: Line2D = $Line2DGradient
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 @onready var generation_border: GenerationBorder = $GenerationBorder
@@ -32,12 +33,13 @@ func add_point(pos: Vector2, index: int = -1):
 	else:
 		points.insert(index, pos)
 	
-	line_2d.points = points
+	line_2d_grass.points = points
+	line_2d_gradient.points = points
 	polygon_2d.polygon = points
 	_update_collision_polygon.call_deferred(points)
 
-func _update_collision_polygon(points: PackedVector2Array) -> void:
-	collision_polygon_2d.polygon = points
+func _update_collision_polygon(points_: PackedVector2Array) -> void:
+	collision_polygon_2d.polygon = points_
 
 func get_y(for_x: float) -> float:
 	var amp: float = 300 + for_x / 250.0
@@ -72,13 +74,13 @@ func update_base_vertices() -> void:
 	points[-2] = Vector2(last_terrain_vertex.x, points[-2].y)
 	points[-1] = Vector2(first_terrain_vertex.x, points[-1].y)
 	
-	generation_border.position.x = last_terrain_vertex.x - VERTEX_GAP * 24
-	worldborder_l.position.x = first_terrain_vertex.x + VERTEX_GAP * 24
+	generation_border.position.x = last_terrain_vertex.x
+	worldborder_l.position.x = first_terrain_vertex.x
 	worldborder_r.position.x = last_terrain_vertex.x
 
 func get_initial_vertices() -> PackedVector2Array:
 	var count: int = 128
-	var x: float = -VERTEX_GAP * 10.0
+	var x: float = -VERTEX_GAP * 48.0
 	var x_0: float = x
 	
 	var result = PackedVector2Array()

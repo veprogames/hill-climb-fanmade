@@ -50,6 +50,7 @@ player_brake={
 [physics]
 
 common/physics_ticks_per_second=240
+common/max_physics_steps_per_frame=16
 
 [rendering]
 
