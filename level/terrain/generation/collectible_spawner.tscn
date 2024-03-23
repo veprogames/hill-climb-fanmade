@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1saa85rup74k"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/collectible_spawner.gd" id="1_6lkok"]
+
+[node name="CollectibleSpawner" type="Node2D"]
+script = ExtResource("1_6lkok")

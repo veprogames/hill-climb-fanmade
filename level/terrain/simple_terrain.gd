@@ -1,6 +1,8 @@
 class_name SimpleTerrain
 extends StaticBody2D
 
+signal generated(x_end: float)
+
 const VERTEX_GAP: float = 64.0
 const DEEP_Y: float = 1_000_000.0
 
@@ -70,6 +72,7 @@ func push_terrain_vertex() -> void:
 	var y: float = get_y(x)
 	
 	add_point(Vector2(x, y), index_to_insert)
+	generated.emit(x)
 
 func pop_terrain_vertex() -> void:
 	var first_terrain_index: int = 1
