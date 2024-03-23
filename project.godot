@@ -56,6 +56,13 @@ player_brake={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Car"
+2d_physics/layer_2="Wheel"
+2d_physics/layer_3="Border"
+2d_physics/layer_4="World"
+
 [physics]
 
 common/physics_ticks_per_second=240

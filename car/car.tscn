@@ -22,6 +22,7 @@ radius = 62.0725
 bounce = 0.5
 
 [node name="Car" type="RigidBody2D"]
+collision_mask = 12
 mass = 8.0
 physics_material_override = SubResource("PhysicsMaterial_voebe")
 script = ExtResource("1_roxxv")
@@ -47,6 +48,8 @@ softness = 12.0
 metadata/_edit_group_ = true
 
 [node name="WheelL" type="RigidBody2D" parent="PinJoint2D"]
+collision_layer = 2
+collision_mask = 8
 mass = 0.25
 physics_material_override = SubResource("PhysicsMaterial_bbnh7")
 
@@ -64,6 +67,8 @@ softness = 12.0
 metadata/_edit_group_ = true
 
 [node name="WheelR" type="RigidBody2D" parent="PinJoint2D2"]
+collision_layer = 2
+collision_mask = 8
 mass = 0.25
 physics_material_override = SubResource("PhysicsMaterial_nqtwv")
 

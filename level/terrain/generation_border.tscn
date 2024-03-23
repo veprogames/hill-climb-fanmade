@@ -7,6 +7,8 @@ normal = Vector2(-1, 0)
 distance = 3200.0
 
 [node name="GenerationBorder" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_tgcsf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -14,6 +14,7 @@ distance = 1920.0
 normal = Vector2(1, 0)
 
 [node name="SimpleTerrain" type="StaticBody2D"]
+collision_layer = 8
 script = ExtResource("1_46l8a")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -38,12 +39,16 @@ joint_mode = 2
 
 [node name="WorldborderL" type="StaticBody2D" parent="."]
 position = Vector2(-3000, 0)
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderL"]
 shape = SubResource("WorldBoundaryShape2D_c15jd")
 
 [node name="WorldborderR" type="StaticBody2D" parent="."]
 position = Vector2(2000, 0)
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderR"]
 shape = SubResource("WorldBoundaryShape2D_ompe3")

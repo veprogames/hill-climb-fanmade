@@ -66,6 +66,7 @@ normal = Vector2(1, 0)
 
 [node name="Terrain" type="StaticBody2D"]
 texture_repeat = 2
+collision_layer = 8
 script = ExtResource("1_p5gal")
 
 [node name="SS2D_Shape" type="Node2D" parent="."]
@@ -85,12 +86,16 @@ position = Vector2(100, 0)
 
 [node name="WorldborderL" type="StaticBody2D" parent="."]
 position = Vector2(-3000, 0)
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderL"]
 shape = SubResource("WorldBoundaryShape2D_n08rh")
 
 [node name="WorldborderR" type="StaticBody2D" parent="."]
 position = Vector2(2000, 0)
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldborderR"]
 shape = SubResource("WorldBoundaryShape2D_n08rh")
