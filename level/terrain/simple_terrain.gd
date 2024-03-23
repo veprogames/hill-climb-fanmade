@@ -8,6 +8,8 @@ const DEEP_Y: float = 1_000_000.0
 
 var points: PackedVector2Array = PackedVector2Array()
 
+@export var generation_parameters: GenerationParameters
+
 @onready var polygon_2d: Polygon2D = $Polygon2D
 @onready var line_2d_grass: Line2D = $Line2DGrass
 @onready var line_2d_gradient: Line2D = $Line2DGradient
@@ -54,9 +56,7 @@ func _update_collision_polygon(points_: PackedVector2Array) -> void:
 	collision_polygon_2d.polygon = points_
 
 func get_y(for_x: float) -> float:
-	var amp: float = 300 + for_x / 250.0
-	var y: float = noise.get_noise_1d(for_x / 50.0) * amp + 1000
-	return y
+	return generation_parameters.get_y(for_x)
 
 func get_first_terrain_vertex() -> Vector2:
 	return points[1]

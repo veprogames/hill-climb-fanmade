@@ -34,7 +34,7 @@ texture = ExtResource("2_wv2ak")
 expand_mode = 2
 
 [node name="ProgressBarFuel" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(256, 72)
+custom_minimum_size = Vector2(256, 64)
 layout_mode = 2
 max_value = 1.0
 step = 0.0

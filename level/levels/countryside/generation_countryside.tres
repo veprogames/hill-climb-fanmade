@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="GenerationParameters" load_steps=7 format=3 uid="uid://6apjn86f1hna"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/amplitude_parameters.gd" id="1_2q2k5"]
+[ext_resource type="Script" path="res://level/terrain/generation/generation_parameter.gd" id="2_uryk1"]
+[ext_resource type="Script" path="res://level/terrain/generation/generation_parameters.gd" id="3_yr5uh"]
+
+[sub_resource type="Resource" id="Resource_nnuik"]
+script = ExtResource("1_2q2k5")
+base = 300.0
+delta_per_meter = 0.4
+min_amplitude = 0.0
+max_amplitude = inf
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xqtfw"]
+seed = 42
+frequency = 0.02
+
+[sub_resource type="Resource" id="Resource_su27p"]
+script = ExtResource("2_uryk1")
+noise = SubResource("FastNoiseLite_xqtfw")
+amplitude_parameters = SubResource("Resource_nnuik")
+
+[resource]
+script = ExtResource("3_yr5uh")
+noises = Array[ExtResource("2_uryk1")]([SubResource("Resource_su27p")])

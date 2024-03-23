@@ -4,13 +4,28 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7xgs"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
-border_width_bottom = 4
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13ies"]
 bg_color = Color(0, 0.870588, 0.517647, 1)
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
+border_width_top = 8
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [resource]
 default_font = ExtResource("1_a7ig3")
