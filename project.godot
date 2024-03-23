@@ -33,10 +33,6 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
-
 [gui]
 
 theme/custom="res://main_theme.tres"
