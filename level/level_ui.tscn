@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr80skw7ns3ak"]
+[gd_scene load_steps=7 format=3 uid="uid://dr80skw7ns3ak"]
 
 [ext_resource type="Script" path="res://level/level_ui.gd" id="1_3muol"]
 [ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel.png" id="2_wv2ak"]
 [ext_resource type="PackedScene" uid="uid://2sumqd6vi3hb" path="res://level/ui/pedal.tscn" id="3_anrv5"]
 [ext_resource type="PackedScene" uid="uid://dq28o5gtmi66b" path="res://level/ui/fuel_bar.tscn" id="3_pna6q"]
 [ext_resource type="PackedScene" uid="uid://cahox3uu8r2gb" path="res://level/ui/gauge.tscn" id="5_fl8er"]
+[ext_resource type="PackedScene" uid="uid://c28b4tgfroa80" path="res://level/ui/low_fuel_alarm.tscn" id="6_75jpt"]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3
@@ -63,14 +64,24 @@ grow_horizontal = 0
 
 [node name="GaugeSpeed" parent="." instance=ExtResource("5_fl8er")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -160.0
+offset_left = 400.0
 offset_top = -320.0
-offset_right = 160.0
+offset_right = 720.0
 offset_bottom = 0.0
-grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LowFuelAlarm" parent="." instance=ExtResource("6_75jpt")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1037.0
+offset_top = -240.0
+offset_right = -317.0
+grow_horizontal = 0
 grow_vertical = 0

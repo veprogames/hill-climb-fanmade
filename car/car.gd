@@ -3,15 +3,21 @@ extends RigidBody2D
 
 signal died
 signal fuel_depleted
+signal low_fuel_reached
 signal refueled(was_out_of: bool)
+
+signal gas_changed(new_state: bool)
+signal brake_changed(new_state: bool)
 
 const SPEED: float = 180_000.0
 
-var touch_gas: bool = false
-var touch_brake: bool = false
+var touch_gas: bool = false : set = _set_touch_gas
+var touch_brake: bool = false : set = _set_touch_brake
 
 var fuel: float = 1.0
 var fuel_capacity: float = 30.0
+
+var on_low_fuel: bool = false
 
 @onready var wheel_l: RigidBody2D = $PinJoint2D/WheelL
 @onready var wheel_r: RigidBody2D = $PinJoint2D2/WheelR
@@ -21,6 +27,14 @@ var fuel_capacity: float = 30.0
 @onready var timer_respawn: Timer = $TimerRespawn
 
 @onready var pin_joint_2d_neck: PinJoint2D = $Head/PinJoint2DNeck
+
+func _set_touch_brake(brake: bool) -> void:
+	touch_brake = brake
+	brake_changed.emit(brake)
+
+func _set_touch_gas(gas: bool) -> void:
+	touch_gas = gas
+	gas_changed.emit(gas)
 
 func _input(event: InputEvent) -> void:
 	var touch_event: InputEventScreenTouch = event as InputEventScreenTouch
@@ -36,17 +50,31 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	fuel -= delta / fuel_capacity
 	
+	if !on_low_fuel and fuel < 0.2:
+		on_low_fuel = true
+		low_fuel_reached.emit()
+	
 	if is_out_of_fuel() and not is_game_over():
 		fuel_depleted.emit()
 		respawn()
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("player_brake"):
+		touch_brake = true
+	elif Input.is_action_just_released("player_brake"):
+		touch_brake = false
+	
+	if Input.is_action_just_pressed("player_gas"):
+		touch_gas = true
+	elif Input.is_action_just_released("player_gas"):
+		touch_gas = false
+	
 	if can_drive():
-		if Input.is_action_pressed("player_brake") or touch_brake:
+		if touch_brake:
 			wheel_l.apply_torque(-SPEED)
 			wheel_r.apply_torque(-SPEED)
 			apply_torque(SPEED)
-		elif Input.is_action_pressed("player_gas") or touch_gas:
+		elif touch_gas:
 			wheel_l.apply_torque(SPEED)
 			wheel_r.apply_torque(SPEED)
 			apply_torque(-SPEED)
@@ -89,3 +117,7 @@ func _on_head_body_entered(body: Node) -> void:
 
 func _on_timer_respawn_timeout() -> void:
 	get_tree().reload_current_scene.call_deferred()
+
+
+func _on_refueled(_was_out_of: bool) -> void:
+	on_low_fuel = false

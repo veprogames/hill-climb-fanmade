@@ -6,6 +6,7 @@ extends Control
 @onready var pedal_l: Pedal = $PedalL
 @onready var pedal_r: Pedal = $PedalR
 @onready var gauge_speed: Gauge = $GaugeSpeed
+@onready var low_fuel_alarm: LowFuelAlarm = $LowFuelAlarm
 
 @export var player: Car
 # used for next fuel
@@ -17,6 +18,9 @@ var fuel_gradient: Gradient = Gradient.new()
 func _ready() -> void:
 	player.gas_changed.connect(_on_player_gas_changed)
 	player.brake_changed.connect(_on_player_brake_changed)
+	player.low_fuel_reached.connect(_on_player_low_fuel_reached)
+	player.refueled.connect(_on_player_refueled)
+	player.fuel_depleted.connect(_on_player_fuel_depleted)
 
 func _process(_delta: float) -> void:
 	var meters: float = player.position.x / Level.PX_TO_M
@@ -54,3 +58,12 @@ func _on_player_brake_changed(new_state: bool) -> void:
 		pedal_l.activate()
 	else:
 		pedal_l.deactivate()
+
+func _on_player_low_fuel_reached() -> void:
+	low_fuel_alarm.activate()
+
+func _on_player_fuel_depleted() -> void:
+	low_fuel_alarm.deactivate()
+
+func _on_player_refueled(_was_out_of: bool) -> void:
+	low_fuel_alarm.deactivate()
