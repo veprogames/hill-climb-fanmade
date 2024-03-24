@@ -2,8 +2,9 @@ class_name LevelUI
 extends Control
 
 @onready var label_distance: Label = $LabelDistance
-@onready var progress_bar_fuel: ProgressBar = $VBoxContainer/HBoxContainer/ProgressBarFuel
-@onready var label_next_fuel: Label = $VBoxContainer/HBoxContainer/ProgressBarFuel/LabelNextFuel
+@onready var fuel_bar: FuelBar = $VBoxContainer/HBoxContainer/FuelBar
+@onready var pedal_l: Pedal = $PedalL
+@onready var pedal_r: Pedal = $PedalR
 
 @export var player: Car
 # used for next fuel
@@ -13,26 +14,18 @@ var stylebox_fill: StyleBoxFlat
 var fuel_gradient: Gradient = Gradient.new()
 
 func _ready() -> void:
-	stylebox_fill = progress_bar_fuel.get_theme_stylebox("fill").duplicate()
-	progress_bar_fuel.add_theme_stylebox_override("fill", stylebox_fill)
-	
-	fuel_gradient.set_color(0, Color(0.89, 0.176, 0.176))
-	fuel_gradient.set_color(1, stylebox_fill.bg_color)
-	fuel_gradient.add_point(0.5, Color(0.89, 0.878, 0.176))
+	player.gas_changed.connect(_on_player_gas_changed)
+	player.brake_changed.connect(_on_player_brake_changed)
 
 func _process(_delta: float) -> void:
 	var meters: float = player.position.x / Level.PX_TO_M
 	meters = maxf(0, meters)
 	label_distance.text = "%s m" % F.F(meters)
 
-	progress_bar_fuel.value = player.fuel
-	stylebox_fill.bg_color = fuel_gradient.sample(player.fuel)
-	
 	var next_fuel_m: float = get_distance_to_next_fuel_in_meters()
-	if next_fuel_m > 0 and next_fuel_m <= 99:
-		label_next_fuel.text = "%s m" % F.F(next_fuel_m)
-	else:
-		label_next_fuel.text = ""
+	fuel_bar.value = player.fuel
+	fuel_bar.show_next_fuel = next_fuel_m > 0 and next_fuel_m <= 99
+	fuel_bar.next_fuel_value = next_fuel_m
 	
 	
 func get_distance_to_next_fuel_in_meters() -> float:
@@ -45,3 +38,15 @@ func get_distance_to_next_fuel_in_meters() -> float:
 		x = collectible_spawner.get_next_fuel()
 	
 	return (x - player.position.x) / Level.PX_TO_M
+
+func _on_player_gas_changed(new_state: bool) -> void:
+	if new_state:
+		pedal_r.activate()
+	else:
+		pedal_r.deactivate()
+
+func _on_player_brake_changed(new_state: bool) -> void:
+	if new_state:
+		pedal_l.activate()
+	else:
+		pedal_l.deactivate()

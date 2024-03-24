@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr80skw7ns3ak"]
+[gd_scene load_steps=5 format=3 uid="uid://dr80skw7ns3ak"]
 
 [ext_resource type="Script" path="res://level/level_ui.gd" id="1_3muol"]
 [ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel.png" id="2_wv2ak"]
+[ext_resource type="PackedScene" uid="uid://2sumqd6vi3hb" path="res://level/ui/pedal.tscn" id="3_anrv5"]
+[ext_resource type="PackedScene" uid="uid://dq28o5gtmi66b" path="res://level/ui/fuel_bar.tscn" id="3_pna6q"]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3
@@ -43,22 +45,17 @@ layout_mode = 2
 texture = ExtResource("2_wv2ak")
 expand_mode = 2
 
-[node name="ProgressBarFuel" type="ProgressBar" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(256, 64)
+[node name="FuelBar" parent="VBoxContainer/HBoxContainer" instance=ExtResource("3_pna6q")]
 layout_mode = 2
-max_value = 1.0
-step = 0.0
-show_percentage = false
 
-[node name="LabelNextFuel" type="Label" parent="VBoxContainer/HBoxContainer/ProgressBarFuel"]
+[node name="PedalL" parent="." instance=ExtResource("3_anrv5")]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+
+[node name="PedalR" parent="." instance=ExtResource("3_anrv5")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -29.0
-offset_bottom = 29.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "100 m"
-horizontal_alignment = 1
+offset_left = -384.0
+offset_right = 0.0
+grow_horizontal = 0

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq28o5gtmi66b"]
+
+[ext_resource type="Script" path="res://level/ui/fuel_bar.gd" id="1_j0613"]
+
+[node name="FuelBar" type="ProgressBar"]
+custom_minimum_size = Vector2(256, 64)
+max_value = 1.0
+step = 0.0
+show_percentage = false
+script = ExtResource("1_j0613")
+
+[node name="LabelNextFuel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 m"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
