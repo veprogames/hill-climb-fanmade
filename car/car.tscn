@@ -108,10 +108,11 @@ shape = SubResource("CircleShape2D_b5k6y")
 texture = ExtResource("1_nr2ec")
 
 [node name="TimerRespawn" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 5.0
 
 [node name="CarCollectorArea" parent="." node_paths=PackedStringArray("car") instance=ExtResource("6_xdhio")]
 collision_mask = 16
 car = NodePath("..")
 
 [connection signal="body_entered" from="Head" to="." method="_on_head_body_entered"]
+[connection signal="timeout" from="TimerRespawn" to="." method="_on_timer_respawn_timeout"]

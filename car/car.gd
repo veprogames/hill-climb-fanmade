@@ -3,6 +3,7 @@ extends RigidBody2D
 
 signal died
 signal fuel_depleted
+signal refueled(was_out_of: bool)
 
 const SPEED: float = 180_000.0
 
@@ -54,6 +55,9 @@ func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""
 	pin_joint_2d_neck.node_b = ""
 
+func is_neck_broken() -> bool:
+	return pin_joint_2d_neck.node_a.is_empty() and pin_joint_2d_neck.node_b.is_empty()
+
 func is_game_over() -> bool:
 	return !timer_respawn.is_stopped()
 
@@ -63,10 +67,16 @@ func is_out_of_fuel() -> bool:
 func can_drive() -> bool:
 	return !is_game_over()
 
+func refuel() -> void:
+	fuel = 1.0
+	if !timer_respawn.is_stopped() and !is_neck_broken():
+		timer_respawn.stop()
+		refueled.emit(true)
+	else:
+		refueled.emit(false)
+
 func respawn() -> void:
 	timer_respawn.start()
-	await timer_respawn.timeout
-	get_tree().reload_current_scene.call_deferred()
 
 func _on_head_body_entered(body: Node) -> void:
 	if body is SimpleTerrain:
@@ -75,3 +85,7 @@ func _on_head_body_entered(body: Node) -> void:
 			break_neck()
 			
 			respawn()
+
+
+func _on_timer_respawn_timeout() -> void:
+	get_tree().reload_current_scene.call_deferred()
