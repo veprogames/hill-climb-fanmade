@@ -46,6 +46,9 @@ func _add_point_nosync(pos: Vector2, index: int = -1) -> void:
 	else:
 		points.insert(index, pos)
 
+func _remove_point_at_nosync(index: int = -1) -> void:
+	points.remove_at(index)
+
 func _sync() -> void:
 	line_2d_ground.points = points
 	line_2d_gradient.points = points
@@ -76,13 +79,13 @@ func push_terrain_vertex() -> void:
 	var x: float = last_terrain_vertex.x + VERTEX_GAP
 	var y: float = get_y(x)
 	
-	add_point(Vector2(x, y), index_to_insert)
+	_add_point_nosync(Vector2(x, y), index_to_insert)
 	generated.emit(x)
 
 func pop_terrain_vertex() -> void:
 	var first_terrain_index: int = 1
 	
-	points.remove_at(first_terrain_index)
+	_remove_point_at_nosync(first_terrain_index)
 
 func update_base_vertices() -> void:
 	var first_terrain_vertex: Vector2 = get_first_terrain_vertex()
@@ -111,6 +114,10 @@ func get_initial_vertices() -> PackedVector2Array:
 	return result
 
 func _on_generation_border_car_entered() -> void:
-	pop_terrain_vertex()
-	push_terrain_vertex()
+	# generate multiple vertices at once without syncing polygons
+	# to improve performance
+	for _i: int in range(16):
+		pop_terrain_vertex()
+		push_terrain_vertex()
+	_sync()
 	update_base_vertices()
