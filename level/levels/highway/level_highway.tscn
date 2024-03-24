@@ -1,0 +1,17 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqldon425h0yn"]
+
+[ext_resource type="PackedScene" uid="uid://ba2rk50g3dcuh" path="res://level/level.tscn" id="1_f6ebu"]
+[ext_resource type="Resource" uid="uid://c8qvtk1bwpvvj" path="res://level/levels/highway/generation_highway.tres" id="2_cudcf"]
+[ext_resource type="Texture2D" uid="uid://cwq5lbet0n70v" path="res://level/terrain/cement.png" id="3_fkl5i"]
+[ext_resource type="Texture2D" uid="uid://g0cgpog7cyi1" path="res://level/terrain/street.png" id="4_4x6b4"]
+[ext_resource type="Resource" uid="uid://eydoj3efoor5" path="res://level/levels/highway/collectibles_highway.tres" id="5_igm06"]
+
+[node name="LevelHighway" instance=ExtResource("1_f6ebu")]
+
+[node name="SimpleTerrain" parent="." index="3"]
+generation_parameters = ExtResource("2_cudcf")
+fill_texture = ExtResource("3_fkl5i")
+ground_texture = ExtResource("4_4x6b4")
+
+[node name="CollectibleSpawner" parent="." index="4"]
+parameters = ExtResource("5_igm06")

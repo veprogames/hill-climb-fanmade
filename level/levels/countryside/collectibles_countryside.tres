@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CollectibleGenerationParameters" load_steps=2 format=3 uid="uid://btgb23pj1ps57"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/collectible_generation_parameters.gd" id="1_glloh"]
+
+[resource]
+script = ExtResource("1_glloh")
+fuel_distance = 90.0
+fuel_distance_exponent = 1.0

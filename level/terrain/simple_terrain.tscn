@@ -27,7 +27,7 @@ width = 256.0
 texture = ExtResource("4_fpt7x")
 texture_mode = 1
 
-[node name="Line2DGrass" type="Line2D" parent="."]
+[node name="Line2DGround" type="Line2D" parent="."]
 width = 64.0
 texture = ExtResource("3_c7uq6")
 texture_mode = 1

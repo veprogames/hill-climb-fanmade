@@ -9,9 +9,11 @@ const DEEP_Y: float = 1_000_000.0
 var points: PackedVector2Array = PackedVector2Array()
 
 @export var generation_parameters: GenerationParameters
+@export var fill_texture: Texture
+@export var ground_texture: Texture
 
 @onready var polygon_2d: Polygon2D = $Polygon2D
-@onready var line_2d_grass: Line2D = $Line2DGrass
+@onready var line_2d_ground: Line2D = $Line2DGround
 @onready var line_2d_gradient: Line2D = $Line2DGradient
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
@@ -23,6 +25,9 @@ var noise: FastNoiseLite = FastNoiseLite.new()
 
 func _ready() -> void:
 	noise.seed = 42
+	
+	polygon_2d.texture = fill_texture
+	line_2d_ground.texture = ground_texture
 	
 	var vertices: PackedVector2Array = get_initial_vertices()
 	
@@ -42,7 +47,7 @@ func _add_point_nosync(pos: Vector2, index: int = -1) -> void:
 		points.insert(index, pos)
 
 func _sync() -> void:
-	line_2d_grass.points = points
+	line_2d_ground.points = points
 	line_2d_gradient.points = points
 	polygon_2d.polygon = points
 	_update_collision_polygon.call_deferred(points)
