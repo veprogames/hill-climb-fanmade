@@ -20,9 +20,26 @@ func spawn_fuel(x: float) -> void:
 	
 	fuels_spawned += 1
 
+func get_next_fuel() -> float:
+	return parameters.get_fuel_position_in_meters(fuels_spawned + 1) * Level.PX_TO_M
+
+func get_closest_fuel() -> FuelCollectible:
+	var children: Array[Node] = get_children()
+	if children.size() == 0:
+		return null
+	return children[0]
+
+func cleanup(at_x: float) -> void:
+	for child: Node in get_children():
+		var collectible: BaseCollectible = child as BaseCollectible
+		if collectible and collectible.position.x < at_x - 20_000:
+			collectible.queue_free() 
+
 func _on_terrain_generated(x_end: float) -> void:
-	var next_fuel: float = parameters.get_fuel_position_in_meters(fuels_spawned + 1) * Level.PX_TO_M
+	var next_fuel: float = get_next_fuel()
 	
 	if x_end >= next_fuel:
 		spawn_fuel(x_end)
 		next_fuel += 90 * Level.PX_TO_M
+	
+	cleanup(x_end)

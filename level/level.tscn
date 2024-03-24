@@ -29,8 +29,9 @@ color = Color(0.462745, 0.8, 0.8, 1)
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="LevelUI" parent="CanvasLayer2" node_paths=PackedStringArray("player") instance=ExtResource("3_nqxyq")]
+[node name="LevelUI" parent="CanvasLayer2" node_paths=PackedStringArray("player", "collectible_spawner") instance=ExtResource("3_nqxyq")]
 player = NodePath("../../Car")
+collectible_spawner = NodePath("../../CollectibleSpawner")
 
 [node name="SimpleTerrain" parent="." instance=ExtResource("3_51l47")]
 
