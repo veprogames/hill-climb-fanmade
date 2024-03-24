@@ -5,6 +5,7 @@ extends Control
 @onready var fuel_bar: FuelBar = $VBoxContainer/HBoxContainer/FuelBar
 @onready var pedal_l: Pedal = $PedalL
 @onready var pedal_r: Pedal = $PedalR
+@onready var gauge_speed: Gauge = $GaugeSpeed
 
 @export var player: Car
 # used for next fuel
@@ -27,6 +28,9 @@ func _process(_delta: float) -> void:
 	fuel_bar.show_next_fuel = next_fuel_m > 0 and next_fuel_m <= 99
 	fuel_bar.next_fuel_value = next_fuel_m
 	
+	var meters_per_second: float = absf(player.linear_velocity.x / Level.PX_TO_M)
+	gauge_speed.value = meters_per_second / 50.0
+	gauge_speed.text = "%.0f" % absf(meters_per_second)
 	
 func get_distance_to_next_fuel_in_meters() -> float:
 	var closest_instance: FuelCollectible = collectible_spawner.get_closest_fuel()
