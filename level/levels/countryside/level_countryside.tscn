@@ -8,10 +8,10 @@
 
 [node name="LevelCountryside" instance=ExtResource("1_avsna")]
 
-[node name="SimpleTerrain" parent="." index="3"]
+[node name="SimpleTerrain" parent="." index="4"]
 generation_parameters = ExtResource("2_mcctm")
 fill_texture = ExtResource("3_qfdn8")
 ground_texture = ExtResource("4_an2sb")
 
-[node name="CollectibleSpawner" parent="." index="4"]
+[node name="CollectibleSpawner" parent="." index="5"]
 parameters = ExtResource("5_vrt45")
