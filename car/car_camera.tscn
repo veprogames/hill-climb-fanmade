@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://car/car_camera.gd" id="1_h04xi"]
 
 [node name="CarCamera" type="Camera2D"]
+offset = Vector2(256, 0)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0

@@ -14,7 +14,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not car_died:
-		var zoom_multiplier: float = remap(car.linear_velocity.x, 0.0, 1000.0, 1.0, 0.85)
+		var zoom_multiplier: float = remap(car.linear_velocity.x, 0.0, 3000.0, 1.0, 0.75)
+		zoom_multiplier = clampf(zoom_multiplier, 0.75, 1.0)
 		zoom = zoom.lerp(BASE_ZOOM * zoom_multiplier, delta * 2.0)
 
 func _on_car_died() -> void:

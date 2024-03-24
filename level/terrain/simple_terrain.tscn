@@ -18,16 +18,19 @@ collision_layer = 8
 script = ExtResource("1_46l8a")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+clip_children = 2
 texture_repeat = 2
 texture = ExtResource("2_jkmai")
 
-[node name="Line2DGradient" type="Line2D" parent="."]
-position = Vector2(0, 128)
-width = 256.0
+[node name="Line2DGradient" type="Line2D" parent="Polygon2D"]
+z_index = 1
+position = Vector2(0, 270)
+width = 512.0
 texture = ExtResource("4_fpt7x")
 texture_mode = 1
 
 [node name="Line2DGround" type="Line2D" parent="."]
+z_index = 2
 width = 64.0
 texture = ExtResource("3_c7uq6")
 texture_mode = 1

@@ -14,7 +14,7 @@ var points: PackedVector2Array = PackedVector2Array()
 
 @onready var polygon_2d: Polygon2D = $Polygon2D
 @onready var line_2d_ground: Line2D = $Line2DGround
-@onready var line_2d_gradient: Line2D = $Line2DGradient
+@onready var line_2d_gradient: Line2D = $Polygon2D/Line2DGradient
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 @onready var generation_border: GenerationBorder = $GenerationBorder
