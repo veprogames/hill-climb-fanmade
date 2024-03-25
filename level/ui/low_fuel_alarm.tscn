@@ -3,6 +3,9 @@
 [ext_resource type="Script" path="res://level/ui/low_fuel_alarm.gd" id="1_4n0b8"]
 [ext_resource type="Texture2D" uid="uid://b4cdm457hi1oo" path="res://level/ui/alarm.png" id="1_krt7u"]
 
+[sub_resource type="Animation" id="Animation_x6lbm"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_prqdp"]
 resource_name = "blink"
 loop_mode = 1
@@ -18,9 +21,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_x6lbm"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60gtc"]
 _data = {

@@ -8,10 +8,10 @@
 
 [node name="LevelHighway" instance=ExtResource("1_f6ebu")]
 
-[node name="SimpleTerrain" parent="." index="3"]
+[node name="SimpleTerrain" parent="." index="4"]
 generation_parameters = ExtResource("2_cudcf")
 fill_texture = ExtResource("3_fkl5i")
 ground_texture = ExtResource("4_4x6b4")
 
-[node name="CollectibleSpawner" parent="." index="4"]
+[node name="CollectibleSpawner" parent="." index="5"]
 parameters = ExtResource("5_igm06")
