@@ -14,7 +14,6 @@ var points: PackedVector2Array = PackedVector2Array()
 
 @onready var polygon_2d: Polygon2D = $Polygon2D
 @onready var line_2d_ground: Line2D = $Line2DGround
-@onready var line_2d_gradient: Line2D = $Polygon2D/Line2DGradient
 @onready var collision_polygon_2d: CollisionPolygon2D = $CollisionPolygon2D
 
 @onready var generation_border: GenerationBorder = $GenerationBorder
@@ -51,7 +50,6 @@ func _remove_point_at_nosync(index: int = -1) -> void:
 
 func _sync() -> void:
 	line_2d_ground.points = points
-	line_2d_gradient.points = points
 	polygon_2d.polygon = points
 	_update_collision_polygon.call_deferred(points)
 
@@ -100,8 +98,8 @@ func update_base_vertices() -> void:
 	worldborder_r.position.x = last_terrain_vertex.x
 
 func get_initial_vertices() -> PackedVector2Array:
-	var count: int = 128
-	var x: float = -VERTEX_GAP * 48.0
+	var count: int = 176
+	var x: float = -VERTEX_GAP * 96.0
 	var x_0: float = x
 	
 	var result: PackedVector2Array = PackedVector2Array()
