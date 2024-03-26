@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ba2rk50g3dcuh"]
+[gd_scene load_steps=9 format=3 uid="uid://ba2rk50g3dcuh"]
 
 [ext_resource type="PackedScene" uid="uid://d0yg0e2kyk0ig" path="res://car/car.tscn" id="1_0gn4l"]
 [ext_resource type="Script" path="res://level/level.gd" id="1_3qiqg"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://cs4wcouh2kyeg" path="res://level/bg.png" id="4_8cr8h"]
 [ext_resource type="Texture2D" uid="uid://dl4et3eb76jxg" path="res://level/vignette.png" id="5_okviw"]
 [ext_resource type="PackedScene" uid="uid://c1saa85rup74k" path="res://level/terrain/generation/collectible_spawner.tscn" id="6_3kebu"]
-[ext_resource type="Texture2D" uid="uid://cqtoh3rchjvtt" path="res://level/clouds.png" id="8_j3qyo"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3qiqg")
@@ -29,11 +28,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_8cr8h")
-
-[node name="BackgroundClouds" type="TextureRect" parent="CanvasLayer"]
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("8_j3qyo")
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
