@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_pqgot"]
 script = ExtResource("1_bp4dx")
 base = 10.0
-delta = 0.4
+delta = 0.05
 min_value = 0.0
 max_value = 70.0
 

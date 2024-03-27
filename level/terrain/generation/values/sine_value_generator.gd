@@ -11,5 +11,5 @@ func _ready() -> void:
 
 func get_value(meters: float) -> float:
 	var x: float = TAU * meters / period
-	var sine = sin(x)
+	var sine: float = sin(x)
 	return clampf(sine, min_value, max_value)
