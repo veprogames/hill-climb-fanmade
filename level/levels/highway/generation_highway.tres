@@ -1,17 +1,9 @@
-[gd_resource type="Resource" script_class="GenerationParameters" load_steps=12 format=3 uid="uid://c8qvtk1bwpvvj"]
+[gd_resource type="Resource" script_class="GenerationParameters" load_steps=9 format=3 uid="uid://c8qvtk1bwpvvj"]
 
-[ext_resource type="Script" path="res://level/terrain/generation/amplitude_parameters.gd" id="1_u4i5n"]
 [ext_resource type="Script" path="res://level/terrain/generation/generation_parameter.gd" id="2_1djf0"]
 [ext_resource type="Script" path="res://level/terrain/generation/values/linear_value_generator.gd" id="2_6eltj"]
 [ext_resource type="Script" path="res://level/terrain/generation/values/noise_value_generator.gd" id="3_5pkb4"]
 [ext_resource type="Script" path="res://level/terrain/generation/generation_parameters.gd" id="3_6j784"]
-
-[sub_resource type="Resource" id="Resource_4kdc7"]
-script = ExtResource("1_u4i5n")
-base = 500.0
-delta_per_meter = 1.75
-min_amplitude = 0.0
-max_amplitude = 3200.0
 
 [sub_resource type="Resource" id="Resource_afk64"]
 script = ExtResource("2_6eltj")
@@ -28,14 +20,8 @@ fractal_octaves = 3
 script = ExtResource("3_5pkb4")
 noise = SubResource("FastNoiseLite_w1o80")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jfsbv"]
-frequency = 0.0075
-fractal_octaves = 3
-
 [sub_resource type="Resource" id="Resource_6yqrd"]
 script = ExtResource("2_1djf0")
-noise = SubResource("FastNoiseLite_jfsbv")
-amplitude_parameters = SubResource("Resource_4kdc7")
 height_values = SubResource("Resource_md88r")
 amplitude_values = SubResource("Resource_afk64")
 
