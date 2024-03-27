@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CollectibleGenerationParameters" load_steps=2 format=3 uid="uid://drolr123ap3p8"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/collectible_generation_parameters.gd" id="1_uaks7"]
+
+[resource]
+script = ExtResource("1_uaks7")
+fuel_distance_base = 90.0
+fuel_distance_delta = 0.0
+fuel_distance_exponent = 1.0
+fuel_distance_snap = 30.0

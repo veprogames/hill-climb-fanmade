@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="GenerationParameters" load_steps=13 format=3 uid="uid://dcar8t5vrarr6"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/generation_parameters.gd" id="1_3x4aa"]
+[ext_resource type="Script" path="res://level/terrain/generation/values/linear_value_generator.gd" id="1_bp4dx"]
+[ext_resource type="Script" path="res://level/terrain/generation/generation_parameter.gd" id="1_d3ly2"]
+[ext_resource type="Script" path="res://level/terrain/generation/values/sine_value_generator.gd" id="2_s4diu"]
+[ext_resource type="Script" path="res://level/terrain/generation/values/noise_value_generator.gd" id="4_430k2"]
+
+[sub_resource type="Resource" id="Resource_pqgot"]
+script = ExtResource("1_bp4dx")
+base = 10.0
+delta = 0.4
+min_value = 0.0
+max_value = 70.0
+
+[sub_resource type="Resource" id="Resource_eq4pa"]
+script = ExtResource("2_s4diu")
+period = 6.0
+min_value = -1.0
+max_value = 1.0
+
+[sub_resource type="Resource" id="Resource_m0n6g"]
+script = ExtResource("1_d3ly2")
+height_values = SubResource("Resource_eq4pa")
+amplitude_values = SubResource("Resource_pqgot")
+
+[sub_resource type="Resource" id="Resource_il8tu"]
+script = ExtResource("1_bp4dx")
+base = 500.0
+delta = 2.0
+min_value = 0.0
+max_value = inf
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ttsx8"]
+seed = 7
+frequency = 0.006
+fractal_octaves = 2
+fractal_lacunarity = 3.0
+
+[sub_resource type="Resource" id="Resource_58dsb"]
+script = ExtResource("4_430k2")
+noise = SubResource("FastNoiseLite_ttsx8")
+
+[sub_resource type="Resource" id="Resource_idkd5"]
+script = ExtResource("1_d3ly2")
+height_values = SubResource("Resource_58dsb")
+amplitude_values = SubResource("Resource_il8tu")
+
+[resource]
+script = ExtResource("1_3x4aa")
+noises = Array[ExtResource("1_d3ly2")]([SubResource("Resource_m0n6g"), SubResource("Resource_idkd5")])
