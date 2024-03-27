@@ -9,6 +9,8 @@ signal refueled(was_out_of: bool)
 signal gas_changed(new_state: bool)
 signal brake_changed(new_state: bool)
 
+var MainMenuScene: PackedScene = preload("res://main_menu/main_menu.tscn")
+
 const SPEED: float = 180_000.0
 
 var touch_gas: bool = false : set = _set_touch_gas
@@ -116,7 +118,7 @@ func _on_head_body_entered(body: Node) -> void:
 
 
 func _on_timer_respawn_timeout() -> void:
-	get_tree().reload_current_scene.call_deferred()
+	get_tree().change_scene_to_packed(MainMenuScene)
 
 
 func _on_refueled(_was_out_of: bool) -> void:
