@@ -11,7 +11,8 @@ signal brake_changed(new_state: bool)
 
 var MainMenuScene: PackedScene = preload("res://main_menu/main_menu.tscn")
 
-const SPEED: float = 180_000.0
+const BASE_ACCELERATION: float = 80_000.0
+const BASE_AIR_ACCELERATION: float = 150_000.0
 
 var touch_gas: bool = false : set = _set_touch_gas
 var touch_brake: bool = false : set = _set_touch_brake
@@ -73,13 +74,13 @@ func _physics_process(_delta: float) -> void:
 	
 	if can_drive():
 		if touch_brake:
-			wheel_l.apply_torque(-SPEED)
-			wheel_r.apply_torque(-SPEED)
-			apply_torque(SPEED)
+			wheel_l.apply_torque(-BASE_ACCELERATION)
+			wheel_r.apply_torque(-BASE_ACCELERATION)
+			apply_torque(BASE_AIR_ACCELERATION)
 		elif touch_gas:
-			wheel_l.apply_torque(SPEED)
-			wheel_r.apply_torque(SPEED)
-			apply_torque(-SPEED)
+			wheel_l.apply_torque(BASE_ACCELERATION)
+			wheel_r.apply_torque(BASE_ACCELERATION)
+			apply_torque(-BASE_AIR_ACCELERATION)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""
