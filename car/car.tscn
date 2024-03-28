@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0yg0e2kyk0ig"]
+[gd_scene load_steps=12 format=3 uid="uid://d0yg0e2kyk0ig"]
 
 [ext_resource type="Texture2D" uid="uid://c8nr83f3w15bk" path="res://car/car.png" id="1_nr2ec"]
 [ext_resource type="Script" path="res://car/car.gd" id="1_roxxv"]
@@ -18,9 +18,6 @@ bounce = 0.6
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_17q2n"]
 radius = 62.0725
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nqtwv"]
-bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5k6y"]
 radius = 42.17
@@ -44,7 +41,7 @@ shape = SubResource("CapsuleShape2D_rmokm")
 position = Vector2(-151, 91)
 node_a = NodePath("..")
 node_b = NodePath("WheelL")
-softness = 12.0
+softness = 16.0
 metadata/_edit_group_ = true
 
 [node name="WheelL" type="RigidBody2D" parent="PinJoint2D"]
@@ -63,14 +60,14 @@ shape = SubResource("CircleShape2D_17q2n")
 position = Vector2(109, 90)
 node_a = NodePath("..")
 node_b = NodePath("WheelR")
-softness = 12.0
+softness = 16.0
 metadata/_edit_group_ = true
 
 [node name="WheelR" type="RigidBody2D" parent="PinJoint2D2"]
 collision_layer = 2
 collision_mask = 8
 mass = 0.25
-physics_material_override = SubResource("PhysicsMaterial_nqtwv")
+physics_material_override = SubResource("PhysicsMaterial_bbnh7")
 
 [node name="Sprite2D" type="Sprite2D" parent="PinJoint2D2/WheelR"]
 texture = ExtResource("2_niufl")
