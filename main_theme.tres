@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/autumn_regular.ttf" id="1_a7ig3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gd8r3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7xgs"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
@@ -30,6 +32,8 @@ corner_radius_bottom_left = 8
 [resource]
 default_font = ExtResource("1_a7ig3")
 default_font_size = 48
+HSeparator/constants/separation = 32
+HSeparator/styles/separator = SubResource("StyleBoxEmpty_gd8r3")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.313726)
 Label/constants/outline_size = 16

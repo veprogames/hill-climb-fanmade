@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
+[autoload]
+
+Global="*res://global/global.gd"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1

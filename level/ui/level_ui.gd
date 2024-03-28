@@ -7,6 +7,8 @@ extends Control
 @onready var pedal_r: Pedal = $PedalR
 @onready var gauge_speed: Gauge = $GaugeSpeed
 @onready var low_fuel_alarm: LowFuelAlarm = $LowFuelAlarm
+@onready var label_coins: Label = $VBoxContainer/HBoxContainerCoins/LabelCoins
+@onready var label_gems: Label = $VBoxContainer/HBoxContainerGems/LabelGems
 
 @export var player: Car
 # used for next fuel
@@ -21,6 +23,11 @@ func _ready() -> void:
 	player.low_fuel_reached.connect(_on_player_low_fuel_reached)
 	player.refueled.connect(_on_player_refueled)
 	player.fuel_depleted.connect(_on_player_fuel_depleted)
+	
+	label_coins.text = F.F(Global.save.coins)
+	label_gems.text = F.F(Global.save.gems)
+	Global.save.coins_changed.connect(_on_save_coins_changed)
+	Global.save.gems_changed.connect(_on_save_gems_changed)
 
 func _process(_delta: float) -> void:
 	var meters: float = player.position.x / Level.PX_TO_M
@@ -67,3 +74,9 @@ func _on_player_fuel_depleted() -> void:
 
 func _on_player_refueled(_was_out_of: bool) -> void:
 	low_fuel_alarm.deactivate()
+
+func _on_save_coins_changed(to: int) -> void:
+	label_coins.text = F.F(to)
+
+func _on_save_gems_changed(to: int) -> void:
+	label_gems.text = F.F(to)

@@ -4,5 +4,13 @@
 
 [resource]
 script = ExtResource("1_glloh")
-fuel_distance = 90.0
+fuel_distance_base = 90.0
+fuel_distance_delta = 0.0
 fuel_distance_exponent = 1.0
+fuel_distance_snap = 30.0
+coin_distance = 30.0
+coin_distance_offset = 5.0
+coin_formation_value_base = 10
+coin_formation_value_delta = 2
+gem_distance = 100.0
+gem_distance_offset = 10.0

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3s3i4461kvdh"]
+
+[ext_resource type="PackedScene" uid="uid://boihtwln7qdax" path="res://collectibles/base_collectible.tscn" id="1_dms1f"]
+[ext_resource type="Script" path="res://collectibles/coin/coin_collectible.gd" id="2_6ti8v"]
+[ext_resource type="Texture2D" uid="uid://calp1hkrubq1i" path="res://collectibles/coin/coin.png" id="2_avwns"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uoxrk"]
+radius = 90.0
+
+[node name="CoinCollectible" instance=ExtResource("1_dms1f")]
+script = ExtResource("2_6ti8v")
+value = 0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_avwns")
+
+[node name="LabelValue" type="Label" parent="Sprite2D" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -129.0
+offset_right = -49.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"Label_L"
+theme_override_colors/font_color = Color(0.992172, 0.914015, 0.850996, 1)
+theme_override_colors/font_outline_color = Color(0.61944, 0.329259, 0, 1)
+text = "1"
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_uoxrk")
+
+[connection signal="collected" from="." to="." method="_on_collected"]
