@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkw8n48rm518q"]
+
+[ext_resource type="Script" path="res://level/terrain/collectible_destroyer.gd" id="1_msav3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fgh1b"]
+normal = Vector2(1, 0)
+distance = 1920.0
+
+[node name="CollectibleDestroyer" type="Area2D"]
+collision_layer = 4
+collision_mask = 16
+script = ExtResource("1_msav3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_fgh1b")

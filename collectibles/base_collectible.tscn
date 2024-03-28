@@ -37,6 +37,7 @@ _data = {
 
 [node name="BaseCollectible" type="Area2D"]
 collision_layer = 16
+collision_mask = 5
 script = ExtResource("1_bcw6q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

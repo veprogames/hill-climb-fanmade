@@ -1,0 +1,2 @@
+class_name CollectibleDestroyer
+extends Area2D

@@ -19,6 +19,7 @@ var points: PackedVector2Array = PackedVector2Array()
 @onready var generation_border: GenerationBorder = $GenerationBorder
 @onready var worldborder_l: StaticBody2D = $WorldborderL
 @onready var worldborder_r: StaticBody2D = $WorldborderR
+@onready var collectible_destroyer: CollectibleDestroyer = $CollectibleDestroyer
 
 var noise: FastNoiseLite = FastNoiseLite.new()
 
@@ -95,6 +96,7 @@ func update_base_vertices() -> void:
 	
 	generation_border.position.x = last_terrain_vertex.x
 	worldborder_l.position.x = first_terrain_vertex.x
+	collectible_destroyer.position.x = first_terrain_vertex.x
 	worldborder_r.position.x = last_terrain_vertex.x
 
 func get_initial_vertices() -> PackedVector2Array:

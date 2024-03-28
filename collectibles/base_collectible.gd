@@ -27,3 +27,5 @@ func _on_area_entered(area: Area2D) -> void:
 	var collector: CarCollectorArea = area as CarCollectorArea
 	if collector != null:
 		_collect(collector.car)
+	if area is CollectibleDestroyer:
+		queue_free()
