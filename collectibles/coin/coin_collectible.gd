@@ -11,4 +11,4 @@ func _ready() -> void:
 	label_value.text = "%d" % value
 
 func _on_collected(_by: Car) -> void:
-	Global.save.coins += value
+	Game.save.coins += value

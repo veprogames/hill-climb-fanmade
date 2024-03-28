@@ -24,10 +24,10 @@ func _ready() -> void:
 	player.refueled.connect(_on_player_refueled)
 	player.fuel_depleted.connect(_on_player_fuel_depleted)
 	
-	label_coins.text = F.F(Global.save.coins)
-	label_gems.text = F.F(Global.save.gems)
-	Global.save.coins_changed.connect(_on_save_coins_changed)
-	Global.save.gems_changed.connect(_on_save_gems_changed)
+	label_coins.text = F.F(Game.save.coins)
+	label_gems.text = F.F(Game.save.gems)
+	Game.save.coins_changed.connect(_on_save_coins_changed)
+	Game.save.gems_changed.connect(_on_save_gems_changed)
 
 func _process(_delta: float) -> void:
 	var meters: float = player.position.x / Level.PX_TO_M

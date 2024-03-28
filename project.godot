@@ -18,7 +18,7 @@ config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-Global="*res://global/global.gd"
+Game="*res://global/game.gd"
 
 [debug]
 
