@@ -5,7 +5,6 @@ extends Resource
 
 func get_y(for_x: float) -> float:
 	var meters: float = for_x / Level.PX_TO_M
-	#return noises[0].get_y(meters)
 	return noises \
 		.map(func(param: GenerationParameter) -> float:
 			return param.get_y(meters)) \
