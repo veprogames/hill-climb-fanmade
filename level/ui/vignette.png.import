@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coje0s0a20jy3"
-path="res://.godot/imported/pedal.png-942c3a2e04d98cfea3fc6707b610055f.ctex"
+uid="uid://dl4et3eb76jxg"
+path="res://.godot/imported/vignette.png-9a5e7039a0986620b06af2d4aabf9414.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/pedal.png"
-dest_files=["res://.godot/imported/pedal.png-942c3a2e04d98cfea3fc6707b610055f.ctex"]
+source_file="res://level/ui/vignette.png"
+dest_files=["res://.godot/imported/vignette.png-9a5e7039a0986620b06af2d4aabf9414.ctex"]
 
 [params]
 

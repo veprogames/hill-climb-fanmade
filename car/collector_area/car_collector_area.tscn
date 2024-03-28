@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://btsnteqbw7vel"]
 
-[ext_resource type="Script" path="res://car/car_collector_area.gd" id="1_lc1js"]
+[ext_resource type="Script" path="res://car/collector_area/car_collector_area.gd" id="1_lc1js"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pcoma"]
 radius = 162.795

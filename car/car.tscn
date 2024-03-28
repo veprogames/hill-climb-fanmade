@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://c8nr83f3w15bk" path="res://car/car.png" id="1_nr2ec"]
 [ext_resource type="Script" path="res://car/car.gd" id="1_roxxv"]
 [ext_resource type="Texture2D" uid="uid://tiy5mtp0qxnj" path="res://car/wheel.png" id="2_niufl"]
-[ext_resource type="Texture2D" uid="uid://c50v5ya36rbdx" path="res://car/Body.png" id="2_t5wce"]
-[ext_resource type="Texture2D" uid="uid://biuf1f3ains2y" path="res://car/Head.png" id="3_uif0g"]
-[ext_resource type="PackedScene" uid="uid://btsnteqbw7vel" path="res://car/car_collector_area.tscn" id="6_xdhio"]
+[ext_resource type="Texture2D" uid="uid://c50v5ya36rbdx" path="res://car/body.png" id="2_t5wce"]
+[ext_resource type="Texture2D" uid="uid://biuf1f3ains2y" path="res://car/head.png" id="3_uif0g"]
+[ext_resource type="PackedScene" uid="uid://btsnteqbw7vel" path="res://car/collector_area/car_collector_area.tscn" id="6_xdhio"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_voebe"]
 

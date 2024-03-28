@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biuf1f3ains2y"
-path="res://.godot/imported/Head.png-a45ac3a34ea34e25f869e373064f7441.ctex"
+uid="uid://b4cdm457hi1oo"
+path="res://.godot/imported/alarm.png-c5b6872cb7b1ee00ce9b092c1cdedae0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://car/Head.png"
-dest_files=["res://.godot/imported/Head.png-a45ac3a34ea34e25f869e373064f7441.ctex"]
+source_file="res://level/ui/low_fuel_alarm/alarm.png"
+dest_files=["res://.godot/imported/alarm.png-c5b6872cb7b1ee00ce9b092c1cdedae0.ctex"]
 
 [params]
 

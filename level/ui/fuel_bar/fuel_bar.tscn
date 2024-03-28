@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dq28o5gtmi66b"]
 
-[ext_resource type="Script" path="res://level/ui/fuel_bar.gd" id="1_j0613"]
+[ext_resource type="Script" path="res://level/ui/fuel_bar/fuel_bar.gd" id="1_j0613"]
 
 [node name="FuelBar" type="ProgressBar"]
 custom_minimum_size = Vector2(256, 64)

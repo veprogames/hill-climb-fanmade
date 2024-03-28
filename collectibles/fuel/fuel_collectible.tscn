@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cq4irgy62l4oi"]
 
 [ext_resource type="PackedScene" uid="uid://boihtwln7qdax" path="res://collectibles/base_collectible.tscn" id="1_alqbl"]
-[ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel.png" id="2_jtxn1"]
-[ext_resource type="Script" path="res://collectibles/fuel_collectible.gd" id="2_ysirk"]
+[ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel/fuel.png" id="2_jtxn1"]
+[ext_resource type="Script" path="res://collectibles/fuel/fuel_collectible.gd" id="2_ysirk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntqn2"]
 size = Vector2(164, 177)

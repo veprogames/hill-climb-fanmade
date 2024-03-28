@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://g0cgpog7cyi1"
-path="res://.godot/imported/street.png-57fb63f97d8e496c3abb8a2dd703837f.ctex"
+uid="uid://bs60mly4ws3bd"
+path="res://.godot/imported/pedal_on.png-2ace0adcbc734a6632ee3eba9df123db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/terrain/street.png"
-dest_files=["res://.godot/imported/street.png-57fb63f97d8e496c3abb8a2dd703837f.ctex"]
+source_file="res://level/ui/pedal/pedal_on.png"
+dest_files=["res://.godot/imported/pedal_on.png-2ace0adcbc734a6632ee3eba9df123db.ctex"]
 
 [params]
 

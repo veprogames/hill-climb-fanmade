@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://d0yg0e2kyk0ig" path="res://car/car.tscn" id="1_0gn4l"]
 [ext_resource type="Script" path="res://level/level.gd" id="1_3qiqg"]
-[ext_resource type="PackedScene" uid="uid://bmibn8xke4wm6" path="res://car/car_camera.tscn" id="2_dbrbb"]
+[ext_resource type="PackedScene" uid="uid://bmibn8xke4wm6" path="res://car/camera/car_camera.tscn" id="2_dbrbb"]
 [ext_resource type="PackedScene" uid="uid://dq0ciu88go4sk" path="res://level/terrain/simple_terrain.tscn" id="3_51l47"]
-[ext_resource type="PackedScene" uid="uid://dr80skw7ns3ak" path="res://level/level_ui.tscn" id="3_nqxyq"]
+[ext_resource type="PackedScene" uid="uid://dr80skw7ns3ak" path="res://level/ui/level_ui.tscn" id="3_nqxyq"]
 [ext_resource type="Texture2D" uid="uid://cs4wcouh2kyeg" path="res://level/bg.png" id="4_8cr8h"]
-[ext_resource type="Texture2D" uid="uid://dl4et3eb76jxg" path="res://level/vignette.png" id="5_okviw"]
+[ext_resource type="Texture2D" uid="uid://dl4et3eb76jxg" path="res://level/ui/vignette.png" id="5_okviw"]
 [ext_resource type="PackedScene" uid="uid://c1saa85rup74k" path="res://level/terrain/generation/collectible_spawner.tscn" id="6_3kebu"]
 
 [node name="Level" type="Node2D"]

@@ -4,7 +4,7 @@ extends Node2D
 @export var terrain: SimpleTerrain
 @export var parameters: CollectibleGenerationParameters
 
-var FuelScene: PackedScene = preload("res://collectibles/fuel_collectible.tscn")
+var FuelScene: PackedScene = preload("res://collectibles/fuel/fuel_collectible.tscn")
 
 var fuels_spawned: int = 0
 

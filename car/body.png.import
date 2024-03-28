@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl4et3eb76jxg"
-path="res://.godot/imported/vignette.png-0345fed9d48f971f2a7d2f8ed1b0e046.ctex"
+uid="uid://c50v5ya36rbdx"
+path="res://.godot/imported/body.png-ed19cc079574d024e5027ee4c8bea52c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/vignette.png"
-dest_files=["res://.godot/imported/vignette.png-0345fed9d48f971f2a7d2f8ed1b0e046.ctex"]
+source_file="res://car/body.png"
+dest_files=["res://.godot/imported/body.png-ed19cc079574d024e5027ee4c8bea52c.ctex"]
 
 [params]
 

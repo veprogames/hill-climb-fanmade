@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs60mly4ws3bd"
-path="res://.godot/imported/pedal_on.png-13a3b41b87665d8f4938d8d2baac7a50.ctex"
+uid="uid://b6drjrwbnqtph"
+path="res://.godot/imported/sand_surface.png-50ada2aecb30d19301170704324472e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/pedal_on.png"
-dest_files=["res://.godot/imported/pedal_on.png-13a3b41b87665d8f4938d8d2baac7a50.ctex"]
+source_file="res://level/levels/desert/sand_surface.png"
+dest_files=["res://.godot/imported/sand_surface.png-50ada2aecb30d19301170704324472e0.ctex"]
 
 [params]
 

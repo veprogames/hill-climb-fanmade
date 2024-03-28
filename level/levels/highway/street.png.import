@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwq5lbet0n70v"
-path="res://.godot/imported/cement.png-0a29b60d6967d7e65f0cf643e1bad6b6.ctex"
+uid="uid://g0cgpog7cyi1"
+path="res://.godot/imported/street.png-8ca5962679b61d188a8a27cc3ec1b1a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/terrain/cement.png"
-dest_files=["res://.godot/imported/cement.png-0a29b60d6967d7e65f0cf643e1bad6b6.ctex"]
+source_file="res://level/levels/highway/street.png"
+dest_files=["res://.godot/imported/street.png-8ca5962679b61d188a8a27cc3ec1b1a1.ctex"]
 
 [params]
 

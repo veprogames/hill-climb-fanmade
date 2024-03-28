@@ -34,6 +34,15 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/vsync/vsync_mode=0
 
+[file_customization]
+
+folder_colors={
+"res://car/": "blue",
+"res://collectibles/": "red",
+"res://fonts/": "gray",
+"res://level/": "green"
+}
+
 [filesystem]
 
 import/blender/enabled=false

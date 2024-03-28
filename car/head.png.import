@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1eqxypeue8iv"
-path="res://.godot/imported/fuel.png-e2d9069da0a2696bebd2a5e4e2d4fae3.ctex"
+uid="uid://biuf1f3ains2y"
+path="res://.godot/imported/head.png-556fca854368b1dcc1858008fde160b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://collectibles/fuel.png"
-dest_files=["res://.godot/imported/fuel.png-e2d9069da0a2696bebd2a5e4e2d4fae3.ctex"]
+source_file="res://car/head.png"
+dest_files=["res://.godot/imported/head.png-556fca854368b1dcc1858008fde160b6.ctex"]
 
 [params]
 

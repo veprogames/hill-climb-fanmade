@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ckwhjtb5y55"
-path="res://.godot/imported/grass.png-b730a380d44281f9f3c62d90504eba58.ctex"
+uid="uid://b1eqxypeue8iv"
+path="res://.godot/imported/fuel.png-9dcf75b97b0621230472526fa33c43d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/terrain/grass.png"
-dest_files=["res://.godot/imported/grass.png-b730a380d44281f9f3c62d90504eba58.ctex"]
+source_file="res://collectibles/fuel/fuel.png"
+dest_files=["res://.godot/imported/fuel.png-9dcf75b97b0621230472526fa33c43d5.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://2sumqd6vi3hb"]
 
-[ext_resource type="Texture2D" uid="uid://coje0s0a20jy3" path="res://level/pedal.png" id="1_ecs05"]
-[ext_resource type="Script" path="res://level/ui/pedal.gd" id="2_idy8l"]
+[ext_resource type="Texture2D" uid="uid://coje0s0a20jy3" path="res://level/ui/pedal/pedal_off.png" id="1_ecs05"]
+[ext_resource type="Script" path="res://level/ui/pedal/pedal.gd" id="2_idy8l"]
 
 [node name="Pedal" type="TextureRect"]
 anchors_preset = 2

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dm4kkh0ck2yex"
-path="res://.godot/imported/Autumn Regular.ttf-816399d57819696dd8a8670272348d7d.fontdata"
+path="res://.godot/imported/autumn_regular.ttf-25bfad3e4ebf23e9ce13a698aa99fc11.fontdata"
 
 [deps]
 
-source_file="res://fonts/Autumn Regular.ttf"
-dest_files=["res://.godot/imported/Autumn Regular.ttf-816399d57819696dd8a8670272348d7d.fontdata"]
+source_file="res://fonts/autumn_regular.ttf"
+dest_files=["res://.godot/imported/autumn_regular.ttf-25bfad3e4ebf23e9ce13a698aa99fc11.fontdata"]
 
 [params]
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dr80skw7ns3ak"]
 
-[ext_resource type="Script" path="res://level/level_ui.gd" id="1_3muol"]
-[ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel.png" id="2_wv2ak"]
-[ext_resource type="PackedScene" uid="uid://2sumqd6vi3hb" path="res://level/ui/pedal.tscn" id="3_anrv5"]
-[ext_resource type="PackedScene" uid="uid://dq28o5gtmi66b" path="res://level/ui/fuel_bar.tscn" id="3_pna6q"]
-[ext_resource type="PackedScene" uid="uid://cahox3uu8r2gb" path="res://level/ui/gauge.tscn" id="5_fl8er"]
-[ext_resource type="PackedScene" uid="uid://c28b4tgfroa80" path="res://level/ui/low_fuel_alarm.tscn" id="6_75jpt"]
+[ext_resource type="Script" path="res://level/ui/level_ui.gd" id="1_3muol"]
+[ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel/fuel.png" id="2_wv2ak"]
+[ext_resource type="PackedScene" uid="uid://2sumqd6vi3hb" path="res://level/ui/pedal/pedal.tscn" id="3_anrv5"]
+[ext_resource type="PackedScene" uid="uid://dq28o5gtmi66b" path="res://level/ui/fuel_bar/fuel_bar.tscn" id="3_pna6q"]
+[ext_resource type="PackedScene" uid="uid://cahox3uu8r2gb" path="res://level/ui/gauge/gauge.tscn" id="5_fl8er"]
+[ext_resource type="PackedScene" uid="uid://c28b4tgfroa80" path="res://level/ui/low_fuel_alarm/low_fuel_alarm.tscn" id="6_75jpt"]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3

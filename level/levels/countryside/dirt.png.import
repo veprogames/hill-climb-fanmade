@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4cdm457hi1oo"
-path="res://.godot/imported/alarm.png-08b35167e45915506de472dbf42c972d.ctex"
+uid="uid://dxp5xfsio8wo4"
+path="res://.godot/imported/dirt.png-7f9d6ff576c358a8755bef70dfdd5af5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/ui/alarm.png"
-dest_files=["res://.godot/imported/alarm.png-08b35167e45915506de472dbf42c972d.ctex"]
+source_file="res://level/levels/countryside/dirt.png"
+dest_files=["res://.godot/imported/dirt.png-7f9d6ff576c358a8755bef70dfdd5af5.ctex"]
 
 [params]
 

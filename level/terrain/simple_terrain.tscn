@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dq0ciu88go4sk"]
 
 [ext_resource type="Script" path="res://level/terrain/simple_terrain.gd" id="1_46l8a"]
-[ext_resource type="Texture2D" uid="uid://dxp5xfsio8wo4" path="res://level/terrain/dirt.png" id="2_jkmai"]
+[ext_resource type="Texture2D" uid="uid://dxp5xfsio8wo4" path="res://level/levels/countryside/dirt.png" id="2_jkmai"]
 [ext_resource type="PackedScene" uid="uid://bsxg6tkqlm2ro" path="res://level/terrain/generation_border.tscn" id="2_mt7lr"]
-[ext_resource type="Texture2D" uid="uid://c7ckwhjtb5y55" path="res://level/terrain/grass.png" id="3_c7uq6"]
+[ext_resource type="Texture2D" uid="uid://c7ckwhjtb5y55" path="res://level/levels/countryside/grass.png" id="3_c7uq6"]
 [ext_resource type="PackedScene" uid="uid://dkw8n48rm518q" path="res://level/terrain/collectible_destroyer.tscn" id="5_xnxd3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c15jd"]

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ba2rk50g3dcuh" path="res://level/level.tscn" id="1_avsna"]
 [ext_resource type="Resource" uid="uid://6apjn86f1hna" path="res://level/levels/countryside/generation_countryside.tres" id="2_mcctm"]
-[ext_resource type="Texture2D" uid="uid://dxp5xfsio8wo4" path="res://level/terrain/dirt.png" id="3_qfdn8"]
-[ext_resource type="Texture2D" uid="uid://c7ckwhjtb5y55" path="res://level/terrain/grass.png" id="4_an2sb"]
+[ext_resource type="Texture2D" uid="uid://dxp5xfsio8wo4" path="res://level/levels/countryside/dirt.png" id="3_qfdn8"]
+[ext_resource type="Texture2D" uid="uid://c7ckwhjtb5y55" path="res://level/levels/countryside/grass.png" id="4_an2sb"]
 [ext_resource type="Resource" uid="uid://btgb23pj1ps57" path="res://level/levels/countryside/collectibles_countryside.tres" id="5_vrt45"]
 
 [node name="LevelCountryside" instance=ExtResource("1_avsna")]

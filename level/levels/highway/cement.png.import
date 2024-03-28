@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kajuvoyg45ja"
-path="res://.godot/imported/gauge_base.png-acd9071c933168475b8a547462efa3a6.ctex"
+uid="uid://cwq5lbet0n70v"
+path="res://.godot/imported/cement.png-9f6ddf0ac7d3999cac90ce1f7cf86470.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/ui/gauge_base.png"
-dest_files=["res://.godot/imported/gauge_base.png-acd9071c933168475b8a547462efa3a6.ctex"]
+source_file="res://level/levels/highway/cement.png"
+dest_files=["res://.godot/imported/cement.png-9f6ddf0ac7d3999cac90ce1f7cf86470.ctex"]
 
 [params]
 
