@@ -10,6 +10,7 @@ enum StatOperationType {
 	Addition,
 }
 
+@export var texture: Texture
 @export var title: String
 @export var description: String
 @export var stat: StatType

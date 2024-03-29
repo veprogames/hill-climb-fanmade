@@ -11,7 +11,7 @@ func add_item(item: UpgradeItem) -> void:
 
 func get_equipped_items() -> Array[UpgradeItem]:
 	return inventory.filter(func(item: UpgradeItem) -> bool:
-		return item.equipped
+		return item.is_equipped
 	)
 
 func get_all_effects() -> Dictionary:

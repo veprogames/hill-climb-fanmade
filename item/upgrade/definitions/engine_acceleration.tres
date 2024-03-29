@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=6 format=3 uid="uid://bmnkuv4pgs34d"]
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://bmnkuv4pgs34d"]
 
 [ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="1_ir6qb"]
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_wbncu"]
@@ -16,11 +16,16 @@ base = 0.0
 multiplier = 1000.0
 exponent = 1.75
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ofyrb"]
+size = Vector2(256, 256)
+
 [resource]
 script = ExtResource("1_ir6qb")
+texture = SubResource("PlaceholderTexture2D_ofyrb")
 title = "Engine"
 description = "Increase the Power of your Engine"
 stat = 0
+operation = 0
 price_formula = SubResource("Resource_33c18")
 effect_formula = SubResource("Resource_h7ir7")
 max_level = 10

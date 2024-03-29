@@ -12,9 +12,16 @@ signal gems_changed(to: int)
 func test_add_item() -> void:
 	var item: UpgradeItem = UpgradeItem.new()
 	item.definition = load("res://item/upgrade/definitions/engine_acceleration.tres")
-	item.equipped = false
+	item.is_equipped = false
 	item.level = 10
+	
+	var item2: UpgradeItem = UpgradeItem.new()
+	item2.definition = load("res://item/upgrade/definitions/engine_acceleration.tres")
+	item2.is_equipped = false
+	item2.level = 0
+	
 	garage.add_item(item)
+	garage.add_item(item2)
 
 func _set_coins(to: int) -> void:
 	coins = to
