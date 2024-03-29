@@ -7,8 +7,8 @@
 
 [sub_resource type="Resource" id="Resource_h7ir7"]
 script = ExtResource("1_6ulwd")
-base = 0.2
-multiplier = 0.1
+base = 0.4
+multiplier = 0.3
 exponent = 1.0
 
 [sub_resource type="Resource" id="Resource_33c18"]
@@ -22,7 +22,7 @@ script = ExtResource("3_ci5wv")
 texture = ExtResource("4_wiiol")
 title = "Aero Dynamix"
 description = "Increase the Air Rotation Speed"
-stat = 4
+stat = 5
 operation = 0
 price_formula = SubResource("Resource_33c18")
 effect_formula = SubResource("Resource_h7ir7")

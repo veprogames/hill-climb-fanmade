@@ -7,7 +7,7 @@ enum StatType {
 	FuelCapacity,
 	Bounciness,
 	DownwardPressure,
-	AirRoationSpeed,
+	AirRotationSpeed,
 }
 
 ## How the Effect should be calculated with other items of that StatType

@@ -29,7 +29,7 @@ func get_all_effects() -> Dictionary:
 		UpgradeItemDefinition.StatType.FuelCapacity: 30.0,
 		UpgradeItemDefinition.StatType.Bounciness: 16.0,
 		UpgradeItemDefinition.StatType.DownwardPressure: 0.0,
-		UpgradeItemDefinition.StatType.AirRoationSpeed: 1.0,
+		UpgradeItemDefinition.StatType.AirRotationSpeed: 1.0,
 	}
 	
 	var equipped: Array[UpgradeItem] = get_equipped_items()

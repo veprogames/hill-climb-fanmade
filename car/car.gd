@@ -75,15 +75,16 @@ func _physics_process(_delta: float) -> void:
 	
 	if can_drive():
 		var engine_acceleration: float = car_stats_applier.engine_acceleration
+		var air_rotation_speed: float = car_stats_applier.air_rotation_speed
 		
 		if touch_brake:
 			wheel_l.apply_torque(-engine_acceleration)
 			wheel_r.apply_torque(-engine_acceleration)
-			apply_torque(CarStatsApplier.BASE_AIR_ACCELERATION)
+			apply_torque(air_rotation_speed)
 		elif touch_gas:
 			wheel_l.apply_torque(engine_acceleration)
 			wheel_r.apply_torque(engine_acceleration)
-			apply_torque(-CarStatsApplier.BASE_AIR_ACCELERATION)
+			apply_torque(-air_rotation_speed)
 
 func scale_wheels(to_scale: float) -> void:
 	wheel_l.wheel_scale = to_scale

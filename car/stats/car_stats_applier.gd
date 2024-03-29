@@ -26,7 +26,7 @@ func apply_stats() -> void:
 	
 	engine_acceleration = BASE_ACCELERATION * effects[UpgradeItemDefinition.StatType.EngineAcceleration]
 	fuel_capacity = effects[UpgradeItemDefinition.StatType.FuelCapacity]
-	air_rotation_speed = BASE_AIR_ACCELERATION * effects[UpgradeItemDefinition.StatType.AirRoationSpeed]
+	air_rotation_speed = BASE_AIR_ACCELERATION * effects[UpgradeItemDefinition.StatType.AirRotationSpeed]
 	car.scale_wheels(effects[UpgradeItemDefinition.StatType.WheelSize])
 	car.set_bounciness(effects[UpgradeItemDefinition.StatType.Bounciness])
 	car.apply_downward_pressure(BASE_DOWNWARD_PRESSURE * effects[UpgradeItemDefinition.StatType.DownwardPressure])
