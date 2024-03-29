@@ -2,6 +2,7 @@ class_name ShopOffer
 extends Resource
 
 signal bought
+signal removed
 
 @export var price: int = 0
 

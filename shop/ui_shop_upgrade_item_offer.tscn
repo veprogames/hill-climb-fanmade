@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://crhuxou6k113a"]
+
+[ext_resource type="Script" path="res://shop/ui_shop_upgrade_item_offer.gd" id="1_7ouou"]
+
+[node name="UIShopUpgradeItemOffer" type="Control"]
+custom_minimum_size = Vector2(192, 192)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 192.0
+offset_bottom = 192.0
+script = ExtResource("1_7ouou")
+
+[node name="TextureButtonBuy" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelPrice" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TextureButtonBuy" to="." method="_on_texture_button_buy_pressed"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://yw7ig7e0rsm8"]
+
+[ext_resource type="Script" path="res://shop/ui_shop_offer.gd" id="1_yvce2"]
+
+[node name="UIShopOffer" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "0"
+script = ExtResource("1_yvce2")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -87,5 +87,16 @@ offset_right = 8.0
 grow_vertical = 0
 text = "Garage"
 
+[node name="ButtonShop" type="Button" parent="CanvasLayerUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 165.0
+offset_top = -66.0
+offset_right = 308.0
+grow_vertical = 0
+text = "Shop"
+
 [connection signal="pressed" from="CanvasLayerUI/ButtonQuit" to="." method="_on_button_quit_pressed"]
 [connection signal="pressed" from="CanvasLayerUI/ButtonGarage" to="." method="_on_button_garage_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/ButtonShop" to="." method="_on_button_shop_pressed"]
