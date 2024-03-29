@@ -8,6 +8,8 @@ var save: SaveGame = SaveGame.new()
 @onready var timer_save: Timer = $TimerSave
 
 func _ready() -> void:
+	save.initialize()
+	
 	try_load_game()
 
 func save_game() -> void:

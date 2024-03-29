@@ -3,9 +3,9 @@ extends ShopOffer
 
 signal item_bought(item: UpgradeItem)
 
-@export var definition: UpgradeItemDefinition
+@export var definition: UpgradeItemDefinition = null
 
-func _init(price_: int, definition_: UpgradeItemDefinition) -> void:
+func _init(price_: int = 0, definition_: UpgradeItemDefinition = null) -> void:
 	super._init(price_)
 	definition = definition_
 	

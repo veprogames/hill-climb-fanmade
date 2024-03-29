@@ -1,6 +1,8 @@
 class_name SaveGameGarage
 extends Resource
 
+const MAX_EQUIPS: int = 8
+
 signal item_added(item: UpgradeItem)
 
 @export var inventory: Array[UpgradeItem] = []
@@ -13,6 +15,12 @@ func get_equipped_items() -> Array[UpgradeItem]:
 	return inventory.filter(func(item: UpgradeItem) -> bool:
 		return item.is_equipped
 	)
+
+func get_equipped_count() -> int:
+	return get_equipped_items().size()
+
+func get_item_count() -> int:
+	return inventory.size()
 
 func get_all_effects() -> Dictionary:
 	var result: Dictionary = {

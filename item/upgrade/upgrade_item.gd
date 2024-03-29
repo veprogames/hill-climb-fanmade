@@ -8,9 +8,9 @@ signal unequipped
 
 @export var level: int = 0 : set = _set_level
 @export var is_equipped: bool = false : set = _set_is_equipped
-@export var definition: UpgradeItemDefinition
+@export var definition: UpgradeItemDefinition = null
 
-func _init(definition_: UpgradeItemDefinition, level_: int = 0) -> void:
+func _init(definition_: UpgradeItemDefinition = null, level_: int = 0) -> void:
 	definition = definition_
 	level = level_
 
@@ -34,6 +34,13 @@ func get_current_effect() -> float:
 
 func can_afford() -> bool:
 	return Game.save.coins >= get_current_price()
+
+func can_equip() -> bool:
+	return Game.save.garage.get_equipped_count() < SaveGameGarage.MAX_EQUIPS
+
+func try_equip() -> void:
+	if can_equip():
+		is_equipped = true
 
 func is_maxed() -> bool:
 	return level >= definition.max_level

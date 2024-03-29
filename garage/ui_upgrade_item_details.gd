@@ -22,6 +22,7 @@ func update_ui() -> void:
 	if item != null:
 		label_title.text = item.definition.title
 		label_description.text = item.definition.description
+		button_equip.disabled = !item.can_equip() and !item.is_equipped
 		button_equip.text = "Unequip" if item.is_equipped else "Equip"
 		update_upgrade_button()
 
@@ -55,7 +56,10 @@ func _set_item(new_item: UpgradeItem) -> void:
 
 
 func _on_button_equip_pressed() -> void:
-	item.is_equipped = !item.is_equipped
+	if item.is_equipped:
+		item.is_equipped = false
+	else:
+		item.try_equip()
 
 
 func _on_button_upgrade_pressed() -> void:
@@ -67,4 +71,5 @@ func _on_item_level_changed(_to: int) -> void:
 
 
 func _on_item_equipped_changed(equipped: bool) -> void:
+	button_equip.disabled = !item.can_equip() and !item.is_equipped
 	button_equip.text = "Unequip" if equipped else "Equip"

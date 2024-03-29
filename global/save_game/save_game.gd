@@ -10,7 +10,8 @@ signal gems_changed(to: int)
 @export var garage: SaveGameGarage = SaveGameGarage.new()
 @export var shop: SaveGameShop = SaveGameShop.new()
 
-var definition: UpgradeItemDefinition = preload("res://item/upgrade/definitions/engine_acceleration.tres")
+func initialize() -> void:
+	shop.initialize()
 
 func _set_coins(to: int) -> void:
 	coins = to
