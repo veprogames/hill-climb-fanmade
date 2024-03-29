@@ -8,17 +8,13 @@ signal gems_changed(to: int)
 @export var gems: int = 0 : set = _set_gems
 
 @export var garage: SaveGameGarage = SaveGameGarage.new()
+@export var shop: SaveGameShop = SaveGameShop.new()
+
+var definition: UpgradeItemDefinition = preload("res://item/upgrade/definitions/engine_acceleration.tres")
 
 func test_add_item() -> void:
-	var item: UpgradeItem = UpgradeItem.new()
-	item.definition = load("res://item/upgrade/definitions/engine_acceleration.tres")
-	item.is_equipped = false
-	item.level = 10
-	
-	var item2: UpgradeItem = UpgradeItem.new()
-	item2.definition = load("res://item/upgrade/definitions/engine_acceleration.tres")
-	item2.is_equipped = false
-	item2.level = 0
+	var item: UpgradeItem = UpgradeItem.new(definition, 10)
+	var item2: UpgradeItem = UpgradeItem.new(definition)
 	
 	garage.add_item(item)
 	garage.add_item(item2)

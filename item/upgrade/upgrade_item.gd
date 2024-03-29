@@ -10,6 +10,10 @@ signal unequipped
 @export var is_equipped: bool = false : set = _set_is_equipped
 @export var definition: UpgradeItemDefinition
 
+func _init(definition_: UpgradeItemDefinition, level_: int = 0) -> void:
+	definition = definition_
+	level = level_
+
 func _set_level(lvl: int) -> void:
 	level = lvl
 	level_changed.emit(lvl)
