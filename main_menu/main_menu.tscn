@@ -78,4 +78,14 @@ offset_right = 98.0
 offset_bottom = 82.0
 text = "Quit"
 
+[node name="ButtonGarage" type="Button" parent="CanvasLayerUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+text = "Garage"
+
 [connection signal="pressed" from="CanvasLayerUI/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/ButtonGarage" to="." method="_on_button_garage_pressed"]

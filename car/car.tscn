@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0yg0e2kyk0ig"]
+[gd_scene load_steps=13 format=3 uid="uid://d0yg0e2kyk0ig"]
 
 [ext_resource type="Texture2D" uid="uid://c8nr83f3w15bk" path="res://car/car.png" id="1_nr2ec"]
 [ext_resource type="Script" path="res://car/car.gd" id="1_roxxv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c50v5ya36rbdx" path="res://car/body.png" id="2_t5wce"]
 [ext_resource type="Texture2D" uid="uid://biuf1f3ains2y" path="res://car/head.png" id="3_uif0g"]
 [ext_resource type="PackedScene" uid="uid://btsnteqbw7vel" path="res://car/collector_area/car_collector_area.tscn" id="6_xdhio"]
+[ext_resource type="PackedScene" uid="uid://bxh703flmc8o2" path="res://car/stats/car_stats_applier.tscn" id="7_450qo"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_voebe"]
 
@@ -110,6 +111,8 @@ wait_time = 5.0
 [node name="CarCollectorArea" parent="." node_paths=PackedStringArray("car") instance=ExtResource("6_xdhio")]
 collision_mask = 16
 car = NodePath("..")
+
+[node name="CarStatsApplier" parent="." instance=ExtResource("7_450qo")]
 
 [connection signal="refueled" from="." to="." method="_on_refueled"]
 [connection signal="body_entered" from="Head" to="." method="_on_head_body_entered"]

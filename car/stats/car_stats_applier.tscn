@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxh703flmc8o2"]
+
+[ext_resource type="Script" path="res://car/stats/car_stats_applier.gd" id="1_jd66x"]
+
+[node name="CarStatsApplier" type="Node2D"]
+script = ExtResource("1_jd66x")

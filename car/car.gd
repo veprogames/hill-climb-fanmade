@@ -11,9 +11,6 @@ signal brake_changed(new_state: bool)
 
 var MainMenuScene: PackedScene = preload("res://main_menu/main_menu.tscn")
 
-const BASE_ACCELERATION: float = 80_000.0
-const BASE_AIR_ACCELERATION: float = 150_000.0
-
 var touch_gas: bool = false : set = _set_touch_gas
 var touch_brake: bool = false : set = _set_touch_brake
 
@@ -21,6 +18,8 @@ var fuel: float = 1.0
 var fuel_capacity: float = 30.0
 
 var on_low_fuel: bool = false
+
+@onready var car_stats_applier: CarStatsApplier = $CarStatsApplier
 
 @onready var wheel_l: RigidBody2D = $PinJoint2D/WheelL
 @onready var wheel_r: RigidBody2D = $PinJoint2D2/WheelR
@@ -73,14 +72,16 @@ func _physics_process(_delta: float) -> void:
 		touch_gas = false
 	
 	if can_drive():
+		var engine_acceleration: float = car_stats_applier.engine_acceleration
+		
 		if touch_brake:
-			wheel_l.apply_torque(-BASE_ACCELERATION)
-			wheel_r.apply_torque(-BASE_ACCELERATION)
-			apply_torque(BASE_AIR_ACCELERATION)
+			wheel_l.apply_torque(-engine_acceleration)
+			wheel_r.apply_torque(-engine_acceleration)
+			apply_torque(CarStatsApplier.BASE_AIR_ACCELERATION)
 		elif touch_gas:
-			wheel_l.apply_torque(BASE_ACCELERATION)
-			wheel_r.apply_torque(BASE_ACCELERATION)
-			apply_torque(-BASE_AIR_ACCELERATION)
+			wheel_l.apply_torque(engine_acceleration)
+			wheel_r.apply_torque(engine_acceleration)
+			apply_torque(-CarStatsApplier.BASE_AIR_ACCELERATION)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""
