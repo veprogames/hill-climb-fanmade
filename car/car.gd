@@ -15,14 +15,16 @@ var touch_gas: bool = false : set = _set_touch_gas
 var touch_brake: bool = false : set = _set_touch_brake
 
 var fuel: float = 1.0
-var fuel_capacity: float = 30.0
 
 var on_low_fuel: bool = false
 
 @onready var car_stats_applier: CarStatsApplier = $CarStatsApplier
 
-@onready var wheel_l: RigidBody2D = $PinJoint2D/WheelL
-@onready var wheel_r: RigidBody2D = $PinJoint2D2/WheelR
+@onready var pin_joint_l: PinJoint2D = $PinJointL
+@onready var pin_joint_r: PinJoint2D = $PinJointR
+
+@onready var wheel_l: CarWheel = $PinJointL/WheelL
+@onready var wheel_r: CarWheel = $PinJointR/WheelR
 
 @onready var viewport_rect: Rect2 = get_viewport_rect()
 
@@ -50,7 +52,7 @@ func _input(event: InputEvent) -> void:
 			touch_brake = touch_event.pressed
 
 func _process(delta: float) -> void:
-	fuel -= delta / fuel_capacity
+	fuel -= delta / car_stats_applier.fuel_capacity
 	
 	if !on_low_fuel and fuel < 0.2:
 		on_low_fuel = true
@@ -82,6 +84,17 @@ func _physics_process(_delta: float) -> void:
 			wheel_l.apply_torque(engine_acceleration)
 			wheel_r.apply_torque(engine_acceleration)
 			apply_torque(-CarStatsApplier.BASE_AIR_ACCELERATION)
+
+func scale_wheels(to_scale: float) -> void:
+	wheel_l.wheel_scale = to_scale
+	wheel_r.wheel_scale = to_scale
+
+func set_bounciness(joint_softness: float) -> void:
+	pin_joint_l.softness = joint_softness
+	pin_joint_r.softness = joint_softness
+
+func apply_downward_pressure(strength: float) -> void:
+	add_constant_force(Vector2.DOWN * strength)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""

@@ -3,11 +3,19 @@ extends Resource
 
 enum StatType {
 	EngineAcceleration,
+	WheelSize,
+	FuelCapacity,
+	Bounciness,
+	DownwardPressure,
+	AirRoationSpeed,
 }
 
 ## How the Effect should be calculated with other items of that StatType
 enum StatOperationType {
 	Addition,
+	Substraction,
+	Multiplication,
+	Division,
 }
 
 @export var texture: Texture

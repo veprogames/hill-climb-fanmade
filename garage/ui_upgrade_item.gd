@@ -11,7 +11,7 @@ signal selected(item: UpgradeItem)
 
 func _ready() -> void:
 	texture_item.texture_normal = item.definition.texture
-	label_level.text = "%d" % item.level
+	label_level.text = "+%d" % item.level
 	texture_equipped.visible = item.is_equipped
 	
 	item.equipped.connect(_on_item_equipped)
@@ -25,7 +25,7 @@ func _on_item_unequipped() -> void:
 	texture_equipped.visible = false
 
 func _on_item_level_changed(to: int) -> void:
-	label_level.text = "%d" % to
+	label_level.text = "+%d" % to
 
 
 func _on_texture_item_pressed() -> void:

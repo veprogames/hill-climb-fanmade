@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cegmepmyenxar"]
+
+[ext_resource type="Texture2D" uid="uid://tiy5mtp0qxnj" path="res://car/wheel.png" id="1_68ixl"]
+[ext_resource type="Script" path="res://car/car_wheel.gd" id="1_yrvhc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bbnh7"]
+bounce = 0.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17q2n"]
+radius = 62.0725
+
+[node name="CarWheel" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 8
+mass = 0.25
+physics_material_override = SubResource("PhysicsMaterial_bbnh7")
+script = ExtResource("1_yrvhc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_68ixl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_17q2n")

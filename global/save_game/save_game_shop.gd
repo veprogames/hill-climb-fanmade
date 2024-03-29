@@ -7,7 +7,14 @@ signal item_offer_removed(offer: ShopUpgradeItemOffer)
 @export var item_offers: Array[ShopUpgradeItemOffer] = []
 @export var refresh_offer: ShopOffer = ShopOffer.new(100)
 
-var definition: UpgradeItemDefinition = preload("res://item/upgrade/definitions/engine_acceleration.tres")
+var definitions: Array[UpgradeItemDefinition] = [
+	preload("res://item/upgrade/definitions/engine_acceleration.tres"),
+	preload("res://item/upgrade/definitions/wheel_size.tres"),
+	preload("res://item/upgrade/definitions/fuel_capacity.tres"),
+	preload("res://item/upgrade/definitions/bounciness.tres"),
+	preload("res://item/upgrade/definitions/downward_pressure.tres"),
+	preload("res://item/upgrade/definitions/air_rotation_speed.tres"),
+]
 
 func _init() -> void:
 	refresh_offer.bought.connect(refresh)
@@ -19,6 +26,7 @@ func generate_item_offers() -> void:
 		add_item_offer()
 
 func add_item_offer() -> void:
+	var definition: UpgradeItemDefinition = definitions.pick_random()
 	var offer: ShopUpgradeItemOffer = ShopUpgradeItemOffer.new(randi_range(20, 30), definition)
 	offer.bought.connect(_on_item_offer_bought.bind(offer))
 	item_offers.append(offer)

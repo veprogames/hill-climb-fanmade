@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://cpwy757xh6gv5"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_6ulwd"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_wtidk"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_ci5wv"]
+[ext_resource type="Texture2D" uid="uid://ogthlr3xdx3v" path="res://item/upgrade/icons/air_rotation_speed.png" id="4_wiiol"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_6ulwd")
+base = 0.2
+multiplier = 0.1
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_wtidk")
+base = 0.0
+multiplier = 1250.0
+exponent = 1.8
+
+[resource]
+script = ExtResource("3_ci5wv")
+texture = ExtResource("4_wiiol")
+title = "Aero Dynamix"
+description = "Increase the Air Rotation Speed"
+stat = 4
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+max_level = 8

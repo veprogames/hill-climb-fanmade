@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=6 format=3 uid="uid://ceyftn7q4td8a"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_p75eq"]
+[ext_resource type="Texture2D" uid="uid://d2jjcnqcy7e63" path="res://item/upgrade/icons/bounciness.png" id="3_2cpy5"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_d4f5c"]
+
+[sub_resource type="Resource" id="Resource_vq6sw"]
+script = ExtResource("2_p75eq")
+base = 0.0
+multiplier = 1.0
+exponent = 1.11
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_p75eq")
+base = 0.0
+multiplier = 800.0
+exponent = 2.0
+
+[resource]
+script = ExtResource("3_d4f5c")
+texture = ExtResource("3_2cpy5")
+title = "Springs"
+description = "Decrease the Bounciness"
+stat = 3
+operation = 3
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_vq6sw")
+max_level = 9

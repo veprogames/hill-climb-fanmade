@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://c573v4tjbbmox"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_af3s2"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_usdkl"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_521gj"]
+[ext_resource type="Texture2D" uid="uid://djjhlou4umb04" path="res://item/upgrade/icons/fuel_capacity.png" id="4_foe1d"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_af3s2")
+base = 1.0
+multiplier = 0.5
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_usdkl")
+base = 0.0
+multiplier = 2000.0
+exponent = 1.5
+
+[resource]
+script = ExtResource("3_521gj")
+texture = ExtResource("4_foe1d")
+title = "Canister"
+description = "Increase the Fuel Capacity"
+stat = 2
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+max_level = 12

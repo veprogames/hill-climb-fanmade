@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="1_ir6qb"]
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_wbncu"]
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_mudv2"]
+[ext_resource type="Texture2D" uid="uid://dw6yef5x3qmjp" path="res://item/upgrade/icons/engine.png" id="4_kliam"]
 
 [sub_resource type="Resource" id="Resource_h7ir7"]
 script = ExtResource("1_wbncu")
-base = 0.0
-multiplier = 0.4
+base = 0.4
+multiplier = 0.35
 exponent = 1.0
 
 [sub_resource type="Resource" id="Resource_33c18"]
@@ -16,12 +17,9 @@ base = 0.0
 multiplier = 1000.0
 exponent = 1.75
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ofyrb"]
-size = Vector2(256, 256)
-
 [resource]
 script = ExtResource("1_ir6qb")
-texture = SubResource("PlaceholderTexture2D_ofyrb")
+texture = ExtResource("4_kliam")
 title = "Engine"
 description = "Increase the Power of your Engine"
 stat = 0

@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://dkiv3s0lmo4oa"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_5eud8"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_omg2k"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_7w18y"]
+[ext_resource type="Texture2D" uid="uid://dsrt7tudhbina" path="res://item/upgrade/icons/downward_pressure.png" id="4_yu80e"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_5eud8")
+base = 1.0
+multiplier = 0.5
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_omg2k")
+base = 0.0
+multiplier = 4000.0
+exponent = 2.0
+
+[resource]
+script = ExtResource("3_7w18y")
+texture = ExtResource("4_yu80e")
+title = "Spoiler"
+description = "Increase the Downward Pressure"
+stat = 4
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+max_level = 9
