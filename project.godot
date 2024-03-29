@@ -18,7 +18,7 @@ config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-Game="*res://global/game.gd"
+Game="*res://global/game.tscn"
 
 [debug]
 
@@ -37,6 +37,10 @@ window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_width"
 window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/safe_resource_loader/plugin.cfg")
 
 [file_customization]
 

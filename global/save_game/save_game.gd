@@ -4,8 +4,8 @@ extends Resource
 signal coins_changed(to: int)
 signal gems_changed(to: int)
 
-@export var coins: int = 10_000_000 : set = _set_coins
-@export var gems: int = 1000 : set = _set_gems
+@export var coins: int = 0 : set = _set_coins
+@export var gems: int = 0 : set = _set_gems
 
 @export var garage: SaveGameGarage = SaveGameGarage.new()
 @export var shop: SaveGameShop = SaveGameShop.new()
