@@ -8,14 +8,14 @@
 [sub_resource type="Resource" id="Resource_h7ir7"]
 script = ExtResource("1_6ulwd")
 base = 0.4
-multiplier = 0.3
+multiplier = 0.15
 exponent = 1.0
 
 [sub_resource type="Resource" id="Resource_33c18"]
 script = ExtResource("2_wtidk")
 base = 0.0
 multiplier = 1250.0
-exponent = 1.8
+exponent = 1.4
 
 [resource]
 script = ExtResource("3_ci5wv")
@@ -26,4 +26,4 @@ stat = 5
 operation = 0
 price_formula = SubResource("Resource_33c18")
 effect_formula = SubResource("Resource_h7ir7")
-max_level = 8
+max_level = 14
