@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://12pmsl2armet"]
 
-[ext_resource type="Script" path="res://garage/ui_upgrade_item.gd" id="1_0ufmr"]
-[ext_resource type="Texture2D" uid="uid://cej4ene8ulc00" path="res://garage/equipped.png" id="2_rtjxk"]
+[ext_resource type="Script" path="res://garage/ui/ui_upgrade_item.gd" id="1_0ufmr"]
+[ext_resource type="Texture2D" uid="uid://cej4ene8ulc00" path="res://garage/ui/equipped.png" id="2_rtjxk"]
 
 [node name="UIUpgradeItem" type="Control"]
 custom_minimum_size = Vector2(192, 192)

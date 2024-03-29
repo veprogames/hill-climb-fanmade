@@ -5,7 +5,7 @@ signal item_selected(item: UpgradeItem)
 
 var garage: SaveGameGarage
 
-var UIUpgradeItemScene: PackedScene = preload("res://garage/ui_upgrade_item.tscn")
+var UIUpgradeItemScene: PackedScene = preload("res://garage/ui/ui_upgrade_item.tscn")
 
 @onready var ui_upgrade_item_details: UIUpgradeItemDetails = $"../UIUpgradeItemDetails"
 

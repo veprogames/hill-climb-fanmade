@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://pt38kuekpumc"]
 
-[ext_resource type="Script" path="res://garage/ui_upgrade_item_details.gd" id="1_uuxet"]
+[ext_resource type="Script" path="res://garage/ui/ui_upgrade_item_details.gd" id="1_uuxet"]
 
 [node name="UIUpgradeItemDetails" type="Control"]
 custom_minimum_size = Vector2(480, 480)

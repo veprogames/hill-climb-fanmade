@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://blwif7pvfhmuc"]
 
 [ext_resource type="Script" path="res://garage/garage.gd" id="1_18buo"]
-[ext_resource type="PackedScene" uid="uid://bfv7r6golysct" path="res://garage/ui_upgrade_item_list.tscn" id="1_t42ah"]
-[ext_resource type="PackedScene" uid="uid://pt38kuekpumc" path="res://garage/ui_upgrade_item_details.tscn" id="2_f58g0"]
+[ext_resource type="PackedScene" uid="uid://bfv7r6golysct" path="res://garage/ui/ui_upgrade_item_list.tscn" id="1_t42ah"]
+[ext_resource type="PackedScene" uid="uid://pt38kuekpumc" path="res://garage/ui/ui_upgrade_item_details.tscn" id="2_f58g0"]
 
 [node name="Garage" type="Node2D"]
 script = ExtResource("1_18buo")

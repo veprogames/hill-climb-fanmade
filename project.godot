@@ -48,6 +48,8 @@ folder_colors={
 "res://car/": "blue",
 "res://collectibles/": "red",
 "res://fonts/": "gray",
+"res://garage/": "yellow",
+"res://global/": "gray",
 "res://item/": "yellow",
 "res://level/": "green",
 "res://shop/": "yellow"
