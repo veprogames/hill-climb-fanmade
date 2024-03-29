@@ -17,7 +17,6 @@ func _ready() -> void:
 func _on_offer_bought() -> void:
 	var item: UpgradeItem = UpgradeItem.new(offer.definition)
 	Game.save.garage.add_item(item)
-	queue_free()
 
 
 func _on_offer_removed() -> void:

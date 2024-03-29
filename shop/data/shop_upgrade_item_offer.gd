@@ -14,3 +14,4 @@ func _init(price_: int, definition_: UpgradeItemDefinition) -> void:
 func _on_bought() -> void:
 	var item: UpgradeItem = UpgradeItem.new(definition)
 	item_bought.emit(item)
+	removed.emit()
