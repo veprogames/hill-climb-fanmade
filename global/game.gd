@@ -5,8 +5,6 @@ const SAVE_PATH: String = "user://hill_climb_savegame.tres"
 
 var save: SaveGame = SaveGame.new()
 
-@onready var timer_save: Timer = $TimerSave
-
 func _ready() -> void:
 	save.initialize()
 	
@@ -21,6 +19,3 @@ func try_load_game() -> void:
 		
 		if loaded != null:
 			save = loaded
-
-func _on_timer_save_timeout() -> void:
-	save_game()

@@ -22,7 +22,7 @@ func get_equipped_count() -> int:
 func get_item_count() -> int:
 	return inventory.size()
 
-func get_all_effects() -> Dictionary:
+func get_all_effects() -> CarStats:
 	var result: Dictionary = {
 		UpgradeItemDefinition.StatType.EngineAcceleration: 1.0,
 		UpgradeItemDefinition.StatType.WheelSize: 1.0,
@@ -53,4 +53,12 @@ func get_all_effects() -> Dictionary:
 			UpgradeItemDefinition.StatOperationType.Division:
 				result[type] /= effect
 	
-	return result
+	var stats: CarStats = CarStats.new()
+	stats._raw_engine_acceleration = result[UpgradeItemDefinition.StatType.EngineAcceleration]
+	stats._raw_air_rotation_speed = result[UpgradeItemDefinition.StatType.AirRotationSpeed]
+	stats.wheel_size = result[UpgradeItemDefinition.StatType.WheelSize]
+	stats.fuel_capacity = result[UpgradeItemDefinition.StatType.FuelCapacity]
+	stats._raw_downward_pressure = result[UpgradeItemDefinition.StatType.DownwardPressure]
+	stats.bounciness = result[UpgradeItemDefinition.StatType.Bounciness]
+	
+	return stats

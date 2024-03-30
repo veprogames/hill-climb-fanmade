@@ -18,7 +18,7 @@ var fuel: float = 1.0
 
 var on_low_fuel: bool = false
 
-@onready var car_stats_applier: CarStatsApplier = $CarStatsApplier
+var stats: CarStats = CarStats.new()
 
 @onready var pin_joint_l: PinJoint2D = $PinJointL
 @onready var pin_joint_r: PinJoint2D = $PinJointR
@@ -31,6 +31,11 @@ var on_low_fuel: bool = false
 @onready var timer_respawn: Timer = $TimerRespawn
 
 @onready var pin_joint_2d_neck: PinJoint2D = $Head/PinJoint2DNeck
+
+func _ready() -> void:
+	var garage: SaveGameGarage = Game.save.garage
+	stats = garage.get_all_effects()
+	apply_car_stats()
 
 func _set_touch_brake(brake: bool) -> void:
 	touch_brake = brake
@@ -52,7 +57,7 @@ func _input(event: InputEvent) -> void:
 			touch_brake = touch_event.pressed
 
 func _process(delta: float) -> void:
-	fuel -= delta / car_stats_applier.fuel_capacity
+	fuel -= delta / stats.fuel_capacity
 	
 	if !on_low_fuel and fuel < 0.2:
 		on_low_fuel = true
@@ -74,8 +79,8 @@ func _physics_process(_delta: float) -> void:
 		touch_gas = false
 	
 	if can_drive():
-		var engine_acceleration: float = car_stats_applier.engine_acceleration
-		var air_rotation_speed: float = car_stats_applier.air_rotation_speed
+		var engine_acceleration: float = stats.engine_acceleration
+		var air_rotation_speed: float = stats.air_rotation_speed
 		
 		if touch_brake:
 			wheel_l.apply_torque(-engine_acceleration)
@@ -94,8 +99,13 @@ func set_bounciness(joint_softness: float) -> void:
 	pin_joint_l.softness = joint_softness
 	pin_joint_r.softness = joint_softness
 
-func apply_downward_pressure(strength: float) -> void:
-	add_constant_force(Vector2.DOWN * strength)
+func apply_downward_pressure(strength: Vector2) -> void:
+	add_constant_force(strength)
+
+func apply_car_stats() -> void:
+	scale_wheels(stats.wheel_size)
+	set_bounciness(stats.bounciness)
+	apply_downward_pressure(stats.downward_pressure)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""

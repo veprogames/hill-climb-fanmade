@@ -18,7 +18,8 @@ config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
-Game="*res://global/game.tscn"
+Game="*res://global/game.gd"
+Global="*res://global/global.tscn"
 
 [debug]
 
