@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciiib2lfqt7gd"]
+
+[ext_resource type="Script" path="res://shop/ui/ui_shop_upgrade_item_offer_list.gd" id="1_w8j0x"]
+
+[node name="UIShopUpgradeItemOfferList" type="HFlowContainer"]
+custom_minimum_size = Vector2(640, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+script = ExtResource("1_w8j0x")

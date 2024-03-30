@@ -11,25 +11,31 @@ signal brake_changed(new_state: bool)
 
 var MainMenuScene: PackedScene = preload("res://main_menu/main_menu.tscn")
 
-const BASE_ACCELERATION: float = 80_000.0
-const BASE_AIR_ACCELERATION: float = 150_000.0
-
 var touch_gas: bool = false : set = _set_touch_gas
 var touch_brake: bool = false : set = _set_touch_brake
 
 var fuel: float = 1.0
-var fuel_capacity: float = 30.0
 
 var on_low_fuel: bool = false
 
-@onready var wheel_l: RigidBody2D = $PinJoint2D/WheelL
-@onready var wheel_r: RigidBody2D = $PinJoint2D2/WheelR
+var stats: CarStats = CarStats.new()
+
+@onready var pin_joint_l: PinJoint2D = $PinJointL
+@onready var pin_joint_r: PinJoint2D = $PinJointR
+
+@onready var wheel_l: CarWheel = $PinJointL/WheelL
+@onready var wheel_r: CarWheel = $PinJointR/WheelR
 
 @onready var viewport_rect: Rect2 = get_viewport_rect()
 
 @onready var timer_respawn: Timer = $TimerRespawn
 
 @onready var pin_joint_2d_neck: PinJoint2D = $Head/PinJoint2DNeck
+
+func _ready() -> void:
+	var garage: SaveGameGarage = Game.save.garage
+	stats = garage.get_all_effects()
+	apply_car_stats()
 
 func _set_touch_brake(brake: bool) -> void:
 	touch_brake = brake
@@ -51,7 +57,7 @@ func _input(event: InputEvent) -> void:
 			touch_brake = touch_event.pressed
 
 func _process(delta: float) -> void:
-	fuel -= delta / fuel_capacity
+	fuel -= delta / stats.fuel_capacity
 	
 	if !on_low_fuel and fuel < 0.2:
 		on_low_fuel = true
@@ -73,14 +79,33 @@ func _physics_process(_delta: float) -> void:
 		touch_gas = false
 	
 	if can_drive():
+		var engine_acceleration: float = stats.engine_acceleration
+		var air_rotation_speed: float = stats.air_rotation_speed
+		
 		if touch_brake:
-			wheel_l.apply_torque(-BASE_ACCELERATION)
-			wheel_r.apply_torque(-BASE_ACCELERATION)
-			apply_torque(BASE_AIR_ACCELERATION)
+			wheel_l.apply_torque(-engine_acceleration)
+			wheel_r.apply_torque(-engine_acceleration)
+			apply_torque(air_rotation_speed)
 		elif touch_gas:
-			wheel_l.apply_torque(BASE_ACCELERATION)
-			wheel_r.apply_torque(BASE_ACCELERATION)
-			apply_torque(-BASE_AIR_ACCELERATION)
+			wheel_l.apply_torque(engine_acceleration)
+			wheel_r.apply_torque(engine_acceleration)
+			apply_torque(-air_rotation_speed)
+
+func scale_wheels(to_scale: float) -> void:
+	wheel_l.wheel_scale = to_scale
+	wheel_r.wheel_scale = to_scale
+
+func set_bounciness(joint_softness: float) -> void:
+	pin_joint_l.softness = joint_softness
+	pin_joint_r.softness = joint_softness
+
+func apply_downward_pressure(strength: Vector2) -> void:
+	add_constant_force(strength)
+
+func apply_car_stats() -> void:
+	scale_wheels(stats.wheel_size)
+	set_bounciness(stats.bounciness)
+	apply_downward_pressure(stats.downward_pressure)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""
@@ -124,3 +149,7 @@ func _on_timer_respawn_timeout() -> void:
 
 func _on_refueled(_was_out_of: bool) -> void:
 	on_low_fuel = false
+
+
+func _on_died() -> void:
+	Game.save_game()

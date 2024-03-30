@@ -1,19 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://6op8q72t2oqc"]
+[gd_scene load_steps=7 format=3 uid="uid://6op8q72t2oqc"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_6aqcu"]
 [ext_resource type="PackedScene" uid="uid://c2od0cvxcsuwc" path="res://main_menu/level_button.tscn" id="2_2p7lx"]
+[ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="2_poe60"]
 [ext_resource type="Texture2D" uid="uid://22iv5o8e1ibs" path="res://level/levels/countryside/thumb_countryside.png" id="3_56gcb"]
 [ext_resource type="Texture2D" uid="uid://ckhsf742j7euy" path="res://level/levels/highway/thumb_highway.png" id="4_5ln0j"]
 [ext_resource type="Texture2D" uid="uid://c2nr1xwxbteuv" path="res://level/levels/desert/thumb_desert.png" id="5_5xbhy"]
-
-[sub_resource type="Gradient" id="Gradient_t86wy"]
-colors = PackedColorArray(0.442911, 0.442911, 0.442911, 1, 0.306923, 0.306923, 0.306923, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mp3wc"]
-gradient = SubResource("Gradient_t86wy")
-width = 1920
-height = 1080
-fill_to = Vector2(0.42735, 1)
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_6aqcu")
@@ -27,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_mp3wc")
+texture = ExtResource("2_poe60")
 expand_mode = 1
 stretch_mode = 6
 
@@ -78,4 +70,25 @@ offset_right = 98.0
 offset_bottom = 82.0
 text = "Quit"
 
+[node name="ButtonGarage" type="Button" parent="CanvasLayerUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 8.0
+grow_vertical = 0
+text = "Garage"
+
+[node name="ButtonShop" type="Button" parent="CanvasLayerUI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 165.0
+offset_top = -66.0
+offset_right = 308.0
+grow_vertical = 0
+text = "Shop"
+
 [connection signal="pressed" from="CanvasLayerUI/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/ButtonGarage" to="." method="_on_button_garage_pressed"]
+[connection signal="pressed" from="CanvasLayerUI/ButtonShop" to="." method="_on_button_shop_pressed"]

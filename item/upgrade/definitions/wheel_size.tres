@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://c3knyvm4y7373"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_8mm3g"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_tgdlm"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_1xrqa"]
+[ext_resource type="Texture2D" uid="uid://cv7w3av5qftqb" path="res://item/upgrade/icons/wheel_size.png" id="4_b1mbx"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_8mm3g")
+base = 0.05
+multiplier = 0.02
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_tgdlm")
+base = 0.0
+multiplier = 3000.0
+exponent = 1.7
+
+[resource]
+script = ExtResource("3_1xrqa")
+texture = ExtResource("4_b1mbx")
+title = "Monster Wheels"
+description = "Increase the Wheel Size"
+stat = 1
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+max_level = 10

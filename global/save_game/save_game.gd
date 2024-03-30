@@ -7,6 +7,12 @@ signal gems_changed(to: int)
 @export var coins: int = 0 : set = _set_coins
 @export var gems: int = 0 : set = _set_gems
 
+@export var garage: SaveGameGarage = SaveGameGarage.new()
+@export var shop: SaveGameShop = SaveGameShop.new()
+
+func initialize() -> void:
+	shop.initialize()
+
 func _set_coins(to: int) -> void:
 	coins = to
 	coins_changed.emit(to)

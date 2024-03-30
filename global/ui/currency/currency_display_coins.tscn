@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://i2yymnxjws64"]
+
+[ext_resource type="Script" path="res://global/ui/currency/currency_display_coins.gd" id="1_sbkyg"]
+[ext_resource type="Texture2D" uid="uid://calp1hkrubq1i" path="res://collectibles/coin/coin.png" id="1_tq4k1"]
+
+[node name="CurrencyDisplayCoins" type="HBoxContainer"]
+theme_override_constants/separation = 16
+script = ExtResource("1_sbkyg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_tq4k1")
+expand_mode = 2
+
+[node name="LabelValue" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"Label_L"
+text = "0"
