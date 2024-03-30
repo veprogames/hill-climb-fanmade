@@ -19,7 +19,7 @@ var definitions: Array[UpgradeItemDefinition] = [
 ]
 
 func initialize() -> void:
-	add_item_offer(definition_engine)
+	generate_item_offers()
 
 func generate_item_offers() -> void:
 	for i: int in range(3):

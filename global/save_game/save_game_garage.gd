@@ -7,6 +7,12 @@ signal item_added(item: UpgradeItem)
 
 @export var inventory: Array[UpgradeItem] = []
 
+var definition_engine: UpgradeItemDefinition = preload("res://item/upgrade/definitions/engine_acceleration.tres")
+
+func initialize() -> void:
+	var free_engine: UpgradeItem = UpgradeItem.new(definition_engine)
+	add_item(free_engine)
+
 func add_item(item: UpgradeItem) -> void:
 	inventory.append(item)
 	item_added.emit(item)

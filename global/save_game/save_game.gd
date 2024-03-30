@@ -12,6 +12,7 @@ signal gems_changed(to: int)
 
 func initialize() -> void:
 	shop.initialize()
+	garage.initialize()
 
 func _set_coins(to: int) -> void:
 	coins = to
