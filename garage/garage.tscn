@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://blwif7pvfhmuc"]
+[gd_scene load_steps=6 format=3 uid="uid://blwif7pvfhmuc"]
 
 [ext_resource type="Script" path="res://garage/garage.gd" id="1_18buo"]
 [ext_resource type="PackedScene" uid="uid://bfv7r6golysct" path="res://garage/ui/ui_upgrade_item_list.tscn" id="1_t42ah"]
 [ext_resource type="PackedScene" uid="uid://pt38kuekpumc" path="res://garage/ui/ui_upgrade_item_details.tscn" id="2_f58g0"]
 [ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="2_kxg6l"]
+[ext_resource type="PackedScene" uid="uid://i2yymnxjws64" path="res://global/ui/currency/currency_display_coins.tscn" id="4_8q34b"]
 
 [node name="Garage" type="Node2D"]
 script = ExtResource("1_18buo")
@@ -37,7 +38,10 @@ dragger_visibility = 1
 [node name="UIUpgradeItemList" parent="CanvasLayer/HSplitContainer" instance=ExtResource("1_t42ah")]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HSplitContainer"]
+[node name="CenterContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
+layout_mode = 2
+
+[node name="CurrencyDisplayCoins" parent="CanvasLayer/HSplitContainer/CenterContainer" instance=ExtResource("4_8q34b")]
 layout_mode = 2
 
 [node name="UIUpgradeItemDetails" parent="CanvasLayer/HSplitContainer/CenterContainer" instance=ExtResource("2_f58g0")]

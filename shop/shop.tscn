@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bou2wvyxh2s2l"]
+[gd_scene load_steps=6 format=3 uid="uid://bou2wvyxh2s2l"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_talen"]
 [ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="2_f8j4k"]
 [ext_resource type="PackedScene" uid="uid://ciiib2lfqt7gd" path="res://shop/ui/ui_shop_upgrade_item_offer_list.tscn" id="2_nqhl3"]
 [ext_resource type="PackedScene" uid="uid://yw7ig7e0rsm8" path="res://shop/ui/ui_shop_offer.tscn" id="3_eds27"]
+[ext_resource type="PackedScene" uid="uid://bcwuvhyl3kdtp" path="res://global/ui/currency/currency_display_gems.tscn" id="3_plved"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_talen")
@@ -45,6 +46,12 @@ offset_bottom = 257.0
 grow_horizontal = 2
 theme_type_variation = &"Label_L"
 text = "Choose One:"
+
+[node name="CurrencyDisplayGems" parent="CanvasLayer" instance=ExtResource("3_plved")]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 155.0
+offset_bottom = 103.0
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15

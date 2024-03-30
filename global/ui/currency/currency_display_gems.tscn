@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcwuvhyl3kdtp"]
+
+[ext_resource type="Texture2D" uid="uid://d33bpih7f0xo6" path="res://collectibles/gem/gem.png" id="1_50ssr"]
+[ext_resource type="Script" path="res://global/ui/currency/currency_display_gems.gd" id="1_531jg"]
+
+[node name="CurrencyDisplayGems" type="HBoxContainer"]
+theme_override_constants/separation = 16
+script = ExtResource("1_531jg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_50ssr")
+expand_mode = 2
+
+[node name="LabelValue" type="Label" parent="."]
+layout_mode = 2
+theme_type_variation = &"Label_L"
+text = "0"
