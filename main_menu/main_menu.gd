@@ -2,6 +2,7 @@ class_name MainMenu
 extends Node2D
 
 func _on_button_quit_pressed() -> void:
+	Game.save_game()
 	get_tree().quit()
 
 
