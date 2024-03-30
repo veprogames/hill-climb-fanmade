@@ -33,7 +33,6 @@ func add_item_offer(definition: UpgradeItemDefinition) -> void:
 	var top_price: int = int(base_price * 1.5)
 	var price: int = randi_range(base_price, top_price)
 	var offer: ShopUpgradeItemOffer = ShopUpgradeItemOffer.new(price, definition)
-	offer.bought.connect(_on_item_offer_bought.bind(offer))
 	item_offers.append(offer)
 	item_offer_added.emit(offer)
 
@@ -42,14 +41,9 @@ func add_random_item_offer() -> void:
 	add_item_offer(definition)
 
 func remove_item_offer(offer: ShopUpgradeItemOffer) -> void:
-	if offer.bought.is_connected(_on_item_offer_bought):
-		offer.bought.disconnect(_on_item_offer_bought)
 	item_offers.erase(offer)
 	offer.removed.emit()
 	item_offer_removed.emit(offer)
-
-func _on_item_offer_bought(_offer: ShopUpgradeItemOffer) -> void:
-	refresh()
 
 func refresh() -> void:
 	while item_offers.size() > 0:

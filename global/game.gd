@@ -18,9 +18,7 @@ func try_load_game() -> void:
 		var loaded: SaveGame = SafeResourceLoader.load(SAVE_PATH) as SaveGame
 		
 		if loaded != null:
-			# empty inventories just in case
-			# nothing is merged
-			save.garage.inventory = []
-			save.shop.item_offers = []
-			
-			save = loaded
+			save.coins = loaded.coins
+			save.gems = loaded.gems
+			save.garage.inventory = loaded.garage.inventory
+			save.shop.item_offers = loaded.shop.item_offers
