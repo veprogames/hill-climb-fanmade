@@ -32,6 +32,9 @@ corner_radius_bottom_left = 8
 [resource]
 default_font = ExtResource("1_a7ig3")
 default_font_size = 48
+HBoxContainer/constants/separation = 32
+HFlowContainer/constants/h_separation = 32
+HFlowContainer/constants/v_separation = 32
 HSeparator/constants/separation = 32
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_gd8r3")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -45,3 +48,5 @@ ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 16
 ProgressBar/styles/background = SubResource("StyleBoxFlat_h7xgs")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_13ies")
+VBoxContainer/constants/separation = 32
+VSeparator/constants/separation = 32

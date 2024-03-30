@@ -1,11 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://bou2wvyxh2s2l"]
+[gd_scene load_steps=5 format=3 uid="uid://bou2wvyxh2s2l"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_talen"]
+[ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="2_f8j4k"]
 [ext_resource type="PackedScene" uid="uid://ciiib2lfqt7gd" path="res://shop/ui/ui_shop_upgrade_item_offer_list.tscn" id="2_nqhl3"]
 [ext_resource type="PackedScene" uid="uid://yw7ig7e0rsm8" path="res://shop/ui/ui_shop_offer.tscn" id="3_eds27"]
 
 [node name="Shop" type="Node2D"]
 script = ExtResource("1_talen")
+
+[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayerBG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_f8j4k")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -41,7 +55,6 @@ grow_vertical = 2
 
 [node name="UIShopUpgradeItemOfferList" parent="CanvasLayer/CenterContainer" instance=ExtResource("2_nqhl3")]
 layout_mode = 2
-alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 6

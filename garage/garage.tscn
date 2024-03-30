@@ -1,21 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://blwif7pvfhmuc"]
+[gd_scene load_steps=5 format=3 uid="uid://blwif7pvfhmuc"]
 
 [ext_resource type="Script" path="res://garage/garage.gd" id="1_18buo"]
 [ext_resource type="PackedScene" uid="uid://bfv7r6golysct" path="res://garage/ui/ui_upgrade_item_list.tscn" id="1_t42ah"]
 [ext_resource type="PackedScene" uid="uid://pt38kuekpumc" path="res://garage/ui/ui_upgrade_item_details.tscn" id="2_f58g0"]
+[ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="2_kxg6l"]
 
 [node name="Garage" type="Node2D"]
 script = ExtResource("1_18buo")
 
+[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayerBG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kxg6l")
+expand_mode = 1
+stretch_mode = 6
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="UIUpgradeItemList" parent="CanvasLayer" instance=ExtResource("1_t42ah")]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 656.0
-offset_bottom = 56.0
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 1200
+dragger_visibility = 1
 
-[node name="UIUpgradeItemDetails" parent="CanvasLayer" instance=ExtResource("2_f58g0")]
+[node name="UIUpgradeItemList" parent="CanvasLayer/HSplitContainer" instance=ExtResource("1_t42ah")]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/HSplitContainer"]
+layout_mode = 2
+
+[node name="UIUpgradeItemDetails" parent="CanvasLayer/HSplitContainer/CenterContainer" instance=ExtResource("2_f58g0")]
+layout_mode = 2
 
 [node name="ButtonBack" type="Button" parent="CanvasLayer"]
 anchors_preset = 2
@@ -26,5 +52,5 @@ offset_right = 103.0
 grow_vertical = 0
 text = "Back"
 
-[connection signal="item_selected" from="CanvasLayer/UIUpgradeItemList" to="." method="_on_ui_upgrade_item_list_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/HSplitContainer/UIUpgradeItemList" to="." method="_on_ui_upgrade_item_list_item_selected"]
 [connection signal="pressed" from="CanvasLayer/ButtonBack" to="." method="_on_button_back_pressed"]

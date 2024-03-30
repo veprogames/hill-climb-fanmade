@@ -7,8 +7,6 @@ var garage: SaveGameGarage
 
 var UIUpgradeItemScene: PackedScene = preload("res://garage/ui/ui_upgrade_item.tscn")
 
-@onready var ui_upgrade_item_details: UIUpgradeItemDetails = $"../UIUpgradeItemDetails"
-
 func _ready() -> void:
 	garage = Game.save.garage
 	

@@ -6,4 +6,5 @@
 custom_minimum_size = Vector2(640, 0)
 offset_right = 40.0
 offset_bottom = 40.0
+alignment = 1
 script = ExtResource("1_w8j0x")

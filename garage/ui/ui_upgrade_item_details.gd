@@ -6,6 +6,8 @@ extends Control
 @onready var label_title: Label = $VBoxContainerDetails/HBoxContainer/LabelTitle
 @onready var label_description: Label = $VBoxContainerDetails/LabelDescription
 
+@onready var texture_rect_icon: TextureRect = $VBoxContainerDetails/HBoxContainer/TextureRectIcon
+
 @onready var button_upgrade: Button = $VBoxContainerDetails/HBoxContainerActions/ButtonUpgrade
 @onready var button_equip: Button = $VBoxContainerDetails/HBoxContainerActions/ButtonEquip
 
@@ -24,6 +26,7 @@ func update_ui() -> void:
 		label_description.text = item.definition.description
 		button_equip.disabled = !item.can_equip() and !item.is_equipped
 		button_equip.text = "Unequip" if item.is_equipped else "Equip"
+		texture_rect_icon.texture = item.definition.texture
 		update_upgrade_button()
 
 func connect_item(from_item: UpgradeItem) -> void:
