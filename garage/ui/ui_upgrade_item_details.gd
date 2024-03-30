@@ -16,6 +16,8 @@ extends Control
 
 func _ready() -> void:
 	update_ui()
+	
+	Game.save.coins_changed.connect(_on_save_coins_changed)
 
 func update_ui() -> void:
 	v_box_container_details.visible = item != null
@@ -42,7 +44,7 @@ func update_upgrade_button() -> void:
 		button_upgrade.text = "Max"
 		button_upgrade.disabled = true
 	else:
-		button_upgrade.disabled = false
+		button_upgrade.disabled = !item.can_afford()
 		button_upgrade.text = F.F(item.get_current_price())
 
 func _set_item(new_item: UpgradeItem) -> void:
@@ -76,3 +78,6 @@ func _on_item_level_changed(_to: int) -> void:
 func _on_item_equipped_changed(equipped: bool) -> void:
 	button_equip.disabled = !item.can_equip() and !item.is_equipped
 	button_equip.text = "Unequip" if equipped else "Equip"
+
+func _on_save_coins_changed(_to: int) -> void:
+	update_upgrade_button()
