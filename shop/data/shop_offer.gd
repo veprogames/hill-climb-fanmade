@@ -16,3 +16,5 @@ func try_buy() -> void:
 	if can_afford():
 		Game.save.gems -= price
 		bought.emit()
+		
+		Game.save_game()

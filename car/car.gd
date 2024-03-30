@@ -149,3 +149,7 @@ func _on_timer_respawn_timeout() -> void:
 
 func _on_refueled(_was_out_of: bool) -> void:
 	on_low_fuel = false
+
+
+func _on_died() -> void:
+	Game.save_game()
