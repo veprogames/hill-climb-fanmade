@@ -20,6 +20,18 @@ grow_horizontal = 2
 theme_type_variation = &"Label_L"
 text = "The Shop"
 
+[node name="Label2" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -178.5
+offset_top = 170.0
+offset_right = 178.5
+offset_bottom = 257.0
+grow_horizontal = 2
+theme_type_variation = &"Label_L"
+text = "Choose One:"
+
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +41,7 @@ grow_vertical = 2
 
 [node name="UIShopUpgradeItemOfferList" parent="CanvasLayer/CenterContainer" instance=ExtResource("2_nqhl3")]
 layout_mode = 2
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 6

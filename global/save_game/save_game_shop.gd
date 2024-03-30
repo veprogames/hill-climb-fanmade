@@ -48,8 +48,8 @@ func remove_item_offer(offer: ShopUpgradeItemOffer) -> void:
 	offer.removed.emit()
 	item_offer_removed.emit(offer)
 
-func _on_item_offer_bought(offer: ShopUpgradeItemOffer) -> void:
-	remove_item_offer(offer)
+func _on_item_offer_bought(_offer: ShopUpgradeItemOffer) -> void:
+	refresh()
 
 func refresh() -> void:
 	while item_offers.size() > 0:
