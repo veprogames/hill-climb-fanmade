@@ -24,16 +24,23 @@ func _ready() -> void:
 	
 	terrain.generated.connect(_on_terrain_generated)
 
-func spawn_collectible(packed_collectible: PackedScene, x: float) -> BaseCollectible:
-	var y: float = terrain.get_y(x) - 192
-	
+# either manually define a y position for possible caching
+
+func spawn_collectible_at(packed_collectible: PackedScene, x: float, y: float) -> BaseCollectible:
 	var collectible: BaseCollectible = packed_collectible.instantiate() as BaseCollectible
 	collectible.position = Vector2(x, y)
 	
 	return collectible
 
+# or let y be calculated
+
+func spawn_collectible_at_x(packed_collectible: PackedScene, x: float) -> BaseCollectible:
+	var y: float = terrain.get_y(x) - 192
+	
+	return spawn_collectible_at(packed_collectible, x, y)
+
 func spawn_fuel(x: float) -> void:
-	var fuel: FuelCollectible = spawn_collectible(FuelScene, x)
+	var fuel: FuelCollectible = spawn_collectible_at_x(FuelScene, x)
 	
 	fuel_container.add_child.call_deferred(fuel)
 	
@@ -55,8 +62,19 @@ func spawn_coins(x: float) -> void:
 	var nth_x: int = 0
 	var offset: Vector2 = Vector2.ZERO
 	
+	## cache y values for each x
+	var cached_y: Array[float] = []
+	
 	for value: int in values:
-		var coin: CoinCollectible = spawn_collectible(CoinScene, x + offset.x) as CoinCollectible
+		# to reduce calls to get_y
+		var y: float = 0.0
+		if cached_y.size() >= nth_x + 1:
+			y = cached_y[nth_x]
+		else:
+			y = terrain.get_y(x + offset.x) - 192
+			cached_y.append(y)
+		
+		var coin: CoinCollectible = spawn_collectible_at(CoinScene, x + offset.x, y) as CoinCollectible
 		coin.position.y += offset.y
 		coin.value = value
 		
@@ -94,7 +112,7 @@ func get_next_coins() -> float:
 	return parameters.get_coin_position_in_meters(coin_formations_spawned + 1) * Level.PX_TO_M
 
 func spawn_gems(x: float) -> void:
-	var gem: GemCollectible = spawn_collectible(GemScene, x) as GemCollectible
+	var gem: GemCollectible = spawn_collectible_at_x(GemScene, x) as GemCollectible
 	
 	gems_container.add_child.call_deferred(gem)
 	

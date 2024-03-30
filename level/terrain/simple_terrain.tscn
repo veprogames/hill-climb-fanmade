@@ -30,6 +30,7 @@ texture_mode = 1
 joint_mode = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
 
 [node name="GenerationBorder" parent="." instance=ExtResource("2_mt7lr")]
 
