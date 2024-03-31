@@ -2,6 +2,7 @@ class_name Car
 extends RigidBody2D
 
 signal died
+signal level_ended
 signal fuel_depleted
 signal low_fuel_reached
 signal refueled(was_out_of: bool)
@@ -17,6 +18,8 @@ var touch_brake: bool = false : set = _set_touch_brake
 var fuel: float = 1.0
 
 var on_low_fuel: bool = false
+
+var highest_x: float = 0.0
 
 var stats: CarStats = CarStats.new()
 
@@ -34,6 +37,7 @@ var stats: CarStats = CarStats.new()
 
 func _ready() -> void:
 	var garage: SaveGameGarage = Game.save.garage
+	highest_x = position.x
 	stats = garage.get_all_effects()
 	apply_car_stats()
 
@@ -66,6 +70,8 @@ func _process(delta: float) -> void:
 	if is_out_of_fuel() and not is_game_over():
 		fuel_depleted.emit()
 		respawn()
+	
+	highest_x = maxf(highest_x, position.x)
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("player_brake"):
@@ -142,12 +148,9 @@ func _on_head_body_entered(body: Node) -> void:
 
 
 func _on_timer_respawn_timeout() -> void:
+	level_ended.emit()
 	get_tree().change_scene_to_packed(MainMenuScene)
 
 
 func _on_refueled(_was_out_of: bool) -> void:
 	on_low_fuel = false
-
-
-func _on_died() -> void:
-	Game.save_game()

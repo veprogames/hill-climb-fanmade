@@ -22,3 +22,4 @@ func try_load_game() -> void:
 			save.gems = loaded.gems
 			save.garage.inventory = loaded.garage.inventory
 			save.shop.item_offers = loaded.shop.item_offers
+			save.highscores = loaded.highscores

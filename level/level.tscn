@@ -42,7 +42,8 @@ texture = ExtResource("5_okviw")
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 layer = 2
 
-[node name="LevelUI" parent="CanvasLayer2" node_paths=PackedStringArray("player", "collectible_spawner") instance=ExtResource("3_nqxyq")]
+[node name="LevelUI" parent="CanvasLayer2" node_paths=PackedStringArray("level", "player", "collectible_spawner") instance=ExtResource("3_nqxyq")]
+level = NodePath("../..")
 player = NodePath("../../Car")
 collectible_spawner = NodePath("../../CollectibleSpawner")
 
@@ -50,3 +51,5 @@ collectible_spawner = NodePath("../../CollectibleSpawner")
 
 [node name="CollectibleSpawner" parent="." node_paths=PackedStringArray("terrain") instance=ExtResource("6_3kebu")]
 terrain = NodePath("../SimpleTerrain")
+
+[connection signal="level_ended" from="Car" to="." method="_on_car_level_ended"]

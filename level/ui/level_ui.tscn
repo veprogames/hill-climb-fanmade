@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr80skw7ns3ak"]
+[gd_scene load_steps=10 format=3 uid="uid://dr80skw7ns3ak"]
 
 [ext_resource type="Script" path="res://level/ui/level_ui.gd" id="1_3muol"]
 [ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel/fuel.png" id="2_wv2ak"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bcwuvhyl3kdtp" path="res://global/ui/currency/currency_display_gems.tscn" id="5_entv7"]
 [ext_resource type="PackedScene" uid="uid://cahox3uu8r2gb" path="res://level/ui/gauge/gauge.tscn" id="5_fl8er"]
 [ext_resource type="PackedScene" uid="uid://c28b4tgfroa80" path="res://level/ui/low_fuel_alarm/low_fuel_alarm.tscn" id="6_75jpt"]
+[ext_resource type="Texture2D" uid="uid://caobgj8ei6ev8" path="res://global/art/trophy.png" id="9_bmjdt"]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3
@@ -96,3 +97,26 @@ offset_top = -240.0
 offset_right = -317.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="HBoxContainerHighscore" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 87.0
+grow_horizontal = 0
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainerHighscore"]
+layout_mode = 2
+texture = ExtResource("9_bmjdt")
+expand_mode = 2
+
+[node name="LabelHighscore" type="Label" parent="HBoxContainerHighscore"]
+layout_mode = 2
+theme_type_variation = &"Label_L"
+text = "0m"
+horizontal_alignment = 2
