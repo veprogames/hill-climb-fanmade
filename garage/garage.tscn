@@ -73,27 +73,18 @@ layout_mode = 2
 [node name="UIUpgradeItemDetails" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer" instance=ExtResource("2_f58g0")]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="VBoxContainerEquip" type="VBoxContainer" parent="CanvasLayer/HSplitContainer/Details"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="VBoxContainerEquip" type="VBoxContainer" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer"]
+layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainerEquip"]
+[node name="Label" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer/VBoxContainerEquip"]
 layout_mode = 2
 text = "Equipped"
 horizontal_alignment = 1
 
-[node name="LabelEquipCount" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainerEquip"]
+[node name="LabelEquipCount" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer/VBoxContainerEquip"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"Label_L"
