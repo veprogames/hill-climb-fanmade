@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://dahjty5g2s105"]
+
+[ext_resource type="Script" path="res://level/data/level_data.gd" id="1_j45fw"]
+[ext_resource type="Texture2D" uid="uid://22iv5o8e1ibs" path="res://level/levels/countryside/thumb_countryside.png" id="2_2kmer"]
+
+[resource]
+script = ExtResource("1_j45fw")
+id = "countryside"
+title = "Countryside"
+description = "The Classic Stage we all know."
+thumbnail = ExtResource("2_2kmer")
+scene_path = "res://level/levels/countryside/level_countryside.tscn"
