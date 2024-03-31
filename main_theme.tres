@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/autumn_regular.ttf" id="1_a7ig3"]
 
@@ -92,6 +92,11 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8pax"]
+bg_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_offset = Vector2(4, 4)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7xgs"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 border_width_left = 8
@@ -141,7 +146,13 @@ Label/constants/shadow_offset_x = 6
 Label/constants/shadow_offset_y = 6
 Label_L/base_type = &"Label"
 Label_L/font_sizes/font_size = 72
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16
 Panel/styles/panel = SubResource("StyleBoxFlat_kb0no")
+PanelShadow/base_type = &"Panel"
+PanelShadow/styles/panel = SubResource("StyleBoxFlat_l8pax")
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 16
 ProgressBar/styles/background = SubResource("StyleBoxFlat_h7xgs")
