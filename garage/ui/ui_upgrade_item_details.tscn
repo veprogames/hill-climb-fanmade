@@ -63,8 +63,8 @@ autowrap_mode = 2
 
 [node name="HBoxContainerActions" type="HBoxContainer" parent="PanelVisible/VBoxContainerDetails"]
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 8
+alignment = 1
 
 [node name="ButtonEquip" type="Button" parent="PanelVisible/VBoxContainerDetails/HBoxContainerActions"]
 unique_name_in_owner = true
