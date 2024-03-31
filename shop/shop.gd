@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var ui_shop_upgrade_item_offer_list: UIShopUpgradeItemOfferList = $CanvasLayer/CenterContainer/UIShopUpgradeItemOfferList
+@onready var ui_shop_upgrade_item_offer_list: UIShopUpgradeItemOfferList = %UIShopUpgradeItemOfferList
 
 @onready var ui_shop_offer_refresh: UIShopOffer = $CanvasLayer/VBoxContainer/UIShopOfferRefresh
 

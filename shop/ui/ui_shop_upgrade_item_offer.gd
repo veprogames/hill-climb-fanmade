@@ -3,11 +3,13 @@ extends Control
 
 @onready var offer: ShopUpgradeItemOffer
 
+@onready var label_price: Label = $HBoxPrice/LabelPrice
+
 @onready var texture_button_buy: TextureButton = $TextureButtonBuy
-@onready var label_price: Label = $LabelPrice
+@onready var texture_rect_icon: TextureRect = $TextureRectIcon
 
 func _ready() -> void:
-	texture_button_buy.texture_normal = offer.definition.texture
+	texture_rect_icon.texture = offer.definition.texture
 	label_price.text = F.F(offer.price)
 	
 	offer.bought.connect(_on_offer_bought)
