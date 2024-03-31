@@ -51,6 +51,7 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxPrice"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("5_epss6")
 expand_mode = 2
 
