@@ -1,7 +1,7 @@
 class_name SaveGameGarage
 extends Resource
 
-const MAX_EQUIPS: int = 8
+const MAX_EQUIPS: int = 10
 
 signal item_added(item: UpgradeItem)
 
