@@ -50,8 +50,10 @@ expand_mode = 2
 
 [node name="LabelTitle" type="Label" parent="PanelVisible/VBoxContainerDetails/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 theme_type_variation = &"Label_L"
+autowrap_mode = 2
 
 [node name="LabelDescription" type="Label" parent="PanelVisible/VBoxContainerDetails"]
 unique_name_in_owner = true

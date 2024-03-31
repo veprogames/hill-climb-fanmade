@@ -1,6 +1,8 @@
 class_name UIUpgradeItemDetails
 extends Control
 
+signal item_equipped_changed(to: bool)
+
 @export var item: UpgradeItem : set = _set_item
 
 @onready var label_title: Label = %LabelTitle
@@ -84,8 +86,9 @@ func _on_item_level_changed(_to: int) -> void:
 	update_title()
 
 
-func _on_item_equipped_changed(_equipped: bool) -> void:
+func _on_item_equipped_changed(equipped: bool) -> void:
 	update_equip_button()
+	item_equipped_changed.emit(equipped)
 
 func _on_save_coins_changed(_to: int) -> void:
 	update_upgrade_button()
