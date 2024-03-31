@@ -90,6 +90,8 @@ func _physics_process(_delta: float) -> void:
 			wheel_l.apply_torque(engine_acceleration)
 			wheel_r.apply_torque(engine_acceleration)
 			apply_torque(-air_rotation_speed)
+	
+	apply_central_force(stats.downward_pressure)
 
 func scale_wheels(to_scale: float) -> void:
 	wheel_l.wheel_scale = to_scale
@@ -99,13 +101,9 @@ func set_bounciness(joint_softness: float) -> void:
 	pin_joint_l.softness = joint_softness
 	pin_joint_r.softness = joint_softness
 
-func apply_downward_pressure(strength: Vector2) -> void:
-	add_constant_force(strength)
-
 func apply_car_stats() -> void:
 	scale_wheels(stats.wheel_size)
 	set_bounciness(stats.bounciness)
-	apply_downward_pressure(stats.downward_pressure)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""
