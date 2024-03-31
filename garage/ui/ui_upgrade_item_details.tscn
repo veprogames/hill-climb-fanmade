@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://pt38kuekpumc"]
+[gd_scene load_steps=4 format=3 uid="uid://pt38kuekpumc"]
 
 [ext_resource type="Script" path="res://garage/ui/ui_upgrade_item_details.gd" id="1_uuxet"]
 [ext_resource type="Texture2D" uid="uid://dw6yef5x3qmjp" path="res://item/upgrade/icons/engine.png" id="2_08fls"]
+[ext_resource type="Texture2D" uid="uid://calp1hkrubq1i" path="res://collectibles/coin/coin.png" id="3_umkfk"]
 
 [node name="UIUpgradeItemDetails" type="Control"]
-custom_minimum_size = Vector2(480, 480)
+custom_minimum_size = Vector2(512, 512)
 layout_mode = 3
 anchors_preset = 6
 anchor_left = 1.0
@@ -18,7 +19,7 @@ grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("1_uuxet")
 
-[node name="VBoxContainerDetails" type="VBoxContainer" parent="."]
+[node name="PanelVisible" type="Panel" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -27,43 +28,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainerDetails"]
+[node name="VBoxContainerDetails" type="VBoxContainer" parent="PanelVisible"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -32.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelVisible/VBoxContainerDetails"]
 layout_mode = 2
 
-[node name="TextureRectIcon" type="TextureRect" parent="VBoxContainerDetails/HBoxContainer"]
+[node name="TextureRectIcon" type="TextureRect" parent="PanelVisible/VBoxContainerDetails/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("2_08fls")
 expand_mode = 2
 
-[node name="LabelTitle" type="Label" parent="VBoxContainerDetails/HBoxContainer"]
+[node name="LabelTitle" type="Label" parent="PanelVisible/VBoxContainerDetails/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
+theme_type_variation = &"Label_L"
 
-[node name="LabelDescription" type="Label" parent="VBoxContainerDetails"]
+[node name="LabelDescription" type="Label" parent="PanelVisible/VBoxContainerDetails"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 autowrap_mode = 2
 
-[node name="HBoxContainerActions" type="HBoxContainer" parent="VBoxContainerDetails"]
+[node name="HBoxContainerActions" type="HBoxContainer" parent="PanelVisible/VBoxContainerDetails"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="ButtonEquip" type="Button" parent="VBoxContainerDetails/HBoxContainerActions"]
+[node name="ButtonEquip" type="Button" parent="PanelVisible/VBoxContainerDetails/HBoxContainerActions"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Equip"
 
-[node name="ButtonUpgrade" type="Button" parent="VBoxContainerDetails/HBoxContainerActions"]
+[node name="ButtonUpgrade" type="Button" parent="PanelVisible/VBoxContainerDetails/HBoxContainerActions"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Upgrade"
+icon = ExtResource("3_umkfk")
 
 [node name="CenterContainerEmpty" type="CenterContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -29.0
+offset_right = 165.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="CenterContainerEmpty"]
 layout_mode = 2
 text = "Nothing Selected"
 
-[connection signal="pressed" from="VBoxContainerDetails/HBoxContainerActions/ButtonEquip" to="." method="_on_button_equip_pressed"]
-[connection signal="pressed" from="VBoxContainerDetails/HBoxContainerActions/ButtonUpgrade" to="." method="_on_button_upgrade_pressed"]
+[connection signal="pressed" from="PanelVisible/VBoxContainerDetails/HBoxContainerActions/ButtonEquip" to="." method="_on_button_equip_pressed"]
+[connection signal="pressed" from="PanelVisible/VBoxContainerDetails/HBoxContainerActions/ButtonUpgrade" to="." method="_on_button_upgrade_pressed"]

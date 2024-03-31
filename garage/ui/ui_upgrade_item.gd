@@ -5,12 +5,12 @@ signal selected(item: UpgradeItem)
 
 @export var item: UpgradeItem
 
-@onready var texture_item: TextureButton = $TextureItem
+@onready var texture_item: TextureRect = $TextureItem
 @onready var label_level: Label = $LabelLevel
 @onready var texture_equipped: TextureRect = $TextureEquipped
 
 func _ready() -> void:
-	texture_item.texture_normal = item.definition.texture
+	texture_item.texture = item.definition.texture
 	label_level.text = "+%d" % item.level
 	texture_equipped.visible = item.is_equipped
 	
@@ -27,6 +27,5 @@ func _on_item_unequipped() -> void:
 func _on_item_level_changed(to: int) -> void:
 	label_level.text = "+%d" % to
 
-
-func _on_texture_item_pressed() -> void:
+func _on_texture_button_pressed() -> void:
 	selected.emit(item)

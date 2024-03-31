@@ -1,8 +1,95 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/autumn_regular.ttf" id="1_a7ig3"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca2re"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0.701961, 0.411765, 0.501961)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 0.501961)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t46no"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0.811765, 0.482353, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xwx6"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0.701961, 0.411765, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_83sl2"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0.890196, 0.533333, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gd8r3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb0no"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7xgs"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
@@ -32,6 +119,15 @@ corner_radius_bottom_left = 8
 [resource]
 default_font = ExtResource("1_a7ig3")
 default_font_size = 48
+Button/colors/font_disabled_color = Color(0.87451, 0.87451, 0.87451, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 16
+Button/constants/icon_max_width = 52
+Button/constants/outline_size = 16
+Button/styles/disabled = SubResource("StyleBoxFlat_ca2re")
+Button/styles/hover = SubResource("StyleBoxFlat_t46no")
+Button/styles/normal = SubResource("StyleBoxFlat_0xwx6")
+Button/styles/pressed = SubResource("StyleBoxFlat_83sl2")
 HBoxContainer/constants/separation = 32
 HFlowContainer/constants/h_separation = 32
 HFlowContainer/constants/v_separation = 32
@@ -44,6 +140,7 @@ Label/constants/shadow_offset_x = 6
 Label/constants/shadow_offset_y = 6
 Label_L/base_type = &"Label"
 Label_L/font_sizes/font_size = 72
+Panel/styles/panel = SubResource("StyleBoxFlat_kb0no")
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 16
 ProgressBar/styles/background = SubResource("StyleBoxFlat_h7xgs")

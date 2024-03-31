@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://garage/ui/ui_upgrade_item_list.gd" id="1_l13tf"]
 
 [node name="UIUpgradeItemList" type="HFlowContainer"]
-custom_minimum_size = Vector2(640, 0)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_l13tf")

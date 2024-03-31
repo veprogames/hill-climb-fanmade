@@ -3,15 +3,17 @@ extends Control
 
 @export var item: UpgradeItem : set = _set_item
 
-@onready var label_title: Label = $VBoxContainerDetails/HBoxContainer/LabelTitle
-@onready var label_description: Label = $VBoxContainerDetails/LabelDescription
+@onready var label_title: Label = %LabelTitle
+@onready var label_description: Label = %LabelDescription
 
-@onready var texture_rect_icon: TextureRect = $VBoxContainerDetails/HBoxContainer/TextureRectIcon
+@onready var texture_rect_icon: TextureRect = %TextureRectIcon
 
-@onready var button_upgrade: Button = $VBoxContainerDetails/HBoxContainerActions/ButtonUpgrade
-@onready var button_equip: Button = $VBoxContainerDetails/HBoxContainerActions/ButtonEquip
 
-@onready var v_box_container_details: VBoxContainer = $VBoxContainerDetails
+@onready var button_upgrade: Button = %ButtonUpgrade
+@onready var button_equip: Button = %ButtonEquip
+
+@onready var panel_visible: Panel = $PanelVisible
+
 @onready var center_container_empty: CenterContainer = $CenterContainerEmpty
 
 func _ready() -> void:
@@ -20,15 +22,14 @@ func _ready() -> void:
 	Game.save.coins_changed.connect(_on_save_coins_changed)
 
 func update_ui() -> void:
-	v_box_container_details.visible = item != null
+	panel_visible.visible = item != null
 	center_container_empty.visible = item == null
 	
 	if item != null:
-		label_title.text = item.definition.title
 		label_description.text = item.definition.description
-		button_equip.disabled = !item.can_equip() and !item.is_equipped
-		button_equip.text = "Unequip" if item.is_equipped else "Equip"
 		texture_rect_icon.texture = item.definition.texture
+		update_title()
+		update_equip_button()
 		update_upgrade_button()
 
 func connect_item(from_item: UpgradeItem) -> void:
@@ -38,6 +39,13 @@ func connect_item(from_item: UpgradeItem) -> void:
 func disconnect_item(from_item: UpgradeItem) -> void:
 	from_item.equipped_changed.disconnect(_on_item_equipped_changed)
 	from_item.level_changed.disconnect(_on_item_level_changed)
+
+func update_title() -> void:
+	label_title.text = "%s +%d/%d" % [item.definition.title, item.level, item.definition.max_level]
+
+func update_equip_button() -> void:
+	button_equip.disabled = !item.can_equip() and !item.is_equipped
+	button_equip.text = "Unequip" if item.is_equipped else "Equip"
 
 func update_upgrade_button() -> void:
 	if item.is_maxed():
@@ -73,11 +81,11 @@ func _on_button_upgrade_pressed() -> void:
 
 func _on_item_level_changed(_to: int) -> void:
 	update_upgrade_button()
+	update_title()
 
 
-func _on_item_equipped_changed(equipped: bool) -> void:
-	button_equip.disabled = !item.can_equip() and !item.is_equipped
-	button_equip.text = "Unequip" if equipped else "Equip"
+func _on_item_equipped_changed(_equipped: bool) -> void:
+	update_equip_button()
 
 func _on_save_coins_changed(_to: int) -> void:
 	update_upgrade_button()
