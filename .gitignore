@@ -3,4 +3,8 @@
 
 # Krita
 *.png~
+*.ico~
 *autosave.kra
+
+# Export
+export

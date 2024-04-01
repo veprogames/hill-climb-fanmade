@@ -31,7 +31,7 @@ anchor_right = 1.0
 offset_bottom = 87.0
 grow_horizontal = 2
 theme_type_variation = &"Label_L"
-text = "Hill Climb"
+text = "Hill Climb Moddy"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayerUI"]
