@@ -1,16 +1,19 @@
 class_name LevelButton
-extends TextureRect
+extends TextureButton
 
-@export_file("*.tscn") var scene_path: String
-@export var title: String
-@export var thumbnail: Texture
+@export var level_data: LevelData
 
 @onready var label_title: Label = $LabelTitle
+@onready var label_highscore: Label = $HBoxContainerHighscore/LabelHighscore
 
 func _ready() -> void:
-	texture = thumbnail
-	label_title.text = title
+	assert(level_data != null)
+	
+	var highscore: float = Game.save.highscores.get_highscore(level_data)
+	
+	texture_normal = level_data.thumbnail
+	label_title.text = level_data.title
+	label_highscore.text = "%s m" % F.F(highscore)
 
-
-func _on_button_play_pressed() -> void:
-	get_tree().change_scene_to_file(scene_path)
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(level_data.scene_path)

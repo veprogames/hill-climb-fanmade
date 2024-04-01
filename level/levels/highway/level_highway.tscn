@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqldon425h0yn"]
+[gd_scene load_steps=7 format=3 uid="uid://cqldon425h0yn"]
 
 [ext_resource type="PackedScene" uid="uid://ba2rk50g3dcuh" path="res://level/level.tscn" id="1_f6ebu"]
 [ext_resource type="Resource" uid="uid://c8qvtk1bwpvvj" path="res://level/levels/highway/generation_highway.tres" id="2_cudcf"]
+[ext_resource type="Resource" uid="uid://dipfucdc0flkj" path="res://level/levels/highway/highway.tres" id="2_k510l"]
 [ext_resource type="Texture2D" uid="uid://cwq5lbet0n70v" path="res://level/levels/highway/cement.png" id="3_fkl5i"]
 [ext_resource type="Texture2D" uid="uid://g0cgpog7cyi1" path="res://level/levels/highway/street.png" id="4_4x6b4"]
 [ext_resource type="Resource" uid="uid://eydoj3efoor5" path="res://level/levels/highway/collectibles_highway.tres" id="5_igm06"]
 
 [node name="LevelHighway" instance=ExtResource("1_f6ebu")]
+data = ExtResource("2_k510l")
 
 [node name="SimpleTerrain" parent="." index="4"]
 generation_parameters = ExtResource("2_cudcf")

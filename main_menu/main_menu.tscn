@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_6aqcu"]
 [ext_resource type="PackedScene" uid="uid://c2od0cvxcsuwc" path="res://main_menu/level_button.tscn" id="2_2p7lx"]
 [ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="2_poe60"]
-[ext_resource type="Texture2D" uid="uid://22iv5o8e1ibs" path="res://level/levels/countryside/thumb_countryside.png" id="3_56gcb"]
-[ext_resource type="Texture2D" uid="uid://ckhsf742j7euy" path="res://level/levels/highway/thumb_highway.png" id="4_5ln0j"]
-[ext_resource type="Texture2D" uid="uid://c2nr1xwxbteuv" path="res://level/levels/desert/thumb_desert.png" id="5_5xbhy"]
+[ext_resource type="Resource" uid="uid://dahjty5g2s105" path="res://level/levels/countryside/countryside.tres" id="4_i7pdg"]
+[ext_resource type="Resource" uid="uid://cc1p24o5q42c" path="res://level/levels/desert/desert.tres" id="5_qolbk"]
+[ext_resource type="Resource" uid="uid://dipfucdc0flkj" path="res://level/levels/highway/highway.tres" id="6_p88uk"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_6aqcu")
@@ -47,21 +47,15 @@ theme_override_constants/separation = 32
 
 [node name="LevelButton" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
 layout_mode = 2
-scene_path = "res://level/levels/countryside/level_countryside.tscn"
-title = "Countryside"
-thumbnail = ExtResource("3_56gcb")
+level_data = ExtResource("4_i7pdg")
 
 [node name="LevelButton3" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
 layout_mode = 2
-scene_path = "res://level/levels/desert/level_desert.tscn"
-title = "Desert"
-thumbnail = ExtResource("5_5xbhy")
+level_data = ExtResource("5_qolbk")
 
 [node name="LevelButton2" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
 layout_mode = 2
-scene_path = "res://level/levels/highway/level_highway.tscn"
-title = "Highway"
-thumbnail = ExtResource("4_5ln0j")
+level_data = ExtResource("6_p88uk")
 
 [node name="ButtonQuit" type="Button" parent="CanvasLayerUI"]
 offset_left = 16.0

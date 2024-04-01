@@ -2,20 +2,23 @@ class_name LevelUI
 extends Control
 
 @onready var label_distance: Label = $LabelDistance
+@onready var label_highscore: Label = $HBoxContainerHighscore/LabelHighscore
 @onready var fuel_bar: FuelBar = $VBoxContainer/HBoxContainer/FuelBar
 @onready var pedal_l: Pedal = $PedalL
 @onready var pedal_r: Pedal = $PedalR
 @onready var gauge_speed: Gauge = $GaugeSpeed
 @onready var low_fuel_alarm: LowFuelAlarm = $LowFuelAlarm
 
+@export var level: Level
 @export var player: Car
 # used for next fuel
 @export var collectible_spawner: CollectibleSpawner
 
-var stylebox_fill: StyleBoxFlat
-var fuel_gradient: Gradient = Gradient.new()
+var highscore: float
 
 func _ready() -> void:
+	highscore = get_highscore()
+	
 	player.gas_changed.connect(_on_player_gas_changed)
 	player.brake_changed.connect(_on_player_brake_changed)
 	player.low_fuel_reached.connect(_on_player_low_fuel_reached)
@@ -23,9 +26,12 @@ func _ready() -> void:
 	player.fuel_depleted.connect(_on_player_fuel_depleted)
 
 func _process(_delta: float) -> void:
-	var meters: float = player.position.x / Level.PX_TO_M
+	var meters: float = player.highest_x / Level.PX_TO_M
 	meters = maxf(0, meters)
 	label_distance.text = "%s m" % F.F(meters)
+	
+	var highscore_displayed: float = maxf(meters, highscore)
+	label_highscore.text = "%s m" % F.F(highscore_displayed)
 
 	var next_fuel_m: float = get_distance_to_next_fuel_in_meters()
 	fuel_bar.value = player.fuel
@@ -46,6 +52,9 @@ func get_distance_to_next_fuel_in_meters() -> float:
 		x = collectible_spawner.get_next_fuel()
 	
 	return (x - player.position.x) / Level.PX_TO_M
+
+func get_highscore() -> float:
+	return Game.save.highscores.get_highscore(level.data)
 
 func _on_player_gas_changed(new_state: bool) -> void:
 	if new_state:

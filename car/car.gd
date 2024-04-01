@@ -2,6 +2,7 @@ class_name Car
 extends RigidBody2D
 
 signal died
+signal level_ended
 signal fuel_depleted
 signal low_fuel_reached
 signal refueled(was_out_of: bool)
@@ -17,6 +18,8 @@ var touch_brake: bool = false : set = _set_touch_brake
 var fuel: float = 1.0
 
 var on_low_fuel: bool = false
+
+var highest_x: float = 0.0
 
 var stats: CarStats = CarStats.new()
 
@@ -34,6 +37,7 @@ var stats: CarStats = CarStats.new()
 
 func _ready() -> void:
 	var garage: SaveGameGarage = Game.save.garage
+	highest_x = position.x
 	stats = garage.get_all_effects()
 	apply_car_stats()
 
@@ -66,6 +70,8 @@ func _process(delta: float) -> void:
 	if is_out_of_fuel() and not is_game_over():
 		fuel_depleted.emit()
 		respawn()
+	
+	highest_x = maxf(highest_x, position.x)
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("player_brake"):
@@ -90,6 +96,8 @@ func _physics_process(_delta: float) -> void:
 			wheel_l.apply_torque(engine_acceleration)
 			wheel_r.apply_torque(engine_acceleration)
 			apply_torque(-air_rotation_speed)
+	
+	apply_central_force(stats.downward_pressure)
 
 func scale_wheels(to_scale: float) -> void:
 	wheel_l.wheel_scale = to_scale
@@ -99,13 +107,9 @@ func set_bounciness(joint_softness: float) -> void:
 	pin_joint_l.softness = joint_softness
 	pin_joint_r.softness = joint_softness
 
-func apply_downward_pressure(strength: Vector2) -> void:
-	add_constant_force(strength)
-
 func apply_car_stats() -> void:
 	scale_wheels(stats.wheel_size)
 	set_bounciness(stats.bounciness)
-	apply_downward_pressure(stats.downward_pressure)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""
@@ -144,12 +148,9 @@ func _on_head_body_entered(body: Node) -> void:
 
 
 func _on_timer_respawn_timeout() -> void:
+	level_ended.emit()
 	get_tree().change_scene_to_packed(MainMenuScene)
 
 
 func _on_refueled(_was_out_of: bool) -> void:
 	on_low_fuel = false
-
-
-func _on_died() -> void:
-	Game.save_game()

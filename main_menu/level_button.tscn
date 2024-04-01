@@ -1,43 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2od0cvxcsuwc"]
+[gd_scene load_steps=3 format=3 uid="uid://c2od0cvxcsuwc"]
 
 [ext_resource type="Script" path="res://main_menu/level_button.gd" id="1_fkorm"]
+[ext_resource type="Texture2D" uid="uid://caobgj8ei6ev8" path="res://global/art/trophy.png" id="2_lelew"]
 
-[node name="LevelButton" type="TextureRect"]
+[node name="LevelButton" type="TextureButton"]
 custom_minimum_size = Vector2(640, 192)
 offset_right = 40.0
 offset_bottom = 40.0
-expand_mode = 1
+mouse_default_cursor_shape = 2
+ignore_texture_size = true
 stretch_mode = 6
 script = ExtResource("1_fkorm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 8.0
-offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.501961)
-
-[node name="ButtonPlay" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -106.0
-offset_top = -33.0
-offset_right = -16.0
-offset_bottom = 33.0
-grow_horizontal = 0
-grow_vertical = 2
-text = "Play"
+mouse_filter = 2
+theme_type_variation = &"PanelShadow"
 
 [node name="LabelTitle" type="Label" parent="."]
 layout_mode = 1
@@ -47,4 +31,27 @@ offset_right = 97.0
 offset_bottom = 74.0
 text = "Title"
 
-[connection signal="pressed" from="ButtonPlay" to="." method="_on_button_play_pressed"]
+[node name="HBoxContainerHighscore" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -149.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 58.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainerHighscore"]
+layout_mode = 2
+texture = ExtResource("2_lelew")
+expand_mode = 2
+
+[node name="LabelHighscore" type="Label" parent="HBoxContainerHighscore"]
+layout_mode = 2
+text = "0m"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
