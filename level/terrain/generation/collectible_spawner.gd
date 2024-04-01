@@ -92,7 +92,7 @@ func spawn_coins(x: float) -> void:
 
 func get_coin_values(total: int) -> Array[int]:
 	var result: Array[int] = []
-	var values: Array[int] = [500, 100, 50, 10, 5, 1]
+	var values: Array[int] = [250, 50, 10, 5, 1]
 	var values_index: int = 0
 	while result.size() < 10:
 		var current_value: int = values[values_index]
@@ -103,6 +103,9 @@ func get_coin_values(total: int) -> Array[int]:
 		while total >= current_value:
 			total -= current_value
 			result.append(current_value)
+			
+			if result.size() >= 10:
+				break
 		
 		if total == 0:
 			break

@@ -14,7 +14,7 @@ max_value = inf
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_33egk"]
 seed = 42
-frequency = 0.02
+frequency = 0.017
 
 [sub_resource type="Resource" id="Resource_ohsuy"]
 script = ExtResource("3_7575l")
