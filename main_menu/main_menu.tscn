@@ -34,6 +34,18 @@ theme_type_variation = &"Label_L"
 text = "Hill Climb Moddy"
 horizontal_alignment = 1
 
+[node name="LabelVersion" type="Label" parent="CanvasLayerUI"]
+modulate = Color(1, 1, 1, 0.25098)
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -78.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 58.0
+grow_horizontal = 0
+text = "v1.0"
+
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayerUI"]
 anchors_preset = 15
 anchor_right = 1.0

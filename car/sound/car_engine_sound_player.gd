@@ -5,6 +5,9 @@ extends AudioStreamPlayer
 
 func _ready() -> void:
 	assert(car != null)
+	
+	car.fuel_depleted.connect(_on_car_fuel_depleted)
+	car.refueled.connect(_on_car_refueled)
 
 func _process(delta: float) -> void:
 	var gas: bool = car.touch_gas
@@ -30,3 +33,12 @@ func _process(delta: float) -> void:
 	target_pitch *= speed_multiplier
 	
 	pitch_scale = lerpf(pitch_scale, target_pitch, delta * 2.5)
+
+
+func _on_car_fuel_depleted() -> void:
+	stop()
+
+
+func _on_car_refueled(was_out_of: bool) -> void:
+	if was_out_of:
+		play()
