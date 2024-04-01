@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://btsnteqbw7vel" path="res://car/collector_area/car_collector_area.tscn" id="6_xdhio"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_voebe"]
+bounce = 0.5
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmokm"]
 radius = 32.0
