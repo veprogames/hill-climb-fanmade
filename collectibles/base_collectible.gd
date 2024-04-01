@@ -3,6 +3,8 @@ extends Area2D
 
 signal collected(by: Car)
 
+@export var collect_sound: AudioStream
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var is_collected: bool = false
@@ -15,12 +17,17 @@ func _play_collect_animation() -> void:
 	await animation_player.animation_finished
 	queue_free()
 
+func _try_play_collect_sound() -> void:
+	if collect_sound != null:
+		GlobalSound.play(collect_sound, -6.0)
+
 func _on_body_entered(body: Node2D) -> void:
 	var car: Car = body as Car
 	if car != null and not is_collected:
 		is_collected = true
 		collected.emit(car)
 		_play_collect_animation()
+		_try_play_collect_sound()
 
 
 func _on_area_entered(area: Area2D) -> void:
@@ -29,5 +36,6 @@ func _on_area_entered(area: Area2D) -> void:
 		is_collected = true
 		collected.emit(collector.car)
 		_play_collect_animation()
+		_try_play_collect_sound()
 	if area is CollectibleDestroyer:
 		queue_free()

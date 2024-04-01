@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cphamrb03k53h"]
+
+[ext_resource type="Script" path="res://global/global_sound.gd" id="1_leehi"]
+
+[node name="GlobalSound" type="Node"]
+script = ExtResource("1_leehi")

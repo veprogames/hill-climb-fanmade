@@ -35,6 +35,8 @@ var stats: CarStats = CarStats.new()
 
 @onready var pin_joint_2d_neck: PinJoint2D = $Head/PinJoint2DNeck
 
+@onready var audio_stream_player_neck_break: AudioStreamPlayer = $AudioStreamPlayerNeckBreak
+
 func _ready() -> void:
 	var garage: SaveGameGarage = Game.save.garage
 	highest_x = position.x
@@ -99,6 +101,9 @@ func _physics_process(_delta: float) -> void:
 	
 	apply_central_force(stats.downward_pressure)
 
+func get_meters_per_second() -> float:
+	return absf(linear_velocity.x / Level.PX_TO_M)
+
 func scale_wheels(to_scale: float) -> void:
 	wheel_l.wheel_scale = to_scale
 	wheel_r.wheel_scale = to_scale
@@ -114,6 +119,7 @@ func apply_car_stats() -> void:
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""
 	pin_joint_2d_neck.node_b = ""
+	audio_stream_player_neck_break.play()
 
 func is_neck_broken() -> bool:
 	return pin_joint_2d_neck.node_a.is_empty() and pin_joint_2d_neck.node_b.is_empty()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0yg0e2kyk0ig"]
+[gd_scene load_steps=12 format=3 uid="uid://d0yg0e2kyk0ig"]
 
 [ext_resource type="Texture2D" uid="uid://c8nr83f3w15bk" path="res://car/car.png" id="1_nr2ec"]
 [ext_resource type="Script" path="res://car/car.gd" id="1_roxxv"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cegmepmyenxar" path="res://car/car_wheel.tscn" id="3_2q8ou"]
 [ext_resource type="Texture2D" uid="uid://biuf1f3ains2y" path="res://car/head.png" id="3_uif0g"]
 [ext_resource type="PackedScene" uid="uid://btsnteqbw7vel" path="res://car/collector_area/car_collector_area.tscn" id="6_xdhio"]
+[ext_resource type="PackedScene" uid="uid://b7a2nej8wy0uu" path="res://car/sound/car_engine_sound_player.tscn" id="7_sal4j"]
+[ext_resource type="AudioStream" uid="uid://0e4jnsnb0q6o" path="res://car/break_neck.ogg" id="8_nqauj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_voebe"]
 bounce = 0.5
@@ -85,6 +87,12 @@ wait_time = 5.0
 [node name="CarCollectorArea" parent="." node_paths=PackedStringArray("car") instance=ExtResource("6_xdhio")]
 collision_mask = 16
 car = NodePath("..")
+
+[node name="CarEngineSoundPlayer" parent="." node_paths=PackedStringArray("car") instance=ExtResource("7_sal4j")]
+car = NodePath("..")
+
+[node name="AudioStreamPlayerNeckBreak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_nqauj")
 
 [connection signal="refueled" from="." to="." method="_on_refueled"]
 [connection signal="body_entered" from="Head" to="." method="_on_head_body_entered"]

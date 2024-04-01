@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cq4irgy62l4oi"]
+[gd_scene load_steps=6 format=3 uid="uid://cq4irgy62l4oi"]
 
 [ext_resource type="PackedScene" uid="uid://boihtwln7qdax" path="res://collectibles/base_collectible.tscn" id="1_alqbl"]
 [ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel/fuel.png" id="2_jtxn1"]
 [ext_resource type="Script" path="res://collectibles/fuel/fuel_collectible.gd" id="2_ysirk"]
+[ext_resource type="AudioStream" uid="uid://d0jtmfull5rhh" path="res://collectibles/fuel/fuel.ogg" id="3_kexs1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntqn2"]
 size = Vector2(164, 177)
 
 [node name="FuelCollectible" instance=ExtResource("1_alqbl")]
 script = ExtResource("2_ysirk")
+collect_sound = ExtResource("3_kexs1")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_jtxn1")

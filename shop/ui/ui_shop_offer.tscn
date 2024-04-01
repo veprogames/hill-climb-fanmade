@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://yw7ig7e0rsm8"]
+[gd_scene load_steps=3 format=3 uid="uid://yw7ig7e0rsm8"]
 
 [ext_resource type="Script" path="res://shop/ui/ui_shop_offer.gd" id="1_yvce2"]
+[ext_resource type="AudioStream" uid="uid://xno0l8xqm02v" path="res://global/sfx/buy.ogg" id="2_miv7a"]
 
 [node name="UIShopOffer" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
 text = "0"
 script = ExtResource("1_yvce2")
+
+[node name="AudioStreamPlayerBuy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_miv7a")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

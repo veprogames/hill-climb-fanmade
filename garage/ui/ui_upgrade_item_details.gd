@@ -10,13 +10,14 @@ signal item_equipped_changed(to: bool)
 
 @onready var texture_rect_icon: TextureRect = %TextureRectIcon
 
-
 @onready var button_upgrade: Button = %ButtonUpgrade
 @onready var button_equip: Button = %ButtonEquip
 
 @onready var panel_visible: Panel = $PanelVisible
 
 @onready var center_container_empty: CenterContainer = $CenterContainerEmpty
+
+var stream_buy: AudioStream = preload("res://global/sfx/buy.ogg")
 
 func _ready() -> void:
 	update_ui()
@@ -37,10 +38,12 @@ func update_ui() -> void:
 func connect_item(from_item: UpgradeItem) -> void:
 	from_item.equipped_changed.connect(_on_item_equipped_changed)
 	from_item.level_changed.connect(_on_item_level_changed)
+	from_item.upgraded.connect(_on_item_upgraded)
 
 func disconnect_item(from_item: UpgradeItem) -> void:
 	from_item.equipped_changed.disconnect(_on_item_equipped_changed)
 	from_item.level_changed.disconnect(_on_item_level_changed)
+	from_item.upgraded.disconnect(_on_item_upgraded)
 
 func update_title() -> void:
 	label_title.text = "%s +%d/%d" % [item.definition.title, item.level, item.definition.max_level]
@@ -89,6 +92,11 @@ func _on_item_level_changed(_to: int) -> void:
 func _on_item_equipped_changed(equipped: bool) -> void:
 	update_equip_button()
 	item_equipped_changed.emit(equipped)
+
+
+func _on_item_upgraded() -> void:
+	GlobalSound.play(stream_buy)
+
 
 func _on_save_coins_changed(_to: int) -> void:
 	update_upgrade_button()

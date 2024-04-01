@@ -1,7 +1,7 @@
 class_name CoinCollectible
 extends BaseCollectible
 
-@export var value: int = 0 
+@export var value: int = 0
 
 @onready var label_value: Label = $Sprite2D/LabelValue
 

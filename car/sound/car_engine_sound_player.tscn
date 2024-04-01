@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7a2nej8wy0uu"]
+
+[ext_resource type="Script" path="res://car/sound/car_engine_sound_player.gd" id="1_6kfw4"]
+[ext_resource type="AudioStream" uid="uid://csubcavbi50tw" path="res://car/engine.ogg" id="1_fb6oo"]
+
+[node name="CarEngineSoundPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_fb6oo")
+autoplay = true
+script = ExtResource("1_6kfw4")

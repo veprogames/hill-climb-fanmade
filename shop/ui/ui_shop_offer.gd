@@ -5,6 +5,8 @@ signal bought
 
 @export var offer: ShopOffer : set = _set_offer
 
+var stream_buy: AudioStream = preload("res://global/sfx/buy.ogg")
+
 func _set_offer(offer_: ShopOffer) -> void:
 	offer = offer_
 	
@@ -19,4 +21,5 @@ func _on_pressed() -> void:
 	offer.try_buy()
 
 func _on_offer_bought() -> void:
+	GlobalSound.play(stream_buy)
 	bought.emit()

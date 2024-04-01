@@ -20,6 +20,7 @@ config/windows_native_icon="res://icon.ico"
 
 Game="*res://global/game.gd"
 Global="*res://global/global.tscn"
+GlobalSound="*res://global/global_sound.tscn"
 
 [debug]
 

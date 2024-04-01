@@ -5,6 +5,7 @@ signal level_changed(to: int)
 signal equipped_changed(to: bool)
 signal equipped
 signal unequipped
+signal upgraded
 
 @export var level: int = 0 : set = _set_level
 @export var is_equipped: bool = false : set = _set_is_equipped
@@ -49,3 +50,4 @@ func try_upgrade() -> void:
 	if can_afford() and !is_maxed():
 		Game.save.coins -= get_current_price()
 		level += 1
+		upgraded.emit()

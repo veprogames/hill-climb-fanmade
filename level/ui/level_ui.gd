@@ -38,7 +38,7 @@ func _process(_delta: float) -> void:
 	fuel_bar.show_next_fuel = next_fuel_m > 0 and next_fuel_m <= 99
 	fuel_bar.next_fuel_value = next_fuel_m
 	
-	var meters_per_second: float = absf(player.linear_velocity.x / Level.PX_TO_M)
+	var meters_per_second: float = player.get_meters_per_second()
 	gauge_speed.value = meters_per_second / 50.0
 	gauge_speed.text = "%.0f" % absf(meters_per_second)
 	
