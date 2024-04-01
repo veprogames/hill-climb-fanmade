@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdonm4tt24f6"]
+
+[ext_resource type="Script" path="res://credits/credits.gd" id="1_m154e"]
+[ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="1_mpe1q"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_m154e")
+
+[node name="CanvasLayerBG" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayerBG"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mpe1q")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.5
+offset_top = 16.0
+offset_right = 68.5
+offset_bottom = 58.0
+grow_horizontal = 2
+theme_type_variation = &"Label_L"
+text = "Credits"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = 32.0
+offset_right = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "- Physics car game asset pack by LucyLavend: [color=lime][url=https://lucylavend.itch.io/physics-car-game-asset-pack]https://lucylavend.itch.io/physics-car-game-asset-pack[/url][/color]
+
+- Sound Effect by [color=lime][url=\"https://pixabay.com/de/users/universfield-28281460/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121580\"]UNIVERSFIELD[/url][/color] from [color=lime][url=\"https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=121580\"]Pixabay[/url][/color]  (Sped up)
+- Sound Effect from [color=lime][url=\"https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=87313\"]Pixabay[/url][/color] (Cropped)"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonBack" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -90.0
+offset_right = 127.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "Back"
+
+[connection signal="meta_clicked" from="CanvasLayer/RichTextLabel" to="." method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="CanvasLayer/ButtonBack" to="." method="_on_button_back_pressed"]
