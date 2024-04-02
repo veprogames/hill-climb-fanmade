@@ -146,10 +146,10 @@ func respawn() -> void:
 
 func _on_head_body_entered(body: Node) -> void:
 	if body is SimpleTerrain:
-		if timer_respawn.is_stopped():
+		if not is_neck_broken():
 			died.emit()
 			break_neck()
-			
+		if timer_respawn.is_stopped():
 			respawn()
 
 
