@@ -36,7 +36,7 @@ horizontal_alignment = 1
 
 [node name="LabelVersion" type="Label" parent="CanvasLayerUI"]
 modulate = Color(1, 1, 1, 0.25098)
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -78.0
@@ -77,7 +77,7 @@ offset_bottom = 82.0
 text = "Quit"
 
 [node name="HBoxContainerL" type="HBoxContainer" parent="CanvasLayerUI"]
-anchors_preset = -1
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
@@ -95,7 +95,7 @@ layout_mode = 2
 text = "Shop"
 
 [node name="HBoxContainerR" type="HBoxContainer" parent="CanvasLayerUI"]
-anchors_preset = -1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

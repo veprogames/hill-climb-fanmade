@@ -22,7 +22,7 @@ stretch_mode = 6
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -68.5
@@ -50,7 +50,7 @@ text = "- Physics car game asset pack by LucyLavend: [color=lime][url=https://lu
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonBack" type="Button" parent="CanvasLayer"]
-anchors_preset = -1
+anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
