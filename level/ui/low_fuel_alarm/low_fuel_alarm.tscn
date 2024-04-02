@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c28b4tgfroa80"]
+[gd_scene load_steps=7 format=3 uid="uid://c28b4tgfroa80"]
 
 [ext_resource type="Script" path="res://level/ui/low_fuel_alarm/low_fuel_alarm.gd" id="1_4n0b8"]
 [ext_resource type="Texture2D" uid="uid://b4cdm457hi1oo" path="res://level/ui/low_fuel_alarm/alarm.png" id="1_krt7u"]
+[ext_resource type="AudioStream" uid="uid://c5d0ce8p3ba61" path="res://level/ui/low_fuel_alarm/beep.ogg" id="3_50e08"]
 
 [sub_resource type="Animation" id="Animation_x6lbm"]
 length = 0.001
@@ -21,6 +22,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayerBeep")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_60gtc"]
 _data = {
@@ -29,6 +44,7 @@ _data = {
 }
 
 [node name="LowFuelAlarm" type="Control"]
+modulate = Color(1, 1, 1, 0.367263)
 custom_minimum_size = Vector2(720, 192)
 layout_mode = 3
 anchors_preset = 0
@@ -65,3 +81,7 @@ horizontal_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_60gtc")
 }
+
+[node name="AudioStreamPlayerBeep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_50e08")
+volume_db = -9.0
