@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Hill Climb Moddy"
 config/description="One Car, many Possibilites."
-config/version="1.0"
+config/version="1.0.1"
 run/main_scene="res://main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.png"
