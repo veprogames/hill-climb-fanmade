@@ -18,6 +18,7 @@ var touch_brake: bool = false : set = _set_touch_brake
 var fuel: float = 1.0
 
 var on_low_fuel: bool = false
+var out_of_fuel: bool = false
 
 var highest_x: float = 0.0
 
@@ -69,7 +70,8 @@ func _process(delta: float) -> void:
 		on_low_fuel = true
 		low_fuel_reached.emit()
 	
-	if is_out_of_fuel() and not is_game_over():
+	if !out_of_fuel and fuel <= 0.0:
+		out_of_fuel = true
 		fuel_depleted.emit()
 		respawn()
 	
@@ -127,9 +129,6 @@ func is_neck_broken() -> bool:
 func is_game_over() -> bool:
 	return !timer_respawn.is_stopped()
 
-func is_out_of_fuel() -> bool:
-	return fuel <= 0
-
 func can_drive() -> bool:
 	return !is_game_over()
 
@@ -160,3 +159,4 @@ func _on_timer_respawn_timeout() -> void:
 
 func _on_refueled(_was_out_of: bool) -> void:
 	on_low_fuel = false
+	out_of_fuel = false
