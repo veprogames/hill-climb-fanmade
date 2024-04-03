@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/autumn_regular.ttf" id="1_a7ig3"]
+[ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="1_n2ras"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca2re"]
 content_margin_left = 16.0
@@ -79,6 +80,15 @@ shadow_color = Color(0, 0, 0, 0.392157)
 shadow_size = 1
 shadow_offset = Vector2(4, 4)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_656he"]
+bg_color = Color(0, 0, 0, 0.431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bea5"]
+bg_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivsnh"]
+bg_color = Color(0, 0, 0, 0.470588)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gd8r3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb0no"]
@@ -91,6 +101,9 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ooep2"]
+texture = ExtResource("1_n2ras")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8pax"]
 bg_color = Color(0, 0, 0, 1)
@@ -134,6 +147,10 @@ Button/styles/disabled = SubResource("StyleBoxFlat_ca2re")
 Button/styles/hover = SubResource("StyleBoxFlat_t46no")
 Button/styles/normal = SubResource("StyleBoxFlat_0xwx6")
 Button/styles/pressed = SubResource("StyleBoxFlat_83sl2")
+ButtonFlat/base_type = &"Button"
+ButtonFlat/styles/hover = SubResource("StyleBoxFlat_656he")
+ButtonFlat/styles/normal = SubResource("StyleBoxFlat_0bea5")
+ButtonFlat/styles/pressed = SubResource("StyleBoxFlat_ivsnh")
 HBoxContainer/constants/separation = 32
 HFlowContainer/constants/h_separation = 32
 HFlowContainer/constants/v_separation = 32
@@ -151,6 +168,8 @@ MarginContainer/constants/margin_left = 16
 MarginContainer/constants/margin_right = 16
 MarginContainer/constants/margin_top = 16
 Panel/styles/panel = SubResource("StyleBoxFlat_kb0no")
+PanelGradient/base_type = &"Panel"
+PanelGradient/styles/panel = SubResource("StyleBoxTexture_ooep2")
 PanelShadow/base_type = &"Panel"
 PanelShadow/styles/panel = SubResource("StyleBoxFlat_l8pax")
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)

@@ -1,6 +1,8 @@
 class_name LevelUI
 extends Control
 
+var PauseModalScene: PackedScene = preload("res://modal/pause_modal.tscn")
+
 @onready var label_distance: Label = $LabelDistance
 @onready var label_highscore: Label = $HBoxContainerHighscore/LabelHighscore
 @onready var fuel_bar: FuelBar = $VBoxContainer/HBoxContainer/FuelBar
@@ -26,6 +28,9 @@ func _ready() -> void:
 	player.fuel_depleted.connect(_on_player_fuel_depleted)
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		pause_game()
+	
 	var meters: float = player.highest_x / Level.PX_TO_M
 	meters = maxf(0, meters)
 	label_distance.text = "%s m" % F.F(meters)
@@ -56,6 +61,11 @@ func get_distance_to_next_fuel_in_meters() -> float:
 func get_highscore() -> float:
 	return Game.save.highscores.get_highscore(level.data)
 
+func pause_game() -> void:
+	var modal: PauseModal = PauseModalScene.instantiate() as PauseModal
+	add_child(modal)
+
+
 func _on_player_gas_changed(new_state: bool) -> void:
 	if new_state:
 		pedal_r.activate()
@@ -76,3 +86,7 @@ func _on_player_fuel_depleted() -> void:
 
 func _on_player_refueled(_was_out_of: bool) -> void:
 	low_fuel_alarm.deactivate()
+
+
+func _on_button_pause_pressed() -> void:
+	pause_game()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dr80skw7ns3ak"]
+[gd_scene load_steps=11 format=3 uid="uid://dr80skw7ns3ak"]
 
 [ext_resource type="Script" path="res://level/ui/level_ui.gd" id="1_3muol"]
 [ext_resource type="Texture2D" uid="uid://b1eqxypeue8iv" path="res://collectibles/fuel/fuel.png" id="2_wv2ak"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cahox3uu8r2gb" path="res://level/ui/gauge/gauge.tscn" id="5_fl8er"]
 [ext_resource type="PackedScene" uid="uid://c28b4tgfroa80" path="res://level/ui/low_fuel_alarm/low_fuel_alarm.tscn" id="6_75jpt"]
 [ext_resource type="Texture2D" uid="uid://caobgj8ei6ev8" path="res://global/art/trophy.png" id="9_bmjdt"]
+[ext_resource type="Texture2D" uid="uid://c68fig6p2ongj" path="res://level/ui/pause.png" id="10_gb3my"]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_3muol")
 
 [node name="LabelDistance" type="Label" parent="."]
@@ -105,7 +107,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -192.0
 offset_top = 16.0
-offset_right = -16.0
+offset_right = -160.0
 offset_bottom = 87.0
 grow_horizontal = 0
 theme_override_constants/separation = 16
@@ -120,3 +122,17 @@ layout_mode = 2
 theme_type_variation = &"Label_L"
 text = "0m"
 horizontal_alignment = 2
+
+[node name="ButtonPause" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_bottom = 93.0
+grow_horizontal = 0
+theme_type_variation = &"ButtonFlat"
+icon = ExtResource("10_gb3my")
+icon_alignment = 1
+
+[connection signal="pressed" from="ButtonPause" to="." method="_on_button_pause_pressed"]

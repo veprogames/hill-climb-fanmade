@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfnsa5cwjgwb"]
+
+[ext_resource type="PackedScene" uid="uid://djqqmkyh3uqm4" path="res://modal/base_modal.tscn" id="1_eyydy"]
+[ext_resource type="Script" path="res://modal/pause_modal.gd" id="2_38h54"]
+
+[node name="PauseModal" instance=ExtResource("1_eyydy")]
+process_mode = 3
+script = ExtResource("2_38h54")
+
+[node name="Backdrop" parent="." index="0"]
+modulate = Color(1, 1, 1, 1)
+
+[node name="Panel" parent="." index="1"]
+scale = Vector2(1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" index="0"]
+layout_mode = 2
+theme_type_variation = &"Label_L"
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" index="1"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonContinue" type="Button" parent="Panel/VBoxContainer/HBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue"
+
+[node name="ButtonMainMenu" type="Button" parent="Panel/VBoxContainer/HBoxContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+
+[connection signal="closed" from="." to="." method="_on_closed"]
+[connection signal="opened" from="." to="." method="_on_opened"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/ButtonMainMenu" to="." method="_on_button_main_menu_pressed"]

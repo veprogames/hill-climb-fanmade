@@ -51,7 +51,7 @@ func _set_touch_gas(gas: bool) -> void:
 	touch_gas = gas
 	gas_changed.emit(gas)
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	var touch_event: InputEventScreenTouch = event as InputEventScreenTouch
 	if touch_event != null:
 		var x_half: float = viewport_rect.position.x + viewport_rect.size.x / 2.0
