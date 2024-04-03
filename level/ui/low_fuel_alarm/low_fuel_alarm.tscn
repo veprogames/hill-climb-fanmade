@@ -48,6 +48,7 @@ modulate = Color(1, 1, 1, 0.367263)
 custom_minimum_size = Vector2(720, 192)
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_4n0b8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
