@@ -33,7 +33,7 @@ func get_all_effects() -> CarStats:
 		UpgradeItemDefinition.StatType.EngineAcceleration: 1.0,
 		UpgradeItemDefinition.StatType.WheelSize: 1.0,
 		UpgradeItemDefinition.StatType.FuelCapacity: 30.0,
-		UpgradeItemDefinition.StatType.Bounciness: 16.0,
+		UpgradeItemDefinition.StatType.Bounciness: 1.0,
 		UpgradeItemDefinition.StatType.DownwardPressure: 0.0,
 		UpgradeItemDefinition.StatType.AirRotationSpeed: 1.0,
 	}

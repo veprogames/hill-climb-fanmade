@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://car/car_wheel.gd" id="1_yrvhc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bbnh7"]
-bounce = 0.6
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_17q2n"]
 radius = 62.0725

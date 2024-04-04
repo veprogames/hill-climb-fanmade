@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_h7ir7"]
 script = ExtResource("1_6ulwd")
 base = 0.4
-multiplier = 0.15
+multiplier = 0.25
 exponent = 1.0
 
 [sub_resource type="Resource" id="Resource_33c18"]

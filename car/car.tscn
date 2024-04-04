@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0yg0e2kyk0ig"]
+[gd_scene load_steps=11 format=3 uid="uid://d0yg0e2kyk0ig"]
 
 [ext_resource type="Texture2D" uid="uid://c8nr83f3w15bk" path="res://car/car.png" id="1_nr2ec"]
 [ext_resource type="Script" path="res://car/car.gd" id="1_roxxv"]
@@ -10,11 +10,6 @@
 [ext_resource type="AudioStream" uid="uid://0e4jnsnb0q6o" path="res://car/break_neck.ogg" id="8_nqauj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_voebe"]
-bounce = 0.5
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rmokm"]
-radius = 32.0
-height = 360.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5k6y"]
 radius = 42.17
@@ -28,11 +23,6 @@ script = ExtResource("1_roxxv")
 [node name="Body" type="Sprite2D" parent="."]
 position = Vector2(-51, -33)
 texture = ExtResource("2_t5wce")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_rmokm")
 
 [node name="PinJointL" type="PinJoint2D" parent="."]
 position = Vector2(-151, 91)
@@ -80,6 +70,10 @@ shape = SubResource("CircleShape2D_b5k6y")
 
 [node name="CarSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_nr2ec")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-17, 12)
+polygon = PackedVector2Array(-189, -44, -168, 9, -139, 29, -82, 53, -20, 62, 63, 51, 139, 30, 175, 9, 185, -11, 191, -26, -25, 2)
 
 [node name="TimerRespawn" type="Timer" parent="."]
 wait_time = 5.0

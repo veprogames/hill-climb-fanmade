@@ -110,13 +110,15 @@ func scale_wheels(to_scale: float) -> void:
 	wheel_l.wheel_scale = to_scale
 	wheel_r.wheel_scale = to_scale
 
-func set_bounciness(joint_softness: float) -> void:
+func set_joint_softness(joint_softness: float) -> void:
 	pin_joint_l.softness = joint_softness
 	pin_joint_r.softness = joint_softness
 
 func apply_car_stats() -> void:
 	scale_wheels(stats.wheel_size)
-	set_bounciness(stats.bounciness)
+	set_joint_softness(stats.get_joint_softness())
+	for wheel: CarWheel in [wheel_l, wheel_r]:
+		wheel.set_bounciness(stats.bounciness)
 
 func break_neck() -> void:
 	pin_joint_2d_neck.node_a = ""

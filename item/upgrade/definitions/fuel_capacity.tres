@@ -26,4 +26,4 @@ stat = 2
 operation = 0
 price_formula = SubResource("Resource_33c18")
 effect_formula = SubResource("Resource_h7ir7")
-max_level = 20
+max_level = 16

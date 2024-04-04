@@ -10,3 +10,6 @@ func _set_wheel_scale(scale_: float) -> void:
 	wheel_scale = scale_
 	sprite_2d.scale = Vector2.ONE * scale_
 	collision_shape_2d.scale = Vector2.ONE * scale_
+
+func set_bounciness(bounciness: float) -> void:
+	physics_material_override.bounce = bounciness
