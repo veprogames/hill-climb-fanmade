@@ -15,7 +15,7 @@ exponent = 1.0
 script = ExtResource("2_tgdlm")
 base = 0.0
 multiplier = 3000.0
-exponent = 1.55
+exponent = 1.45
 
 [resource]
 script = ExtResource("3_1xrqa")
