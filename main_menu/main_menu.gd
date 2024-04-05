@@ -1,6 +1,9 @@
 class_name MainMenu
 extends Node2D
 
+var CreditsModalScene: PackedScene = preload("res://modal/credits_modal.tscn")
+
+@onready var canvas_layer_ui: CanvasLayer = $CanvasLayerUI
 @onready var label_version: Label = $CanvasLayerUI/LabelVersion
 
 func _ready() -> void:
@@ -25,4 +28,5 @@ func _on_button_source_code_pressed() -> void:
 
 
 func _on_button_credits_pressed() -> void:
-	get_tree().change_scene_to_file("res://credits/credits.tscn")
+	var modal: CreditsModal = CreditsModalScene.instantiate() as CreditsModal
+	canvas_layer_ui.add_child(modal)
