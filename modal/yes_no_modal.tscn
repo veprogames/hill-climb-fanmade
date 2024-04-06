@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://rpsmheyb8rn6"]
+
+[ext_resource type="PackedScene" uid="uid://bj6kbry1we4wm" path="res://modal/base_action_modal.tscn" id="1_qnb0w"]
+[ext_resource type="Script" path="res://modal/yes_no_modal.gd" id="2_lmblf"]
+
+[node name="YesNoModal" instance=ExtResource("1_qnb0w")]
+script = ExtResource("2_lmblf")
+
+[node name="ButtonYes" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainerActions" index="0"]
+layout_mode = 2
+text = "Yes"
+
+[node name="ButtonNo" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainerActions" index="1"]
+layout_mode = 2
+theme_type_variation = &"RedButton"
+text = "No"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainerActions/ButtonYes" to="." method="_on_button_yes_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainerActions/ButtonNo" to="." method="_on_button_no_pressed"]

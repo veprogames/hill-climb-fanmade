@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/autumn_regular.ttf" id="1_a7ig3"]
 [ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="1_n2ras"]
@@ -126,6 +126,63 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfxxa"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 0.470588, 0.290196, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2n8n7"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.996078, 0.333333, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r17ux"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 0.607843, 0.478431, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 1
+shadow_offset = Vector2(4, 4)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu3pc"]
 bg_color = Color(0, 0, 0, 0.470588)
 corner_radius_top_left = 16
@@ -184,6 +241,10 @@ ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 16
 ProgressBar/styles/background = SubResource("StyleBoxFlat_h7xgs")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_13ies")
+RedButton/base_type = &"Button"
+RedButton/styles/hover = SubResource("StyleBoxFlat_mfxxa")
+RedButton/styles/normal = SubResource("StyleBoxFlat_2n8n7")
+RedButton/styles/pressed = SubResource("StyleBoxFlat_r17ux")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
 RichTextLabel/constants/outline_size = 16
 TransparentButton/base_type = &"Button"

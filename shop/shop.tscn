@@ -109,4 +109,5 @@ offset_bottom = -16.0
 grow_vertical = 0
 text = "Back"
 
+[connection signal="item_offer_pressed" from="CanvasLayer/CenterContainer/UIShopUpgradeItemOfferList" to="." method="_on_ui_shop_upgrade_item_offer_list_item_offer_pressed"]
 [connection signal="pressed" from="CanvasLayer/ButtonBack" to="." method="_on_button_back_pressed"]

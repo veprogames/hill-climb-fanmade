@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://j0a0iqfgu3j1"]
+
+[ext_resource type="PackedScene" uid="uid://rpsmheyb8rn6" path="res://modal/yes_no_modal.tscn" id="1_du07f"]
+[ext_resource type="Script" path="res://modal/shop_item_offer_buy_modal.gd" id="2_k01xj"]
+
+[node name="ShopItemOfferBuyModal" instance=ExtResource("1_du07f")]
+script = ExtResource("2_k01xj")
+offer = null
+
+[connection signal="yes_pressed" from="." to="." method="_on_yes_pressed"]
