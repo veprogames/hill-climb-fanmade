@@ -17,7 +17,8 @@ signal item_equipped_changed(to: bool)
 
 @onready var center_container_empty: CenterContainer = $CenterContainerEmpty
 
-var stream_buy: AudioStream = preload("res://global/sfx/buy.ogg")
+const stream_buy: AudioStream = preload("res://global/sfx/buy.ogg")
+const stream_equip: AudioStream = preload("res://item/equip.ogg")
 
 func _ready() -> void:
 	update_ui()
@@ -92,6 +93,7 @@ func _on_item_level_changed(_to: int) -> void:
 func _on_item_equipped_changed(equipped: bool) -> void:
 	update_equip_button()
 	item_equipped_changed.emit(equipped)
+	GlobalSound.play(stream_equip)
 
 
 func _on_item_upgraded() -> void:
