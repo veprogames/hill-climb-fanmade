@@ -22,3 +22,7 @@ func _on_ui_upgrade_item_list_item_selected(item: UpgradeItem) -> void:
 
 func _on_ui_upgrade_item_details_item_equipped_changed(_to: bool) -> void:
 	update_equipped_text()
+
+
+func _on_button_get_more_pressed() -> void:
+	get_tree().change_scene_to_file("res://shop/shop.tscn")

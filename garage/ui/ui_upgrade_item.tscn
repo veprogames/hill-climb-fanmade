@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://12pmsl2armet"]
+[gd_scene load_steps=5 format=3 uid="uid://12pmsl2armet"]
 
 [ext_resource type="Script" path="res://garage/ui/ui_upgrade_item.gd" id="1_0ufmr"]
 [ext_resource type="Texture2D" uid="uid://cf2ppoiab0kfm" path="res://global/art/square.png" id="2_6rh4s"]
-[ext_resource type="Texture2D" uid="uid://cej4ene8ulc00" path="res://garage/ui/equipped.png" id="2_rtjxk"]
 [ext_resource type="Texture2D" uid="uid://t5ln8w5btsyp" path="res://global/art/square_pressed.png" id="3_77rjo"]
 [ext_resource type="Texture2D" uid="uid://c83qkmuqh0lqa" path="res://global/art/square_hover.png" id="4_a3yx7"]
 
@@ -34,20 +33,6 @@ grow_vertical = 2
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
-
-[node name="TextureEquipped" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -48.0
-offset_top = -48.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_filter = 2
-texture = ExtResource("2_rtjxk")
 
 [node name="LabelLevel" type="Label" parent="."]
 layout_mode = 1

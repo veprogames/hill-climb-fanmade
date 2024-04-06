@@ -46,13 +46,29 @@ grow_vertical = 2
 split_offset = 1200
 dragger_visibility = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HSplitContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HSplitContainer"]
 layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="UIUpgradeItemList" parent="CanvasLayer/HSplitContainer/ScrollContainer" instance=ExtResource("1_t42ah")]
+[node name="UIUpgradeItemList" parent="CanvasLayer/HSplitContainer/VBoxContainer/ScrollContainer" instance=ExtResource("1_t42ah")]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ButtonBack" type="Button" parent="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back"
+
+[node name="ButtonGetMore" type="Button" parent="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Get More Items"
 
 [node name="Details" type="Control" parent="CanvasLayer/HSplitContainer"]
 layout_mode = 2
@@ -91,17 +107,7 @@ theme_type_variation = &"Label_L"
 text = "0 / 0"
 horizontal_alignment = 1
 
-[node name="ButtonBack" type="Button" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = -66.0
-offset_right = 103.0
-offset_bottom = -16.0
-grow_vertical = 0
-text = "Back"
-
-[connection signal="item_selected" from="CanvasLayer/HSplitContainer/ScrollContainer/UIUpgradeItemList" to="." method="_on_ui_upgrade_item_list_item_selected"]
+[connection signal="item_selected" from="CanvasLayer/HSplitContainer/VBoxContainer/ScrollContainer/UIUpgradeItemList" to="." method="_on_ui_upgrade_item_list_item_selected"]
+[connection signal="pressed" from="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer/ButtonBack" to="." method="_on_button_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer/ButtonGetMore" to="." method="_on_button_get_more_pressed"]
 [connection signal="item_equipped_changed" from="CanvasLayer/HSplitContainer/Details/VBoxContainer/UIUpgradeItemDetails" to="." method="_on_ui_upgrade_item_details_item_equipped_changed"]
-[connection signal="pressed" from="CanvasLayer/ButtonBack" to="." method="_on_button_back_pressed"]
