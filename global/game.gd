@@ -1,25 +1,20 @@
-class_name GameNode
+class_name Game
 extends Node
 
 const SAVE_PATH: String = "user://hill_climb_savegame.tres"
 
-var save: SaveGame = SaveGame.new()
+static var save: SaveGame = SaveGame.new()
 
-func _ready() -> void:
-	save.initialize()
-	
-	try_load_game()
+static func save_game() -> void:
+	ResourceSaver.save(Game.save, SAVE_PATH)
 
-func save_game() -> void:
-	ResourceSaver.save(save, SAVE_PATH)
-
-func try_load_game() -> void:
+static func try_load_game() -> void:
 	if FileAccess.file_exists(SAVE_PATH):
 		var loaded: SaveGame = SafeResourceLoader.load(SAVE_PATH) as SaveGame
 		
 		if loaded != null:
-			save.coins = loaded.coins
-			save.gems = loaded.gems
-			save.garage.inventory = loaded.garage.inventory
-			save.shop.item_offers = loaded.shop.item_offers
-			save.highscores = loaded.highscores
+			Game.save.coins = loaded.coins
+			Game.save.gems = loaded.gems
+			Game.save.garage.inventory = loaded.garage.inventory
+			Game.save.shop.item_offers = loaded.shop.item_offers
+			Game.save.highscores = loaded.highscores
