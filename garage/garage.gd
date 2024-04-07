@@ -7,6 +7,9 @@ extends Node2D
 var garage: SaveGameGarage = Game.save.garage
 
 func _ready() -> void:
+	Game.save.garage.item_selected.connect(_on_garage_item_selected)
+	Game.save.garage.item_equipped_changed.connect(_on_garage_item_equipped_changed)
+	
 	update_equipped_text()
 
 func update_equipped_text() -> void:
@@ -16,11 +19,10 @@ func _on_button_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
 
 
-func _on_ui_upgrade_item_list_item_selected(item: UpgradeItem) -> void:
+func _on_garage_item_selected(item: UpgradeItem) -> void:
 	ui_upgrade_item_details.item = item
 
-
-func _on_ui_upgrade_item_details_item_equipped_changed(_to: bool) -> void:
+func _on_garage_item_equipped_changed(_item: UpgradeItem, _to: bool) -> void:
 	update_equipped_text()
 
 

@@ -4,6 +4,8 @@ extends Resource
 signal item_offer_added(offer: ShopUpgradeItemOffer)
 signal item_offer_removed(offer: ShopUpgradeItemOffer)
 
+signal item_offer_pressed(offer: ShopUpgradeItemOffer)
+
 @export var item_offers: Array[ShopUpgradeItemOffer] = []
 @export var refresh_offer: ShopOffer = ShopOffer.new(100)
 

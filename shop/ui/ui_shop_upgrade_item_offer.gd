@@ -1,10 +1,6 @@
 class_name UIShopUpgradeItemOffer
 extends Control
 
-signal pressed(with_confirmation: ShopItemOfferBuyModal)
-
-const ModalScene: PackedScene = preload("res://modal/shop_item_offer_buy_modal.tscn")
-
 @onready var offer: ShopUpgradeItemOffer
 
 @onready var label_price: Label = $HBoxPrice/LabelPrice
@@ -36,6 +32,4 @@ func _on_offer_removed() -> void:
 
 
 func _on_texture_button_buy_pressed() -> void:
-	var modal: ShopItemOfferBuyModal = ModalScene.instantiate() as ShopItemOfferBuyModal
-	modal.offer = offer
-	pressed.emit(modal)
+	Game.save.shop.item_offer_pressed.emit(offer)

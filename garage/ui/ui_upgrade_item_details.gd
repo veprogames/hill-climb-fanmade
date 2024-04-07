@@ -1,8 +1,6 @@
 class_name UIUpgradeItemDetails
 extends Control
 
-signal item_equipped_changed(to: bool)
-
 @export var item: UpgradeItem : set = _set_item
 
 @onready var label_title: Label = %LabelTitle
@@ -92,7 +90,7 @@ func _on_item_level_changed(_to: int) -> void:
 
 func _on_item_equipped_changed(equipped: bool) -> void:
 	update_equip_button()
-	item_equipped_changed.emit(equipped)
+	Game.save.garage.item_equipped_changed.emit(item, equipped)
 	GlobalSound.play(stream_equip)
 
 

@@ -1,8 +1,6 @@
 class_name UIUpgradeItem
 extends Control
 
-signal selected(item: UpgradeItem)
-
 const COLOR_EQUIPPED: Color = Color(0, 0.702, 0.412) * 2.5
 
 @export var item: UpgradeItem
@@ -30,4 +28,4 @@ func _on_item_level_changed(to: int) -> void:
 	label_level.text = "+%d" % to
 
 func _on_texture_button_pressed() -> void:
-	selected.emit(item)
+	Game.save.garage.item_selected.emit(item)

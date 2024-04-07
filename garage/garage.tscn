@@ -107,7 +107,5 @@ theme_type_variation = &"Label_L"
 text = "0 / 0"
 horizontal_alignment = 1
 
-[connection signal="item_selected" from="CanvasLayer/HSplitContainer/VBoxContainer/ScrollContainer/UIUpgradeItemList" to="." method="_on_ui_upgrade_item_list_item_selected"]
 [connection signal="pressed" from="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer/ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer/ButtonGetMore" to="." method="_on_button_get_more_pressed"]
-[connection signal="item_equipped_changed" from="CanvasLayer/HSplitContainer/Details/VBoxContainer/UIUpgradeItemDetails" to="." method="_on_ui_upgrade_item_details_item_equipped_changed"]

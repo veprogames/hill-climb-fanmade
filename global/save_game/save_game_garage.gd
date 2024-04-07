@@ -5,6 +5,9 @@ const MAX_EQUIPS: int = 10
 
 signal item_added(item: UpgradeItem)
 
+signal item_selected(item: UpgradeItem)
+signal item_equipped_changed(item: UpgradeItem, to: bool)
+
 @export var inventory: Array[UpgradeItem] = []
 
 var definition_engine: UpgradeItemDefinition = preload("res://item/upgrade/definitions/engine_acceleration.tres")
