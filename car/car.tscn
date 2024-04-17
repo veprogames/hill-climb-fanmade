@@ -30,6 +30,7 @@ texture = ExtResource("2_t5wce")
 position = Vector2(-151, 91)
 node_a = NodePath("..")
 node_b = NodePath("WheelL")
+bias = 0.25
 softness = 16.0
 metadata/_edit_group_ = true
 
@@ -39,6 +40,7 @@ metadata/_edit_group_ = true
 position = Vector2(109, 90)
 node_a = NodePath("..")
 node_b = NodePath("WheelR")
+bias = 0.25
 softness = 16.0
 metadata/_edit_group_ = true
 

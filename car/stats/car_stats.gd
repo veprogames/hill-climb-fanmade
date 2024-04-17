@@ -1,8 +1,8 @@
 class_name CarStats
 extends RefCounted
 
-const BASE_ACCELERATION: float = 80_000.0
-const BASE_AIR_ROTATION_SPEED: float = 250_000.0
+const BASE_ACCELERATION: float = 100_000.0
+const BASE_AIR_ROTATION_SPEED: float = 300_000.0
 const BASE_DOWNWARD_PRESSURE: Vector2 = Vector2.DOWN * 1_000.0
 
 var _raw_engine_acceleration: float = 1.0 : set = _set_raw_engine_acceleration
@@ -29,4 +29,7 @@ func _set_raw_downward_pressure(pressure: float) -> void:
 	downward_pressure = pressure * BASE_DOWNWARD_PRESSURE
 
 func get_joint_softness() -> float:
-	return bounciness * 16.0
+	return 2.0 + (bounciness ** 0.5) * 14.0
+
+func get_joint_bias() -> float:
+	return bounciness * 0.25

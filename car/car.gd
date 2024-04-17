@@ -114,9 +114,14 @@ func set_joint_softness(joint_softness: float) -> void:
 	pin_joint_l.softness = joint_softness
 	pin_joint_r.softness = joint_softness
 
+func set_joint_bias(bias: float) -> void:
+	pin_joint_l.bias = bias
+	pin_joint_r.bias = bias
+
 func apply_car_stats() -> void:
 	scale_wheels(stats.wheel_size)
 	set_joint_softness(stats.get_joint_softness())
+	set_joint_bias(stats.get_joint_bias())
 	for wheel: CarWheel in [wheel_l, wheel_r]:
 		wheel.set_bounciness(stats.bounciness)
 
