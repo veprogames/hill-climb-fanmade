@@ -7,6 +7,7 @@
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_17q2n"]
+custom_solver_bias = 0.9
 radius = 62.0725
 
 [node name="CarWheel" type="RigidBody2D"]
@@ -14,6 +15,8 @@ collision_layer = 2
 collision_mask = 8
 mass = 0.25
 physics_material_override = SubResource("PhysicsMaterial_bbnh7")
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_yrvhc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,3 +24,6 @@ texture = ExtResource("1_68ixl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_17q2n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

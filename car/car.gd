@@ -95,13 +95,18 @@ func _physics_process(_delta: float) -> void:
 		if touch_brake:
 			wheel_l.apply_torque(-engine_acceleration)
 			wheel_r.apply_torque(-engine_acceleration)
-			apply_torque(air_rotation_speed)
+			if !is_on_ground():
+				apply_torque(air_rotation_speed)
 		elif touch_gas:
 			wheel_l.apply_torque(engine_acceleration)
 			wheel_r.apply_torque(engine_acceleration)
-			apply_torque(-air_rotation_speed)
+			if !is_on_ground():
+				apply_torque(-air_rotation_speed)
 	
 	apply_central_force(stats.downward_pressure)
+
+func is_on_ground() -> bool:
+	return true in [wheel_l.on_ground, wheel_r.on_ground]
 
 func get_meters_per_second() -> float:
 	return absf(linear_velocity.x / Level.PX_TO_M)
@@ -114,9 +119,14 @@ func set_joint_softness(joint_softness: float) -> void:
 	pin_joint_l.softness = joint_softness
 	pin_joint_r.softness = joint_softness
 
+func set_joint_bias(bias: float) -> void:
+	pin_joint_l.bias = bias
+	pin_joint_r.bias = bias
+
 func apply_car_stats() -> void:
 	scale_wheels(stats.wheel_size)
 	set_joint_softness(stats.get_joint_softness())
+	set_joint_bias(stats.get_joint_bias())
 	for wheel: CarWheel in [wheel_l, wheel_r]:
 		wheel.set_bounciness(stats.bounciness)
 

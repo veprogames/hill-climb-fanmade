@@ -18,6 +18,8 @@ radius = 42.17
 collision_mask = 12
 mass = 8.0
 physics_material_override = SubResource("PhysicsMaterial_voebe")
+angular_damp_mode = 1
+angular_damp = 1.5
 script = ExtResource("1_roxxv")
 
 [node name="Body" type="Sprite2D" parent="."]
@@ -28,6 +30,7 @@ texture = ExtResource("2_t5wce")
 position = Vector2(-151, 91)
 node_a = NodePath("..")
 node_b = NodePath("WheelL")
+bias = 0.3
 softness = 16.0
 metadata/_edit_group_ = true
 
@@ -37,6 +40,7 @@ metadata/_edit_group_ = true
 position = Vector2(109, 90)
 node_a = NodePath("..")
 node_b = NodePath("WheelR")
+bias = 0.3
 softness = 16.0
 metadata/_edit_group_ = true
 
