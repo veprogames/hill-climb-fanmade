@@ -2,7 +2,7 @@ class_name CarStats
 extends RefCounted
 
 const BASE_ACCELERATION: float = 100_000.0
-const BASE_AIR_ROTATION_SPEED: float = 300_000.0
+const BASE_AIR_ROTATION_SPEED: float = 200_000.0
 const BASE_DOWNWARD_PRESSURE: Vector2 = Vector2.DOWN * 1_000.0
 
 var _raw_engine_acceleration: float = 1.0 : set = _set_raw_engine_acceleration
