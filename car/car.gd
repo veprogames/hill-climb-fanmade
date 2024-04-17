@@ -95,13 +95,18 @@ func _physics_process(_delta: float) -> void:
 		if touch_brake:
 			wheel_l.apply_torque(-engine_acceleration)
 			wheel_r.apply_torque(-engine_acceleration)
-			apply_torque(air_rotation_speed)
+			if !is_on_ground():
+				apply_torque(air_rotation_speed)
 		elif touch_gas:
 			wheel_l.apply_torque(engine_acceleration)
 			wheel_r.apply_torque(engine_acceleration)
-			apply_torque(-air_rotation_speed)
+			if !is_on_ground():
+				apply_torque(-air_rotation_speed)
 	
 	apply_central_force(stats.downward_pressure)
+
+func is_on_ground() -> bool:
+	return true in [wheel_l.on_ground, wheel_r.on_ground]
 
 func get_meters_per_second() -> float:
 	return absf(linear_velocity.x / Level.PX_TO_M)
