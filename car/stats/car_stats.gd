@@ -2,7 +2,7 @@ class_name CarStats
 extends RefCounted
 
 const BASE_ACCELERATION: float = 80_000.0
-const BASE_AIR_ROTATION_SPEED: float = 300_000.0
+const BASE_AIR_ROTATION_SPEED: float = 250_000.0
 const BASE_DOWNWARD_PRESSURE: Vector2 = Vector2.DOWN * 1_000.0
 
 var _raw_engine_acceleration: float = 1.0 : set = _set_raw_engine_acceleration
@@ -22,7 +22,7 @@ func _set_raw_engine_acceleration(acceleration: float) -> void:
 
 func _set_raw_air_rotation_speed(speed: float) -> void:
 	_raw_air_rotation_speed = speed
-	air_rotation_speed = speed * BASE_ACCELERATION
+	air_rotation_speed = speed * BASE_AIR_ROTATION_SPEED
 
 func _set_raw_downward_pressure(pressure: float) -> void:
 	_raw_downward_pressure = pressure

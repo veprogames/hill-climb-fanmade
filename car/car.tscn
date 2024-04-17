@@ -18,6 +18,8 @@ radius = 42.17
 collision_mask = 12
 mass = 8.0
 physics_material_override = SubResource("PhysicsMaterial_voebe")
+angular_damp_mode = 1
+angular_damp = 1.5
 script = ExtResource("1_roxxv")
 
 [node name="Body" type="Sprite2D" parent="."]
