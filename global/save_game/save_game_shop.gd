@@ -24,15 +24,17 @@ func initialize() -> void:
 	generate_item_offers()
 
 func generate_item_offers() -> void:
-	for i: int in range(3):
-		add_random_item_offer()
+	var items: Array[UpgradeItemDefinition] = Array(definitions)
+	items.shuffle()
+	for definition: UpgradeItemDefinition in items.slice(0, 3):
+		add_item_offer(definition)
 
-func get_base_price() -> int:
-	return int(20 * (1 + 0.3 * Game.save.garage.get_item_count()))
+func get_price_multiplier() -> float:
+	return clampf(1 + 0.3 * Game.save.garage.get_item_count(), 1.0, 4.0)
 
 func add_item_offer(definition: UpgradeItemDefinition) -> void:
-	var base_price: int = get_base_price()
-	var top_price: int = int(base_price * 1.5)
+	var base_price: int = int(definition.base_gem_price * get_price_multiplier())
+	var top_price: int = int(base_price * 1.1)
 	var price: int = randi_range(base_price, top_price)
 	var offer: ShopUpgradeItemOffer = ShopUpgradeItemOffer.new(price, definition)
 	item_offers.append(offer)
