@@ -104,6 +104,7 @@ func _physics_process(_delta: float) -> void:
 				apply_torque(-air_rotation_speed)
 	
 	apply_central_force(stats.downward_pressure)
+	apply_central_force(stats.rightward_pressure)
 
 func is_on_ground() -> bool:
 	return true in [wheel_l.on_ground, wheel_r.on_ground]
@@ -124,6 +125,7 @@ func set_joint_bias(bias: float) -> void:
 	pin_joint_r.bias = bias
 
 func apply_car_stats() -> void:
+	angular_damp = stats.stability
 	scale_wheels(stats.wheel_size)
 	set_joint_softness(stats.get_joint_softness())
 	set_joint_bias(stats.get_joint_bias())

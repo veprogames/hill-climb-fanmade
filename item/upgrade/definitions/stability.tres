@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://c8fp5qsgr8a3c"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_tr0lq"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_rg37c"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_qikra"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_tr0lq")
+base = 0.2
+multiplier = 0.12
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_rg37c")
+base = 0.0
+multiplier = 9000.0
+exponent = 1.5
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnklt"]
+size = Vector2(192, 192)
+
+[resource]
+script = ExtResource("3_qikra")
+texture = SubResource("PlaceholderTexture2D_bnklt")
+title = "Stability"
+description = "Flip less easily, Control better in Air. Affects Air Rotation Speed"
+stat = 7
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+base_gem_price = 50
+max_level = 10

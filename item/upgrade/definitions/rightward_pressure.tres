@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://ddliko3b1b8pq"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_fl8sb"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_mrxxo"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_mqnef"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_fl8sb")
+base = 0.3
+multiplier = 0.15
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_mrxxo")
+base = 0.0
+multiplier = 30000.0
+exponent = 1.4
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnklt"]
+size = Vector2(192, 192)
+
+[resource]
+script = ExtResource("3_mqnef")
+texture = SubResource("PlaceholderTexture2D_bnklt")
+title = "Rightward Pressure"
+description = "Apply Pressure to the Right"
+stat = 8
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+base_gem_price = 100
+max_level = 10

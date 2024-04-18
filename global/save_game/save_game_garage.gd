@@ -39,6 +39,9 @@ func get_all_effects() -> CarStats:
 		UpgradeItemDefinition.StatType.Bounciness: 1.0,
 		UpgradeItemDefinition.StatType.DownwardPressure: 0.0,
 		UpgradeItemDefinition.StatType.AirRotationSpeed: 1.0,
+		UpgradeItemDefinition.StatType.CameraZoom: 1.0,
+		UpgradeItemDefinition.StatType.Stability: 1.0,
+		UpgradeItemDefinition.StatType.RightwardPressure: 0.0,
 	}
 	
 	var equipped: Array[UpgradeItem] = get_equipped_items()
@@ -68,6 +71,9 @@ func get_all_effects() -> CarStats:
 	stats.wheel_size = result[UpgradeItemDefinition.StatType.WheelSize]
 	stats.fuel_capacity = result[UpgradeItemDefinition.StatType.FuelCapacity]
 	stats._raw_downward_pressure = result[UpgradeItemDefinition.StatType.DownwardPressure]
+	stats._raw_rightward_pressure = result[UpgradeItemDefinition.StatType.RightwardPressure]
+	stats._raw_stability = result[UpgradeItemDefinition.StatType.Stability]
+	stats.camera_zoom = result[UpgradeItemDefinition.StatType.CameraZoom]
 	stats.bounciness = result[UpgradeItemDefinition.StatType.Bounciness]
 	
 	return stats

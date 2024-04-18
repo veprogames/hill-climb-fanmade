@@ -11,7 +11,6 @@ enum StatType {
 	AirRotationSpeed,
 	# Tier 2
 	CameraZoom,
-	CenterOfMassX,
 	Stability,
 	# Tier 3
 	RightwardPressure,

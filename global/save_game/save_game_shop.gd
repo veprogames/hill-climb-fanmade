@@ -11,7 +11,7 @@ signal item_offer_pressed(offer: ShopUpgradeItemOffer)
 
 var definition_engine: UpgradeItemDefinition = preload("res://item/upgrade/definitions/engine_acceleration.tres")
 
-var definitions: Array[UpgradeItemDefinition] = [
+var definitions_pool_1: Array[UpgradeItemDefinition] = [
 	definition_engine,
 	preload("res://item/upgrade/definitions/wheel_size.tres"),
 	preload("res://item/upgrade/definitions/fuel_capacity.tres"),
@@ -20,13 +20,24 @@ var definitions: Array[UpgradeItemDefinition] = [
 	preload("res://item/upgrade/definitions/air_rotation_speed.tres"),
 ]
 
+var definitions_pool_2: Array[UpgradeItemDefinition] = [
+	preload("res://item/upgrade/definitions/binoculars_zoom.tres"),
+	preload("res://item/upgrade/definitions/stability.tres"),
+	preload("res://item/upgrade/definitions/rightward_pressure.tres"),
+]
+
 func initialize() -> void:
 	generate_item_offers()
 
-func generate_item_offers() -> void:
-	var items: Array[UpgradeItemDefinition] = Array(definitions)
+func roll_offers(pool: Array[UpgradeItemDefinition], amount: int) -> Array[UpgradeItemDefinition]:
+	var items: Array[UpgradeItemDefinition] = Array(pool)
 	items.shuffle()
-	for definition: UpgradeItemDefinition in items.slice(0, 3):
+	return items.slice(0, amount)
+
+func generate_item_offers() -> void:
+	for definition: UpgradeItemDefinition in roll_offers(definitions_pool_1, 3):
+		add_item_offer(definition)
+	for definition: UpgradeItemDefinition in roll_offers(definitions_pool_2, 1):
 		add_item_offer(definition)
 
 func get_price_multiplier() -> float:
@@ -39,10 +50,6 @@ func add_item_offer(definition: UpgradeItemDefinition) -> void:
 	var offer: ShopUpgradeItemOffer = ShopUpgradeItemOffer.new(price, definition)
 	item_offers.append(offer)
 	item_offer_added.emit(offer)
-
-func add_random_item_offer() -> void:
-	var definition: UpgradeItemDefinition = definitions.pick_random()
-	add_item_offer(definition)
 
 func remove_item_offer(offer: ShopUpgradeItemOffer) -> void:
 	item_offers.erase(offer)
