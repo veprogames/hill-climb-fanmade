@@ -100,7 +100,7 @@ func update_base_vertices() -> void:
 	worldborder_r.position.x = last_terrain_vertex.x
 
 func get_initial_vertices() -> PackedVector2Array:
-	var count: int = 176
+	var count: int = 256
 	var x: float = -VERTEX_GAP * 96.0
 	var x_0: float = x
 	

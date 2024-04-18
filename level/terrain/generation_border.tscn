@@ -4,7 +4,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7rrl5"]
 normal = Vector2(-1, 0)
-distance = 3200.0
+distance = 6400.0
 
 [node name="GenerationBorder" type="Area2D"]
 collision_layer = 4

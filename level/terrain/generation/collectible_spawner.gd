@@ -18,8 +18,10 @@ var gems_spawned: int = 0
 
 func _ready() -> void:
 	# pregenerate
-	spawn_coins(get_next_coins())
-	spawn_gems(get_next_gems())
+	while get_next_coins() / Level.PX_TO_M < 200:
+		spawn_coins(get_next_coins())
+	while get_next_gems() / Level.PX_TO_M < 200:
+		spawn_gems(get_next_gems())
 	spawn_fuel(get_next_fuel())
 	
 	terrain.generated.connect(_on_terrain_generated)
