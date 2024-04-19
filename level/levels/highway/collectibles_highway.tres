@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_jjk2i")
 fuel_distance_base = 135.0
-fuel_distance_delta = 15.0
-fuel_distance_exponent = 2.0
+fuel_distance_delta = 12.0
+fuel_distance_exponent = 2.1
 fuel_distance_snap = 30.0
 coin_distance = 30.0
 coin_distance_offset = 5.0
