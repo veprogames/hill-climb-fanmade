@@ -94,10 +94,10 @@ func update_base_vertices() -> void:
 	points[-2] = Vector2(last_terrain_vertex.x, points[-2].y)
 	points[-1] = Vector2(first_terrain_vertex.x, points[-1].y)
 	
-	generation_border.position.x = last_terrain_vertex.x
-	worldborder_l.position.x = first_terrain_vertex.x
-	collectible_destroyer.position.x = first_terrain_vertex.x
-	worldborder_r.position.x = last_terrain_vertex.x
+	generation_border.position = last_terrain_vertex
+	worldborder_l.position = first_terrain_vertex
+	collectible_destroyer.position = first_terrain_vertex
+	worldborder_r.position = last_terrain_vertex
 
 func get_initial_vertices() -> PackedVector2Array:
 	var count: int = 256

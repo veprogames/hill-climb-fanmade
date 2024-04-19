@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://ukan5ph3dl6e"]
+
+[ext_resource type="Script" path="res://level/data/level_data.gd" id="1_65p6k"]
+[ext_resource type="Texture2D" uid="uid://dvem2rhltwnfm" path="res://level/levels/mountain/thumb_mountain.png" id="2_6wcoc"]
+
+[resource]
+script = ExtResource("1_65p6k")
+id = "mountain"
+title = "Mountain"
+description = "It gets steeper and steeper."
+thumbnail = ExtResource("2_6wcoc")
+scene_path = "res://level/levels/mountain/level_mountain.tscn"
