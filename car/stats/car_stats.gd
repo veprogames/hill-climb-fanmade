@@ -53,4 +53,4 @@ func get_joint_softness() -> float:
 	return 2.0 + (bounciness ** 0.7) * 14.0
 
 func get_joint_bias() -> float:
-	return bounciness * 0.3
+	return bounciness * 0.25
