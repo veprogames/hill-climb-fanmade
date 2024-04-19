@@ -18,6 +18,7 @@ radius = 42.17
 collision_mask = 12
 mass = 8.0
 physics_material_override = SubResource("PhysicsMaterial_voebe")
+center_of_mass_mode = 1
 angular_damp_mode = 1
 angular_damp = 1.5
 script = ExtResource("1_roxxv")
@@ -26,25 +27,29 @@ script = ExtResource("1_roxxv")
 position = Vector2(-51, -33)
 texture = ExtResource("2_t5wce")
 
-[node name="PinJointL" type="PinJoint2D" parent="."]
+[node name="Wheels" type="Node2D" parent="."]
+
+[node name="PinJointL" type="PinJoint2D" parent="Wheels"]
 position = Vector2(-151, 91)
-node_a = NodePath("..")
+node_a = NodePath("../..")
 node_b = NodePath("WheelL")
 bias = 0.3
 softness = 16.0
 metadata/_edit_group_ = true
 
-[node name="WheelL" parent="PinJointL" instance=ExtResource("3_2q8ou")]
+[node name="WheelL" parent="Wheels/PinJointL" instance=ExtResource("3_2q8ou")]
+unique_name_in_owner = true
 
-[node name="PinJointR" type="PinJoint2D" parent="."]
+[node name="PinJointR" type="PinJoint2D" parent="Wheels"]
 position = Vector2(109, 90)
-node_a = NodePath("..")
+node_a = NodePath("../..")
 node_b = NodePath("WheelR")
 bias = 0.3
 softness = 16.0
 metadata/_edit_group_ = true
 
-[node name="WheelR" parent="PinJointR" instance=ExtResource("3_2q8ou")]
+[node name="WheelR" parent="Wheels/PinJointR" instance=ExtResource("3_2q8ou")]
+unique_name_in_owner = true
 
 [node name="Head" type="RigidBody2D" parent="."]
 position = Vector2(-54, -100)

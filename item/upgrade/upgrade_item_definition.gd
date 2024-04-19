@@ -2,18 +2,17 @@ class_name UpgradeItemDefinition
 extends Resource
 
 enum StatType {
-	# Tier 1
 	EngineAcceleration,
 	WheelSize,
 	FuelCapacity,
 	Bounciness,
 	DownwardPressure,
 	AirRotationSpeed,
-	# Tier 2
 	CameraZoom,
 	Stability,
-	# Tier 3
 	RightwardPressure,
+	CenterOfMassX,
+	WheelDistance,
 }
 
 ## How the Effect should be calculated with other items of that StatType

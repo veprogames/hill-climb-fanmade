@@ -25,4 +25,5 @@ stat = 3
 operation = 3
 price_formula = SubResource("Resource_33c18")
 effect_formula = SubResource("Resource_vq6sw")
+base_gem_price = 25
 max_level = 15

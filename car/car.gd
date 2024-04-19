@@ -24,11 +24,11 @@ var highest_x: float = 0.0
 
 var stats: CarStats = CarStats.new()
 
-@onready var pin_joint_l: PinJoint2D = $PinJointL
-@onready var pin_joint_r: PinJoint2D = $PinJointR
+@onready var pin_joint_l: PinJoint2D = $Wheels/PinJointL
+@onready var pin_joint_r: PinJoint2D = $Wheels/PinJointR
 
-@onready var wheel_l: CarWheel = $PinJointL/WheelL
-@onready var wheel_r: CarWheel = $PinJointR/WheelR
+@onready var wheel_l: CarWheel = %WheelL
+@onready var wheel_r: CarWheel = %WheelR
 
 @onready var viewport_rect: Rect2 = get_viewport_rect()
 
@@ -112,6 +112,14 @@ func is_on_ground() -> bool:
 func get_meters_per_second() -> float:
 	return absf(linear_velocity.x / Level.PX_TO_M)
 
+func move_wheels_outward(distance_multiplier: float) -> void:
+	# also detach and reattach wheels to apply effect
+	for joint: PinJoint2D in [pin_joint_l, pin_joint_r]:
+		joint.node_b = ""
+		joint.position *= distance_multiplier
+	pin_joint_l.node_b = wheel_l.get_path()
+	pin_joint_r.node_b = wheel_r.get_path()
+
 func scale_wheels(to_scale: float) -> void:
 	wheel_l.wheel_scale = to_scale
 	wheel_r.wheel_scale = to_scale
@@ -129,6 +137,8 @@ func apply_car_stats() -> void:
 	scale_wheels(stats.wheel_size)
 	set_joint_softness(stats.get_joint_softness())
 	set_joint_bias(stats.get_joint_bias())
+	move_wheels_outward(stats.wheel_distance)
+	center_of_mass += stats.center_of_mass
 	for wheel: CarWheel in [wheel_l, wheel_r]:
 		wheel.set_bounciness(stats.bounciness)
 

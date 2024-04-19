@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://c1yiwgl52vvxq"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_wjmbj"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_ixibf"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_mh4t3"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_wjmbj")
+base = 4.0
+multiplier = 3.0
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_ixibf")
+base = 0.0
+multiplier = 5000.0
+exponent = 1.27
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ttmg1"]
+size = Vector2(192, 192)
+
+[resource]
+script = ExtResource("3_mh4t3")
+texture = SubResource("PlaceholderTexture2D_ttmg1")
+title = "Frontweight"
+description = "Move the Center Of Mass to the Right"
+stat = 9
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+base_gem_price = 50
+max_level = 16

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UpgradeItemDefinition" load_steps=7 format=3 uid="uid://cwyddqx0cl53s"]
+
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_s61l8"]
+[ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_1rhl4"]
+[ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_rwash"]
+
+[sub_resource type="Resource" id="Resource_h7ir7"]
+script = ExtResource("1_s61l8")
+base = -0.03
+multiplier = -0.015
+exponent = 1.0
+
+[sub_resource type="Resource" id="Resource_33c18"]
+script = ExtResource("2_1rhl4")
+base = 0.0
+multiplier = 7000.0
+exponent = 1.3
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ttmg1"]
+size = Vector2(192, 192)
+
+[resource]
+script = ExtResource("3_rwash")
+texture = SubResource("PlaceholderTexture2D_ttmg1")
+title = "Inward Wheels"
+description = "Decrease the Wheel Distance to the Car"
+stat = 10
+operation = 0
+price_formula = SubResource("Resource_33c18")
+effect_formula = SubResource("Resource_h7ir7")
+base_gem_price = 50
+max_level = 14

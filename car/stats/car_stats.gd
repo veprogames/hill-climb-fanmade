@@ -11,6 +11,7 @@ var _raw_air_rotation_speed: float = 1.0 : set = _set_raw_air_rotation_speed
 var _raw_downward_pressure: float = 1.0 : set = _set_raw_downward_pressure
 var _raw_rightward_pressure: float = 1.0 : set = _set_raw_rightward_pressure
 var _raw_stability: float = 1.0 : set = _set_raw_stability
+var _raw_center_of_mass_x: float = 0.0 : set = _set_raw_center_of_mass_x
 
 var engine_acceleration: float = BASE_ACCELERATION
 var air_rotation_speed: float = BASE_AIR_ROTATION_SPEED
@@ -21,6 +22,8 @@ var bounciness: float = 1.0
 var wheel_size: float = 1.0
 var stability: float = 1.0
 var camera_zoom: float = 1.0
+var wheel_distance: float = 1.0
+var center_of_mass: Vector2 = Vector2.ZERO
 
 func _set_raw_engine_acceleration(acceleration: float) -> void:
 	_raw_engine_acceleration = acceleration
@@ -42,8 +45,12 @@ func _set_raw_stability(stability_: float) -> void:
 	_raw_stability = stability_
 	stability = _raw_stability * BASE_STABILITY
 
+func _set_raw_center_of_mass_x(mass_x: float) -> void:
+	_raw_center_of_mass_x = mass_x
+	center_of_mass = mass_x * Vector2.RIGHT
+
 func get_joint_softness() -> float:
-	return 2.0 + (bounciness ** 0.5) * 14.0
+	return 2.0 + (bounciness ** 0.7) * 14.0
 
 func get_joint_bias() -> float:
 	return bounciness * 0.3

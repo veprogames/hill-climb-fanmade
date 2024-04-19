@@ -42,6 +42,8 @@ func get_all_effects() -> CarStats:
 		UpgradeItemDefinition.StatType.CameraZoom: 1.0,
 		UpgradeItemDefinition.StatType.Stability: 1.0,
 		UpgradeItemDefinition.StatType.RightwardPressure: 0.0,
+		UpgradeItemDefinition.StatType.CenterOfMassX: 0.0,
+		UpgradeItemDefinition.StatType.WheelDistance: 1.0,
 	}
 	
 	var equipped: Array[UpgradeItem] = get_equipped_items()
@@ -75,5 +77,7 @@ func get_all_effects() -> CarStats:
 	stats._raw_stability = result[UpgradeItemDefinition.StatType.Stability]
 	stats.camera_zoom = result[UpgradeItemDefinition.StatType.CameraZoom]
 	stats.bounciness = result[UpgradeItemDefinition.StatType.Bounciness]
+	stats._raw_center_of_mass_x = result[UpgradeItemDefinition.StatType.CenterOfMassX]
+	stats.wheel_distance = result[UpgradeItemDefinition.StatType.WheelDistance]
 	
 	return stats

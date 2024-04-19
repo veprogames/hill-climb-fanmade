@@ -23,6 +23,10 @@ var definitions_pool_1: Array[UpgradeItemDefinition] = [
 var definitions_pool_2: Array[UpgradeItemDefinition] = [
 	preload("res://item/upgrade/definitions/binoculars_zoom.tres"),
 	preload("res://item/upgrade/definitions/stability.tres"),
+	preload("res://item/upgrade/definitions/wheel_distance.tres"),
+	preload("res://item/upgrade/definitions/inward_wheels.tres"),
+	preload("res://item/upgrade/definitions/center_of_mass_x.tres"),
+	preload("res://item/upgrade/definitions/center_of_mass_x_minus.tres"),
 	preload("res://item/upgrade/definitions/rightward_pressure.tres"),
 ]
 
@@ -37,7 +41,7 @@ func roll_offers(pool: Array[UpgradeItemDefinition], amount: int) -> Array[Upgra
 func generate_item_offers() -> void:
 	for definition: UpgradeItemDefinition in roll_offers(definitions_pool_1, 3):
 		add_item_offer(definition)
-	for definition: UpgradeItemDefinition in roll_offers(definitions_pool_2, 1):
+	for definition: UpgradeItemDefinition in roll_offers(definitions_pool_2, 2):
 		add_item_offer(definition)
 
 func get_price_multiplier() -> float:
