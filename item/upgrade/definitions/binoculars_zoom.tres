@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_ubohw"]
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_bbgr5"]
 [ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_u3uda"]
+[ext_resource type="Texture2D" uid="uid://beshe3f3gxbfi" path="res://item/upgrade/icons/binoculars.png" id="4_xeu51"]
 
 [sub_resource type="Resource" id="Resource_h7ir7"]
 script = ExtResource("1_ubohw")
@@ -16,12 +17,9 @@ base = 0.0
 multiplier = 9000.0
 exponent = 1.27
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnklt"]
-size = Vector2(192, 192)
-
 [resource]
 script = ExtResource("3_u3uda")
-texture = SubResource("PlaceholderTexture2D_bnklt")
+texture = ExtResource("4_xeu51")
 title = "Binoculars"
 description = "Zoom Out and see further. Has a Hardcap"
 stat = 6

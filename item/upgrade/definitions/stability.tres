@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_tr0lq"]
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_rg37c"]
 [ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_qikra"]
+[ext_resource type="Texture2D" uid="uid://1jbrk1fgq7ki" path="res://item/upgrade/icons/stability.png" id="4_8idnf"]
 
 [sub_resource type="Resource" id="Resource_h7ir7"]
 script = ExtResource("1_tr0lq")
@@ -16,12 +17,9 @@ base = 0.0
 multiplier = 9000.0
 exponent = 1.5
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnklt"]
-size = Vector2(192, 192)
-
 [resource]
 script = ExtResource("3_qikra")
-texture = SubResource("PlaceholderTexture2D_bnklt")
+texture = ExtResource("4_8idnf")
 title = "Stability"
 description = "Flip less easily, Control better in Air. Affects Air Rotation Speed"
 stat = 7

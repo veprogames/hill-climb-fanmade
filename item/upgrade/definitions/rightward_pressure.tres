@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_polynomial.gd" id="1_fl8sb"]
 [ext_resource type="Script" path="res://item/upgrade/formulae/upgrade_formula_exponential.gd" id="2_mrxxo"]
 [ext_resource type="Script" path="res://item/upgrade/upgrade_item_definition.gd" id="3_mqnef"]
+[ext_resource type="Texture2D" uid="uid://t8sg0wj5f00i" path="res://item/upgrade/icons/rightward_pressure.png" id="4_gguon"]
 
 [sub_resource type="Resource" id="Resource_h7ir7"]
 script = ExtResource("1_fl8sb")
@@ -16,12 +17,9 @@ base = 0.0
 multiplier = 30000.0
 exponent = 1.4
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bnklt"]
-size = Vector2(192, 192)
-
 [resource]
 script = ExtResource("3_mqnef")
-texture = SubResource("PlaceholderTexture2D_bnklt")
+texture = ExtResource("4_gguon")
 title = "Rightward Pressure"
 description = "Apply Pressure to the Right"
 stat = 8
