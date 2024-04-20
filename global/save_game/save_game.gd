@@ -10,6 +10,7 @@ signal gems_changed(to: int)
 @export var garage: SaveGameGarage = SaveGameGarage.new()
 @export var shop: SaveGameShop = SaveGameShop.new()
 @export var highscores: SaveGameHighscores = SaveGameHighscores.new()
+@export var experience: ExperienceManager = ExperienceManager.new()
 
 func initialize() -> void:
 	shop.initialize()

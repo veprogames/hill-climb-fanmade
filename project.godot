@@ -50,6 +50,7 @@ enabled=PackedStringArray("res://addons/safe_resource_loader/plugin.cfg")
 folder_colors={
 "res://car/": "blue",
 "res://collectibles/": "red",
+"res://experience/": "yellow",
 "res://fonts/": "gray",
 "res://garage/": "yellow",
 "res://global/": "gray",

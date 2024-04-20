@@ -22,6 +22,7 @@ func _on_offer_bought() -> void:
 	GlobalSound.play(stream_buy)
 	
 	var item: UpgradeItem = UpgradeItem.new(offer.definition)
+	Game.save.experience.xp += 500
 	Game.save.garage.add_item(item)
 	
 	Game.save.shop.refresh()

@@ -10,6 +10,7 @@ size = Vector2(164, 177)
 
 [node name="FuelCollectible" instance=ExtResource("1_alqbl")]
 script = ExtResource("2_ysirk")
+xp_value = 5
 collect_sound = ExtResource("3_kexs1")
 
 [node name="Sprite2D" parent="." index="0"]

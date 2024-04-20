@@ -10,6 +10,7 @@ radius = 90.0
 
 [node name="GemCollectible" instance=ExtResource("1_g4qo8")]
 script = ExtResource("2_dxwsy")
+xp_value = 20
 collect_sound = ExtResource("3_ydmiq")
 
 [node name="Sprite2D" parent="." index="0"]
