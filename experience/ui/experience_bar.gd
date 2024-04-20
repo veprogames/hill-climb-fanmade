@@ -6,7 +6,7 @@ extends Control
 @onready var label_level: Label = $LabelLevel
 @onready var label_title: Label = $LabelTitle
 
-@onready var experience: ExperienceManager = Game.save.experience
+@onready var experience: SaveGameExperience = Game.save.experience
 
 func _ready() -> void:
 	update_ui()

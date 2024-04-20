@@ -1,4 +1,4 @@
-class_name ExperienceManager
+class_name SaveGameExperience
 extends Resource
 
 signal xp_changed(to_xp: int)
