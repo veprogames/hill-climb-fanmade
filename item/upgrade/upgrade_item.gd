@@ -45,7 +45,7 @@ func can_afford() -> bool:
 	return Game.save.coins >= get_current_price()
 
 func can_equip() -> bool:
-	return Game.save.garage.get_equipped_count() < SaveGameGarage.MAX_EQUIPS
+	return Game.save.garage.get_equipped_count() < Game.save.garage.get_max_equips()
 
 func try_equip() -> void:
 	if can_equip():
@@ -63,4 +63,5 @@ func try_upgrade() -> void:
 		if !is_tuned():
 			tuned_level = -1
 		level += 1
+		Game.save.experience.xp += 100
 		upgraded.emit()

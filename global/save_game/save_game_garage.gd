@@ -1,12 +1,12 @@
 class_name SaveGameGarage
 extends Resource
 
-const MAX_EQUIPS: int = 10
-
 signal item_added(item: UpgradeItem)
 
 signal item_selected(item: UpgradeItem)
 signal item_equipped_changed(item: UpgradeItem, to: bool)
+
+signal max_equips_changed(max_equips: int)
 
 @export var inventory: Array[UpgradeItem] = []
 
@@ -15,6 +15,8 @@ var definition_engine: UpgradeItemDefinition = preload("res://item/upgrade/defin
 func initialize() -> void:
 	var free_engine: UpgradeItem = UpgradeItem.new(definition_engine)
 	add_item(free_engine)
+	
+	Game.save.experience.level_changed.connect(_on_game_experience_level_changed)
 
 func add_item(item: UpgradeItem) -> void:
 	inventory.append(item)
@@ -30,6 +32,9 @@ func get_equipped_count() -> int:
 
 func get_item_count() -> int:
 	return inventory.size()
+
+func get_max_equips() -> int:
+	return 10 + Game.save.experience.current_level
 
 func get_all_effects() -> CarStats:
 	var result: Dictionary = {
@@ -81,3 +86,6 @@ func get_all_effects() -> CarStats:
 	stats.wheel_distance = result[UpgradeItemDefinition.StatType.WheelDistance]
 	
 	return stats
+
+func _on_game_experience_level_changed(_level: int) -> void:
+	max_equips_changed.emit(get_max_equips())

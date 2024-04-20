@@ -18,3 +18,4 @@ static func try_load_game() -> void:
 			Game.save.garage.inventory = loaded.garage.inventory
 			Game.save.shop.item_offers = loaded.shop.item_offers
 			Game.save.highscores = loaded.highscores
+			Game.save.experience.xp = loaded.experience.xp

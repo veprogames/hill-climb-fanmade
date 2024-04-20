@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blwif7pvfhmuc"]
+[gd_scene load_steps=8 format=3 uid="uid://blwif7pvfhmuc"]
 
 [ext_resource type="Script" path="res://garage/garage.gd" id="1_18buo"]
 [ext_resource type="PackedScene" uid="uid://bfv7r6golysct" path="res://garage/ui/ui_upgrade_item_list.tscn" id="1_t42ah"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="2_kxg6l"]
 [ext_resource type="Texture2D" uid="uid://1ksiyoq8fb1" path="res://global/art/bg_garage_overlay.png" id="3_0tvut"]
 [ext_resource type="PackedScene" uid="uid://i2yymnxjws64" path="res://global/ui/currency/currency_display_coins.tscn" id="4_8q34b"]
+[ext_resource type="PackedScene" uid="uid://dowgq8dkbcoej" path="res://experience/ui/experience_bar.tscn" id="7_ggphu"]
 
 [node name="Garage" type="Node2D"]
 script = ExtResource("1_18buo")
@@ -91,21 +92,24 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainerEquip" type="VBoxContainer" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer"]
+[node name="HBoxContainerEquip" type="HBoxContainer" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
+alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer/VBoxContainerEquip"]
+[node name="Label" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer/HBoxContainerEquip"]
 layout_mode = 2
 text = "Equipped"
 horizontal_alignment = 1
 
-[node name="LabelEquipCount" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer/VBoxContainerEquip"]
+[node name="LabelEquipCount" type="Label" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer/HBoxContainerEquip"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"Label_L"
 text = "0 / 0"
 horizontal_alignment = 1
+
+[node name="ExperienceBar" parent="CanvasLayer/HSplitContainer/Details/VBoxContainer" instance=ExtResource("7_ggphu")]
+layout_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer/ButtonBack" to="." method="_on_button_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/HSplitContainer/VBoxContainer/HBoxContainer/ButtonGetMore" to="." method="_on_button_get_more_pressed"]

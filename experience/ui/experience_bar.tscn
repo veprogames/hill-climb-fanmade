@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://dowgq8dkbcoej"]
+
+[ext_resource type="Script" path="res://experience/ui/experience_bar.gd" id="1_lhnc8"]
+[ext_resource type="Texture2D" uid="uid://be5yxi6xnr4dv" path="res://experience/ui/level_background.png" id="2_lasr7"]
+
+[node name="ExperienceBar" type="Control"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 256.0
+script = ExtResource("1_lhnc8")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.0
+show_percentage = false
+
+[node name="LabelXP" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -29.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="LabelTitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -17.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "Rookie"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -48.0
+offset_right = 86.0
+offset_bottom = 48.0
+grow_vertical = 2
+texture = ExtResource("2_lasr7")
+
+[node name="LabelLevel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 21.0
+offset_top = -46.0
+offset_right = 61.0
+offset_bottom = 41.0
+grow_vertical = 2
+theme_type_variation = &"Label_L"
+text = "1"
