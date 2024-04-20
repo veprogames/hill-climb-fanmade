@@ -11,6 +11,9 @@ extends Control
 @onready var button_upgrade: Button = %ButtonUpgrade
 @onready var button_equip: Button = %ButtonEquip
 
+@onready var v_box_container_tuning: VBoxContainer = $PanelVisible/VBoxContainerDetails/VBoxContainerTuning
+@onready var h_slider_tuning: HSlider = $PanelVisible/VBoxContainerDetails/VBoxContainerTuning/HSliderTuning
+
 @onready var panel_visible: Panel = $PanelVisible
 
 @onready var center_container_empty: CenterContainer = $CenterContainerEmpty
@@ -33,19 +36,25 @@ func update_ui() -> void:
 		update_title()
 		update_equip_button()
 		update_upgrade_button()
+		update_slider_tuning()
 
 func connect_item(from_item: UpgradeItem) -> void:
 	from_item.equipped_changed.connect(_on_item_equipped_changed)
 	from_item.level_changed.connect(_on_item_level_changed)
+	from_item.tuned_level_changed.connect(_on_item_tuned_level_changed)
 	from_item.upgraded.connect(_on_item_upgraded)
 
 func disconnect_item(from_item: UpgradeItem) -> void:
 	from_item.equipped_changed.disconnect(_on_item_equipped_changed)
 	from_item.level_changed.disconnect(_on_item_level_changed)
+	from_item.tuned_level_changed.disconnect(_on_item_tuned_level_changed)
 	from_item.upgraded.disconnect(_on_item_upgraded)
 
 func update_title() -> void:
-	label_title.text = "%s +%d/%d" % [item.definition.title, item.level, item.definition.max_level]
+	if item.is_tuned():
+		label_title.text = "%s\n+%d/%d/%d" % [item.definition.title, item.tuned_level, item.level, item.definition.max_level]
+	else:
+		label_title.text = "%s\n+%d/%d" % [item.definition.title, item.level, item.definition.max_level]
 
 func update_equip_button() -> void:
 	button_equip.disabled = !item.can_equip() and !item.is_equipped
@@ -58,6 +67,14 @@ func update_upgrade_button() -> void:
 	else:
 		button_upgrade.disabled = !item.can_afford()
 		button_upgrade.text = F.F(item.get_current_price())
+
+func update_slider_tuning() -> void:
+	v_box_container_tuning.visible = item.level > 0
+	h_slider_tuning.max_value = item.level
+	if !item.is_tuned():
+		h_slider_tuning.value = item.level
+	else:
+		h_slider_tuning.value = item.tuned_level
 
 func _set_item(new_item: UpgradeItem) -> void:
 	if item != null:
@@ -86,6 +103,11 @@ func _on_button_upgrade_pressed() -> void:
 func _on_item_level_changed(_to: int) -> void:
 	update_upgrade_button()
 	update_title()
+	update_slider_tuning()
+
+
+func _on_item_tuned_level_changed(_to: int) -> void:
+	update_title()
 
 
 func _on_item_equipped_changed(equipped: bool) -> void:
@@ -100,3 +122,20 @@ func _on_item_upgraded() -> void:
 
 func _on_save_coins_changed(_to: int) -> void:
 	update_upgrade_button()
+
+
+func _on_h_slider_tuning_drag_ended(value_changed: bool) -> void:
+	h_slider_tuning.value_changed.disconnect(_on_h_slider_tuning_value_changed)
+
+
+func _on_h_slider_tuning_drag_started() -> void:
+	h_slider_tuning.value_changed.connect(_on_h_slider_tuning_value_changed)
+
+
+func _on_h_slider_tuning_value_changed(value: float) -> void:
+	item.tuned_level = int(h_slider_tuning.value)
+
+
+func _on_h_slider_tuning_gui_input(event: InputEvent) -> void:
+	if event is InputEventMouse:
+		item.tuned_level = int(h_slider_tuning.value)

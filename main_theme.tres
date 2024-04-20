@@ -1,7 +1,10 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=25 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/autumn_regular.ttf" id="1_a7ig3"]
+[ext_resource type="Texture2D" uid="uid://cu4cgl4ov66wn" path="res://global/art/slider/grabber.png" id="1_jxqpi"]
 [ext_resource type="Texture2D" uid="uid://pokpvxsaa8n7" path="res://global/art/gradient_bg.tres" id="1_n2ras"]
+[ext_resource type="Texture2D" uid="uid://bltu4u75jgvsk" path="res://global/art/slider/grabber_disabled.png" id="2_gk5ae"]
+[ext_resource type="Texture2D" uid="uid://d2pxv5yr3cjjx" path="res://global/art/slider/grabber_highlight.png" id="3_8qv4d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca2re"]
 content_margin_left = 16.0
@@ -81,6 +84,24 @@ shadow_size = 1
 shadow_offset = Vector2(4, 4)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gd8r3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ejj50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ro6g4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw6xj"]
+bg_color = Color(0, 0.701991, 0.41181, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb0no"]
 content_margin_left = 16.0
@@ -221,6 +242,12 @@ HFlowContainer/constants/h_separation = 32
 HFlowContainer/constants/v_separation = 32
 HSeparator/constants/separation = 32
 HSeparator/styles/separator = SubResource("StyleBoxEmpty_gd8r3")
+HSlider/icons/grabber = ExtResource("1_jxqpi")
+HSlider/icons/grabber_disabled = ExtResource("2_gk5ae")
+HSlider/icons/grabber_highlight = ExtResource("3_8qv4d")
+HSlider/styles/grabber_area = SubResource("StyleBoxEmpty_ejj50")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxEmpty_ro6g4")
+HSlider/styles/slider = SubResource("StyleBoxFlat_qw6xj")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.313726)
 Label/constants/outline_size = 16

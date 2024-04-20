@@ -2,6 +2,7 @@ class_name UIUpgradeItem
 extends Control
 
 const COLOR_EQUIPPED: Color = Color(0, 0.702, 0.412) * 2.5
+const COLOR_TUNED: Color = Color("#9edce2")
 
 @export var item: UpgradeItem
 
@@ -12,11 +13,20 @@ const COLOR_EQUIPPED: Color = Color(0, 0.702, 0.412) * 2.5
 func _ready() -> void:
 	texture_button.modulate = COLOR_EQUIPPED if item.is_equipped else Color.WHITE
 	texture_item.texture = item.definition.texture
-	label_level.text = "+%d" % item.level
+	update_label_level()
 	
 	item.equipped.connect(_on_item_equipped)
 	item.unequipped.connect(_on_item_unequipped)
 	item.level_changed.connect(_on_item_level_changed)
+	item.tuned_level_changed.connect(_on_item_tuned_level_changed)
+
+func update_label_level() -> void:
+	if item.is_tuned():
+		label_level.text = "+%d" % item.tuned_level
+		label_level.modulate = COLOR_TUNED
+	else:
+		label_level.text = "+%d" % item.level
+		label_level.modulate = Color.WHITE
 
 func _on_item_equipped() -> void:
 	texture_button.modulate = COLOR_EQUIPPED
@@ -24,8 +34,11 @@ func _on_item_equipped() -> void:
 func _on_item_unequipped() -> void:
 	texture_button.modulate = Color.WHITE
 
-func _on_item_level_changed(to: int) -> void:
-	label_level.text = "+%d" % to
+func _on_item_level_changed(_to: int) -> void:
+	update_label_level()
+
+func _on_item_tuned_level_changed(_to: int) -> void:
+	update_label_level()
 
 func _on_texture_button_pressed() -> void:
 	Game.save.garage.item_selected.emit(item)

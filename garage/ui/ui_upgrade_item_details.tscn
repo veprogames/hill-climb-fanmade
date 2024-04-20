@@ -28,6 +28,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRectIcon" type="TextureRect" parent="PanelVisible"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 160.0
+offset_bottom = 320.0
+grow_horizontal = 2
+texture = ExtResource("2_08fls")
+expand_mode = 1
+
 [node name="VBoxContainerDetails" type="VBoxContainer" parent="PanelVisible"]
 layout_mode = 1
 anchors_preset = -1
@@ -43,16 +57,10 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelVisible/VBoxContainerDetails"]
 layout_mode = 2
 
-[node name="TextureRectIcon" type="TextureRect" parent="PanelVisible/VBoxContainerDetails/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("2_08fls")
-expand_mode = 2
-
 [node name="LabelTitle" type="Label" parent="PanelVisible/VBoxContainerDetails/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_type_variation = &"Label_L"
 autowrap_mode = 2
 
@@ -78,6 +86,21 @@ layout_mode = 2
 text = "Upgrade"
 icon = ExtResource("3_umkfk")
 
+[node name="VBoxContainerTuning" type="VBoxContainer" parent="PanelVisible/VBoxContainerDetails"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="PanelVisible/VBoxContainerDetails/VBoxContainerTuning"]
+layout_mode = 2
+text = "Tuning"
+horizontal_alignment = 1
+
+[node name="HSliderTuning" type="HSlider" parent="PanelVisible/VBoxContainerDetails/VBoxContainerTuning"]
+layout_mode = 2
+max_value = 0.0
+rounded = true
+
 [node name="CenterContainerEmpty" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -101,3 +124,6 @@ stream = ExtResource("4_7rr8f")
 
 [connection signal="pressed" from="PanelVisible/VBoxContainerDetails/HBoxContainerActions/ButtonEquip" to="." method="_on_button_equip_pressed"]
 [connection signal="pressed" from="PanelVisible/VBoxContainerDetails/HBoxContainerActions/ButtonUpgrade" to="." method="_on_button_upgrade_pressed"]
+[connection signal="drag_ended" from="PanelVisible/VBoxContainerDetails/VBoxContainerTuning/HSliderTuning" to="." method="_on_h_slider_tuning_drag_ended"]
+[connection signal="drag_started" from="PanelVisible/VBoxContainerDetails/VBoxContainerTuning/HSliderTuning" to="." method="_on_h_slider_tuning_drag_started"]
+[connection signal="gui_input" from="PanelVisible/VBoxContainerDetails/VBoxContainerTuning/HSliderTuning" to="." method="_on_h_slider_tuning_gui_input"]
