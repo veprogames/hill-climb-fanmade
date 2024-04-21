@@ -37,7 +37,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	var collector: CarCollectorArea = area as CarCollectorArea
-	if collector != null:
+	if collector != null and not is_collected:
 		_handle_collect(collector.car)
 	if area is CollectibleDestroyer:
 		queue_free()

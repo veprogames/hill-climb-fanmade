@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0yg0e2kyk0ig"]
+[gd_scene load_steps=12 format=3 uid="uid://d0yg0e2kyk0ig"]
 
 [ext_resource type="Texture2D" uid="uid://c8nr83f3w15bk" path="res://car/car.png" id="1_nr2ec"]
 [ext_resource type="Script" path="res://car/car.gd" id="1_roxxv"]
@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://0e4jnsnb0q6o" path="res://car/break_neck.ogg" id="8_nqauj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_voebe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kyqd8"]
+radius = 120.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5k6y"]
 radius = 42.17
@@ -38,6 +41,11 @@ bias = 0.25
 softness = 16.0
 metadata/_edit_group_ = true
 
+[node name="CarCollectorArea3" parent="Wheels/PinJointL" node_paths=PackedStringArray("car") instance=ExtResource("6_xdhio")]
+collision_mask = 16
+car = NodePath("../../..")
+shape_override = SubResource("CircleShape2D_kyqd8")
+
 [node name="WheelL" parent="Wheels/PinJointL" instance=ExtResource("3_2q8ou")]
 unique_name_in_owner = true
 
@@ -48,6 +56,11 @@ node_b = NodePath("WheelR")
 bias = 0.25
 softness = 16.0
 metadata/_edit_group_ = true
+
+[node name="CarCollectorArea2" parent="Wheels/PinJointR" node_paths=PackedStringArray("car") instance=ExtResource("6_xdhio")]
+collision_mask = 16
+car = NodePath("../../..")
+shape_override = SubResource("CircleShape2D_kyqd8")
 
 [node name="WheelR" parent="Wheels/PinJointR" instance=ExtResource("3_2q8ou")]
 unique_name_in_owner = true
