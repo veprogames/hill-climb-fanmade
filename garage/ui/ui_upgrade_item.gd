@@ -42,3 +42,17 @@ func _on_item_tuned_level_changed(_to: int) -> void:
 
 func _on_texture_button_pressed() -> void:
 	Game.save.garage.item_selected.emit(item)
+
+func _handle_double_click() -> void:
+	if !item.is_equipped:
+		item.try_equip()
+	else:
+		item.is_equipped = false
+
+func _on_texture_button_gui_input(event: InputEvent) -> void:
+	var touch_event: InputEventScreenTouch = event as InputEventScreenTouch
+	var click_event: InputEventMouseButton = event as InputEventMouseButton
+	if touch_event != null and touch_event.double_tap:
+		_handle_double_click()
+	if click_event != null and click_event.button_index == MOUSE_BUTTON_LEFT and click_event.double_click:
+		_handle_double_click()
