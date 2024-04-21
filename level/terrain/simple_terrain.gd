@@ -28,6 +28,7 @@ func _ready() -> void:
 	
 	polygon_2d.texture = fill_texture
 	line_2d_ground.texture = ground_texture
+	line_2d_ground.visible = ground_texture != null
 	
 	var vertices: PackedVector2Array = get_initial_vertices()
 	

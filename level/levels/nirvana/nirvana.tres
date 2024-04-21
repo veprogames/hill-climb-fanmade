@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://dwbqu8rmywvim"]
+
+[ext_resource type="Script" path="res://level/data/level_data.gd" id="1_f6uhe"]
+[ext_resource type="Texture2D" uid="uid://i1heyqcbybb7" path="res://level/levels/nirvana/thumb_nirvana.png" id="2_bo7dx"]
+
+[resource]
+script = ExtResource("1_f6uhe")
+id = "nirvana"
+title = "Nirvana"
+description = "???"
+thumbnail = ExtResource("2_bo7dx")
+scene_path = "res://level/levels/nirvana/level_nirvana.tscn"

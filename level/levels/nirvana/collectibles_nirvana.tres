@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CollectibleGenerationParameters" load_steps=2 format=3 uid="uid://mnry642k0puk"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/collectible_generation_parameters.gd" id="1_ipjmb"]
+
+[resource]
+script = ExtResource("1_ipjmb")
+fuel_distance_base = 180.0
+fuel_distance_delta = 0.0
+fuel_distance_exponent = 1.0
+fuel_distance_snap = 30.0
+coin_distance = 30.0
+coin_distance_offset = 5.0
+coin_formation_value_base = 10
+coin_formation_value_delta = 6
+gem_distance = 100.0
+gem_distance_offset = 10.0

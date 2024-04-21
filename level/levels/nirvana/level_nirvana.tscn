@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://cwki2a4cct6sl"]
+
+[ext_resource type="PackedScene" uid="uid://ba2rk50g3dcuh" path="res://level/level.tscn" id="1_antdj"]
+[ext_resource type="Resource" uid="uid://dwbqu8rmywvim" path="res://level/levels/nirvana/nirvana.tres" id="2_4ad4e"]
+[ext_resource type="Resource" uid="uid://mnry642k0puk" path="res://level/levels/nirvana/collectibles_nirvana.tres" id="2_8cl4d"]
+[ext_resource type="Resource" uid="uid://bpkwymyu8ict7" path="res://level/levels/nirvana/generation_nirvana.tres" id="2_hgu84"]
+[ext_resource type="Texture2D" uid="uid://dc5wg2rgjhj73" path="res://level/levels/nirvana/bg_nirvana.png" id="3_wc5fe"]
+[ext_resource type="Texture2D" uid="uid://diq6euwbo4fgb" path="res://level/levels/nirvana/black.png" id="5_mxmco"]
+[ext_resource type="AudioStream" uid="uid://lxk2rnpn7c4" path="res://level/levels/nirvana/nirvana_ambience.ogg" id="7_6aooo"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_64s5w"]
+playback_mode = 2
+streams_count = 1
+stream_0/stream = ExtResource("7_6aooo")
+stream_0/weight = 1.0
+
+[node name="LevelNirvana" instance=ExtResource("1_antdj")]
+data = ExtResource("2_4ad4e")
+
+[node name="Car" parent="." index="0"]
+modulate = Color(0, 0, 0, 1)
+
+[node name="Background" parent="CanvasLayer" index="0"]
+texture = ExtResource("3_wc5fe")
+
+[node name="LevelUI" parent="CanvasLayer2" index="0"]
+modulate = Color(1, 0, 0, 1)
+
+[node name="SimpleTerrain" parent="." index="4"]
+generation_parameters = ExtResource("2_hgu84")
+fill_texture = ExtResource("5_mxmco")
+
+[node name="CollectibleSpawner" parent="." index="5"]
+modulate = Color(0, 0, 0, 1)
+parameters = ExtResource("2_8cl4d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
+stream = SubResource("AudioStreamRandomizer_64s5w")
+volume_db = -4.0
+autoplay = true

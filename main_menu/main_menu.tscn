@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6op8q72t2oqc"]
+[gd_scene load_steps=10 format=3 uid="uid://6op8q72t2oqc"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_6aqcu"]
 [ext_resource type="PackedScene" uid="uid://c2od0cvxcsuwc" path="res://main_menu/level_button.tscn" id="2_2p7lx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://dipfucdc0flkj" path="res://level/levels/highway/highway.tres" id="6_p88uk"]
 [ext_resource type="Resource" uid="uid://ukan5ph3dl6e" path="res://level/levels/mountain/mountain.tres" id="7_po87c"]
 [ext_resource type="Resource" uid="uid://o7w1tux4cuew" path="res://level/levels/cliff/cliff.tres" id="8_fv12l"]
+[ext_resource type="Resource" uid="uid://dwbqu8rmywvim" path="res://level/levels/nirvana/nirvana.tres" id="9_8bd3y"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_6aqcu")
@@ -80,6 +81,10 @@ level_data = ExtResource("7_po87c")
 [node name="LevelButton5" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
 layout_mode = 2
 level_data = ExtResource("8_fv12l")
+
+[node name="LevelButton6" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
+layout_mode = 2
+level_data = ExtResource("9_8bd3y")
 
 [node name="ButtonQuit" type="Button" parent="CanvasLayerUI"]
 offset_left = 16.0
