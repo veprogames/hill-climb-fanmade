@@ -48,7 +48,7 @@ func _process(_delta: float) -> void:
 	gauge_speed.text = "%.0f" % absf(meters_per_second)
 	
 func get_distance_to_next_fuel_in_meters() -> float:
-	var closest_instance: FuelCollectible = collectible_spawner.get_closest_fuel()
+	var closest_instance: FuelCollectible = collectible_spawner.get_closest_fuel(player.position.x)
 	var x: float
 	
 	if closest_instance != null:

@@ -51,11 +51,17 @@ func spawn_fuel(x: float) -> void:
 func get_next_fuel() -> float:
 	return parameters.get_fuel_position_in_meters(fuels_spawned + 1) * Level.PX_TO_M
 
-func get_closest_fuel() -> FuelCollectible:
+func get_closest_fuel(from_x: float) -> FuelCollectible:
 	var children: Array[Node] = fuel_container.get_children()
 	if children.size() == 0:
 		return null
-	return children[0]
+	var filtered: Array[Node] = children.filter(func(child: Node) -> bool:
+		var collectible: BaseCollectible = child as BaseCollectible
+		return collectible != null and collectible.position.x >= from_x and !collectible.is_collected
+	)
+	if filtered.size() == 0:
+		return null
+	return filtered[0]
 
 func spawn_coins(x: float) -> void:
 	var total_value: int = parameters.get_coins_value(coin_formations_spawned)
