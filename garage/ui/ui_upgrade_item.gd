@@ -50,9 +50,10 @@ func _handle_double_click() -> void:
 		item.is_equipped = false
 
 func _on_texture_button_gui_input(event: InputEvent) -> void:
-	var touch_event: InputEventScreenTouch = event as InputEventScreenTouch
+	# handle click event only
+	# since emulate emulate_mouse_from_touch is enabled
 	var click_event: InputEventMouseButton = event as InputEventMouseButton
-	if touch_event != null and touch_event.double_tap:
-		_handle_double_click()
-	if click_event != null and click_event.button_index == MOUSE_BUTTON_LEFT and click_event.double_click:
+	if click_event != null and click_event.pressed and \
+			click_event.button_index == MOUSE_BUTTON_LEFT and \
+			click_event.double_click:
 		_handle_double_click()
