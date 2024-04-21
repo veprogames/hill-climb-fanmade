@@ -14,8 +14,8 @@ var levels: Array[ExperienceLevelDefinition] = [
 	ExperienceLevelDefinition.new("Seasoned", 25_000),
 	ExperienceLevelDefinition.new("Veteran", 40_000),
 	ExperienceLevelDefinition.new("Expert", 70_000),
-	ExperienceLevelDefinition.new("Grandmaster", 120_000),
-	ExperienceLevelDefinition.new("Ultimate", 200_000),
+	ExperienceLevelDefinition.new("Master", 110_000),
+	ExperienceLevelDefinition.new("Grandmaster", 160_000),
 ]
 
 func _get_current_level() -> int:
