@@ -9,12 +9,14 @@
 custom_minimum_size = Vector2(192, 192)
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 script = ExtResource("1_0ufmr")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 1
 texture_normal = ExtResource("2_6rh4s")
 texture_pressed = ExtResource("3_77rjo")
 texture_hover = ExtResource("4_a3yx7")

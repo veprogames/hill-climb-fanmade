@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://dmlwojjuxgdv0"]
+[gd_resource type="Theme" load_steps=29 format=3 uid="uid://dmlwojjuxgdv0"]
 
 [ext_resource type="FontFile" uid="uid://dm4kkh0ck2yex" path="res://fonts/autumn_regular.ttf" id="1_a7ig3"]
 [ext_resource type="Texture2D" uid="uid://cu4cgl4ov66wn" path="res://global/art/slider/grabber.png" id="1_jxqpi"]
@@ -225,6 +225,45 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67d7s"]
+bg_color = Color(0, 0.701991, 0.41181, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kt3ho"]
+bg_color = Color(0, 0.870588, 0.517647, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl3by"]
+bg_color = Color(0, 0.596078, 0.345098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0, 0, 0, 0.392157)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l30l6"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+bg_color = Color(0, 0, 0, 0.498039)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [resource]
 default_font = ExtResource("1_a7ig3")
 default_font_size = 48
@@ -279,4 +318,8 @@ TransparentButton/styles/hover = SubResource("StyleBoxFlat_tu3pc")
 TransparentButton/styles/normal = SubResource("StyleBoxFlat_ikokg")
 TransparentButton/styles/pressed = SubResource("StyleBoxFlat_7lq40")
 VBoxContainer/constants/separation = 32
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_67d7s")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_kt3ho")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_yl3by")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_l30l6")
 VSeparator/constants/separation = 32
