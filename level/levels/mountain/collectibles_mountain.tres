@@ -11,6 +11,6 @@ fuel_distance_snap = 30.0
 coin_distance = 30.0
 coin_distance_offset = 5.0
 coin_formation_value_base = 50
-coin_formation_value_delta = 20
+coin_formation_value_delta = 25
 gem_distance = 50.0
 gem_distance_offset = 10.0

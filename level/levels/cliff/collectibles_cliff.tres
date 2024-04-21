@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CollectibleGenerationParameters" load_steps=2 format=3 uid="uid://d2suyfj5p5kt6"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/collectible_generation_parameters.gd" id="1_m0veb"]
+
+[resource]
+script = ExtResource("1_m0veb")
+fuel_distance_base = 90.0
+fuel_distance_delta = 40.0
+fuel_distance_exponent = 1.5
+fuel_distance_snap = 30.0
+coin_distance = 30.0
+coin_distance_offset = 5.0
+coin_formation_value_base = 20
+coin_formation_value_delta = 20
+gem_distance = 60.0
+gem_distance_offset = 10.0

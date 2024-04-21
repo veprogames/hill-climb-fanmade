@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="GenerationParameters" load_steps=13 format=3 uid="uid://bk0hrpyflx307"]
+
+[ext_resource type="Script" path="res://level/terrain/generation/values/linear_value_generator.gd" id="1_1tx74"]
+[ext_resource type="Script" path="res://level/terrain/generation/values/noise_value_generator.gd" id="2_3wgun"]
+[ext_resource type="Script" path="res://level/terrain/generation/generation_parameter.gd" id="3_nfxkq"]
+[ext_resource type="Script" path="res://level/terrain/generation/values/polynomial_value_generator.gd" id="4_vr3rl"]
+[ext_resource type="Script" path="res://level/terrain/generation/generation_parameters.gd" id="5_oyybl"]
+
+[sub_resource type="Resource" id="Resource_5m6iy"]
+script = ExtResource("1_1tx74")
+base = 130.0
+delta = 0.5
+min_value = 0.0
+max_value = 1e+06
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5uujg"]
+seed = 43
+frequency = 0.07
+fractal_octaves = 3
+fractal_lacunarity = 4.0
+
+[sub_resource type="Resource" id="Resource_x2ro7"]
+script = ExtResource("2_3wgun")
+noise = SubResource("FastNoiseLite_5uujg")
+
+[sub_resource type="Resource" id="Resource_wfevu"]
+script = ExtResource("3_nfxkq")
+height_values = SubResource("Resource_x2ro7")
+amplitude_values = SubResource("Resource_5m6iy")
+
+[sub_resource type="Resource" id="Resource_3d6s6"]
+script = ExtResource("4_vr3rl")
+base = 0.0
+delta = 1.4
+exponent = 1.6
+min_value = 0.0
+max_value = inf
+
+[sub_resource type="Resource" id="Resource_q7j7t"]
+script = ExtResource("1_1tx74")
+base = 1.0
+delta = 0.0
+min_value = 0.0
+max_value = inf
+
+[sub_resource type="Resource" id="Resource_wc6rb"]
+script = ExtResource("3_nfxkq")
+height_values = SubResource("Resource_q7j7t")
+amplitude_values = SubResource("Resource_3d6s6")
+
+[resource]
+script = ExtResource("5_oyybl")
+noises = Array[ExtResource("3_nfxkq")]([SubResource("Resource_wfevu"), SubResource("Resource_wc6rb")])

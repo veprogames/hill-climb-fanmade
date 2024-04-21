@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" load_steps=3 format=3 uid="uid://o7w1tux4cuew"]
+
+[ext_resource type="Script" path="res://level/data/level_data.gd" id="1_j3ee8"]
+[ext_resource type="Texture2D" uid="uid://o11bvfd5j521" path="res://level/levels/cliff/thumb_cliff.png" id="2_8xkj5"]
+
+[resource]
+script = ExtResource("1_j3ee8")
+id = "cliff"
+title = "Cliff"
+description = "Keep your grip. Don't fall too much!"
+thumbnail = ExtResource("2_8xkj5")
+scene_path = "res://level/levels/cliff/level_cliff.tscn"

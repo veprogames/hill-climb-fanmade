@@ -1,0 +1,19 @@
+[gd_scene load_steps=7 format=3 uid="uid://oqypfweoqhtx"]
+
+[ext_resource type="PackedScene" uid="uid://ba2rk50g3dcuh" path="res://level/level.tscn" id="1_d8wwd"]
+[ext_resource type="Resource" uid="uid://o7w1tux4cuew" path="res://level/levels/cliff/cliff.tres" id="2_iesbx"]
+[ext_resource type="Resource" uid="uid://bk0hrpyflx307" path="res://level/levels/cliff/generation_cliff.tres" id="2_murs5"]
+[ext_resource type="Texture2D" uid="uid://bgeud5ju3vxas" path="res://level/levels/mountain/stone.png" id="3_ovrxb"]
+[ext_resource type="Texture2D" uid="uid://sbhi5j2qnfhw" path="res://level/levels/mountain/rocks.png" id="4_ud3jq"]
+[ext_resource type="Resource" uid="uid://d2suyfj5p5kt6" path="res://level/levels/cliff/collectibles_cliff.tres" id="5_rl0da"]
+
+[node name="LevelCliff" instance=ExtResource("1_d8wwd")]
+data = ExtResource("2_iesbx")
+
+[node name="SimpleTerrain" parent="." index="4"]
+generation_parameters = ExtResource("2_murs5")
+fill_texture = ExtResource("3_ovrxb")
+ground_texture = ExtResource("4_ud3jq")
+
+[node name="CollectibleSpawner" parent="." index="5"]
+parameters = ExtResource("5_rl0da")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://6op8q72t2oqc"]
+[gd_scene load_steps=9 format=3 uid="uid://6op8q72t2oqc"]
 
 [ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_6aqcu"]
 [ext_resource type="PackedScene" uid="uid://c2od0cvxcsuwc" path="res://main_menu/level_button.tscn" id="2_2p7lx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cc1p24o5q42c" path="res://level/levels/desert/desert.tres" id="5_qolbk"]
 [ext_resource type="Resource" uid="uid://dipfucdc0flkj" path="res://level/levels/highway/highway.tres" id="6_p88uk"]
 [ext_resource type="Resource" uid="uid://ukan5ph3dl6e" path="res://level/levels/mountain/mountain.tres" id="7_po87c"]
+[ext_resource type="Resource" uid="uid://o7w1tux4cuew" path="res://level/levels/cliff/cliff.tres" id="8_fv12l"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_6aqcu")
@@ -54,9 +55,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayerUI/CenterContainer"]
+[node name="VBoxContainer" type="VFlowContainer" parent="CanvasLayerUI/CenterContainer"]
+custom_minimum_size = Vector2(0, 640)
 layout_mode = 2
-theme_override_constants/separation = 32
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
 
 [node name="LevelButton" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
 layout_mode = 2
@@ -73,6 +76,10 @@ level_data = ExtResource("6_p88uk")
 [node name="LevelButton4" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
 layout_mode = 2
 level_data = ExtResource("7_po87c")
+
+[node name="LevelButton5" parent="CanvasLayerUI/CenterContainer/VBoxContainer" instance=ExtResource("2_2p7lx")]
+layout_mode = 2
+level_data = ExtResource("8_fv12l")
 
 [node name="ButtonQuit" type="Button" parent="CanvasLayerUI"]
 offset_left = 16.0
