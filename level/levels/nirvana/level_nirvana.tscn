@@ -25,6 +25,7 @@ texture = ExtResource("3_wc5fe")
 
 [node name="LevelUI" parent="CanvasLayer2" index="0"]
 modulate = Color(1, 0, 0, 1)
+never_show_next_fuel = true
 
 [node name="SimpleTerrain" parent="." index="4"]
 generation_parameters = ExtResource("2_hgu84")

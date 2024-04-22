@@ -8,7 +8,7 @@
 [sub_resource type="Resource" id="Resource_uyjqu"]
 script = ExtResource("1_p7wei")
 base = 800.0
-delta = 2.0
+delta = 2.2
 min_value = 0.0
 max_value = inf
 
