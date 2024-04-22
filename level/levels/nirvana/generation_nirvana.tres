@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GenerationParameters" load_steps=14 format=3 uid="uid://bpkwymyu8ict7"]
+[gd_resource type="Resource" script_class="GenerationParameters" load_steps=15 format=3 uid="uid://bpkwymyu8ict7"]
 
 [ext_resource type="Script" path="res://level/terrain/generation/generation_parameters.gd" id="1_14lgc"]
 [ext_resource type="Script" path="res://level/terrain/generation/values/linear_value_generator.gd" id="1_p7wei"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="Resource" id="Resource_uyjqu"]
 script = ExtResource("1_p7wei")
-base = 300.0
+base = 800.0
 delta = 2.0
 min_value = 0.0
 max_value = inf
@@ -17,7 +17,7 @@ _data = [Vector2(0, 0.5), 0.0, -1.67138, 0, 1, Vector2(0.146552, 0.255056), 0.71
 point_count = 8
 
 [sub_resource type="Curve" id="Curve_xdcgs"]
-_data = [Vector2(0, 0.496067), 0.0, 0.0, 0, 0, Vector2(0.241379, 0.487581), 0.0, 0.0, 0, 0, Vector2(0.25, 0.0359552), 0.0, 0.0, 0, 0, Vector2(0.275862, 0.0313175), 0.0, 0.0, 0, 0, Vector2(0.275872, 0.438445), 0.313203, 0.313203, 0, 0, Vector2(0.396552, 0.4946), 0.0, 0.0, 0, 0, Vector2(0.402299, 0.014045), 0.0, 0.0, 0, 0, Vector2(0.439655, 0.0172786), 0.0, 0.0, 0, 0, Vector2(0.445402, 0.227862), 0.0, 0.0, 0, 0, Vector2(0.744253, 0.445464), 0.0, 0.0, 0, 0, Vector2(0.75, 0.116292), 0.0, 0.0, 0, 0, Vector2(0.770115, 0.136609), 0.0, 0.0, 0, 0, Vector2(0.775862, 0.382289), 0.0, 0.0, 0, 0, Vector2(1, 0.496067), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.496067), 0.0, 0.0, 0, 0, Vector2(0.192529, 0.496067), 0.0, 0.0, 0, 0, Vector2(0.201149, 0), 0.0782031, 0.0782031, 0, 0, Vector2(0.272988, 0), 0.0, 0.0, 0, 0, Vector2(0.272999, 0.386517), 0.313203, 0.313203, 0, 0, Vector2(0.396552, 0.4946), 0.0, 0.0, 0, 0, Vector2(0.399425, 0), -0.00574931, -0.00574931, 0, 0, Vector2(0.479885, 0), 0.0, 0.0, 0, 0, Vector2(0.479895, 0.196629), 0.0, 0.0, 0, 0, Vector2(0.744253, 0.445464), 0.0, 0.0, 0, 0, Vector2(0.75, 0.116292), 0.0, 0.0, 0, 0, Vector2(0.824713, 0.123596), 0.0, 0.0, 0, 0, Vector2(0.824723, 0.357303), 0.0, 0.0, 0, 0, Vector2(1, 0.496067), 0.0, 0.0, 0, 0]
 point_count = 14
 
 [sub_resource type="Curve" id="Curve_lpbp7"]
@@ -26,22 +26,26 @@ _data = [Vector2(0, 0.495506), 0.0, 2.79379, 0, 1, Vector2(0.376437, 1.54719), 2
 point_count = 9
 
 [sub_resource type="Curve" id="Curve_6r7i5"]
-_data = [Vector2(0, 0.5), 0.0, 2.01228, 0, 1, Vector2(0.117816, 0.737079), 2.01228, -2.17849, 1, 1, Vector2(0.218391, 0.517978), -2.17849, 3.17697, 1, 1, Vector2(0.287356, 0.737079), 3.17697, -5.17392, 1, 1, Vector2(0.367816, 0.320787), -5.17392, 4.27446, 1, 1, Vector2(0.431034, 0.591011), 4.27446, -2.21006, 1, 1, Vector2(0.497126, 0.444944), -2.21006, 3.29463, 1, 1, Vector2(0.574713, 0.700562), 3.29463, -6.93157, 1, 1, Vector2(0.637931, 0.26236), -6.93157, 0.0598018, 1, 1, Vector2(0.882184, 0.276966), 0.0598018, 1.89307, 1, 1, Vector2(1, 0.5), 1.89307, 0.0, 1, 0]
+_data = [Vector2(0, 0.5), 0.0, 2.01228, 0, 1, Vector2(0.117816, 0.737079), 2.01228, -2.17849, 1, 1, Vector2(0.218391, 0.517978), -2.17849, 3.17697, 1, 1, Vector2(0.287356, 0.737079), 3.17697, -4.49661, 1, 1, Vector2(0.362069, 0.401124), -4.49661, 2.75339, 1, 1, Vector2(0.431034, 0.591011), 2.75339, -2.21006, 1, 1, Vector2(0.497126, 0.444944), -2.21006, 2.82395, 1, 1, Vector2(0.574713, 0.664045), 2.82395, -6.35393, 1, 1, Vector2(0.637931, 0.26236), -6.35393, 0.0598018, 1, 1, Vector2(0.882184, 0.276966), 0.0598018, 1.89307, 1, 1, Vector2(1, 0.5), 1.89307, 0.0, 1, 0]
 point_count = 11
 
 [sub_resource type="Curve" id="Curve_4fbs4"]
-_data = [Vector2(0, 0.5), 0.0, 1.85393, 0, 1, Vector2(0.25, 0.963483), 0.0, 0.0, 0, 0, Vector2(0.258621, 0), 0.0, 0.0, 0, 0, Vector2(0.333333, 0), 0.0, 0.0, 0, 0, Vector2(0.347701, 0.561798), 0.0, 0.0, 0, 0, Vector2(0.534483, 0.561798), 0.0, 0.0, 0, 0, Vector2(0.54023, 0), 0.0, 0.0, 0, 0, Vector2(0.635057, 0), 0.0, 0.0, 0, 0, Vector2(0.637931, 0.218539), 0.0, 0.0, 0, 0, Vector2(0.781609, 0.218539), 0.0, 0.0, 0, 0, Vector2(0.781619, 0), 0.0, 0.0, 0, 0, Vector2(0.804598, 0), 0.0, 0.0, 0, 0, Vector2(0.804608, 0.152809), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 1.77689, 0.0, 1, 0]
+_data = [Vector2(0, 0.5), 0.0, 1.85393, 0, 1, Vector2(0.25, 0.963483), 0.0, 0.0, 0, 0, Vector2(0.258621, 0), 0.0, 0.0, 0, 0, Vector2(0.362069, 0), 0.0, 0.0, 0, 0, Vector2(0.364943, 0.554494), 0.0, 0.0, 0, 0, Vector2(0.502874, 0.554494), 0.0, 0.0, 0, 0, Vector2(0.502884, 0), 0.0, 0.0, 0, 0, Vector2(0.635057, 0), 0.0, 0.0, 0, 0, Vector2(0.637931, 0.218539), 0.0, 0.0, 0, 0, Vector2(0.781609, 0.218539), 0.0, 0.0, 0, 0, Vector2(0.781619, 0), 0.0, 0.0, 0, 0, Vector2(0.841954, 0), 0.0, 0.0, 0, 0, Vector2(0.844828, 0.174719), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 2.09625, 0.0, 1, 0]
 point_count = 14
 
 [sub_resource type="Curve" id="Curve_7ajfv"]
-_data = [Vector2(0, 0.5), 0.0, 2.59872, 0, 1, Vector2(0.186782, 0.985393), 0.0, 0.0, 0, 0, Vector2(0.376437, 0), 0.0, 0.0, 0, 0, Vector2(0.531609, 1), 0.0, 0.0, 0, 0, Vector2(0.755747, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 2.04706, 0.0, 1, 0]
+_data = [Vector2(0, 0.5), 0.0, 2.18445, 0, 1, Vector2(0.215517, 0.970787), 0.0, 0.0, 0, 0, Vector2(0.376437, 0), 0.0, 0.0, 0, 0, Vector2(0.563218, 0.802809), 0.0, 0.0, 0, 0, Vector2(0.755747, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 2.04706, 0.0, 1, 0]
 point_count = 6
+
+[sub_resource type="Curve" id="Curve_li0yv"]
+_data = [Vector2(0, 0.5), 0.0, 0.957579, 0, 1, Vector2(0.140805, 0.634832), 0.0, 0.0, 0, 0, Vector2(0.264368, 0.532584), 0.0, 0.0, 0, 0, Vector2(0.353448, 0.693259), 0.0, 0.0, 0, 0, Vector2(0.433908, 0.788202), 0.0, 0.0, 0, 0, Vector2(0.520115, 0.875843), 0.0, 0.0, 0, 0, Vector2(0.617816, 1), 1.23448, 1.23448, 0, 0, Vector2(0.617826, 0), 0.0, 0.0, 0, 0, Vector2(0.876437, 0.174719), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 2.63251, 0.0, 1, 0]
+point_count = 10
 
 [sub_resource type="Resource" id="Resource_lud1t"]
 script = ExtResource("1_wvr1o")
-segments = Array[Curve]([SubResource("Curve_7oumq"), SubResource("Curve_xdcgs"), SubResource("Curve_lpbp7"), SubResource("Curve_6r7i5"), SubResource("Curve_4fbs4"), SubResource("Curve_7ajfv")])
+segments = Array[Curve]([SubResource("Curve_7oumq"), SubResource("Curve_xdcgs"), SubResource("Curve_lpbp7"), SubResource("Curve_6r7i5"), SubResource("Curve_4fbs4"), SubResource("Curve_7ajfv"), SubResource("Curve_li0yv")])
 segment_length = 266.0
-generation_seed = 41
+generation_seed = 42
 
 [sub_resource type="Resource" id="Resource_ipmxb"]
 script = ExtResource("1_u30dr")
