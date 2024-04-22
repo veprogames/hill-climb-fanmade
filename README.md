@@ -2,6 +2,7 @@
 
 ![Screenshot, driving on Countryside](./static/screenshots/1.png)
 ![Screenshot, Upgrading in Garage](./static/screenshots/2.png)
+![Screenshot, Upgraded Car on Mountain](./static/screenshots/5.png)
 
 This is a Hill Climb Racing Fanmade with **mod**ular upgrades and easy possibility for **mod**ding with its permissive [MIT](./LICENSE) License.
 
