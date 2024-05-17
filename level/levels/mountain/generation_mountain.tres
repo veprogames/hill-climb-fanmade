@@ -31,8 +31,8 @@ amplitude_values = SubResource("Resource_5m6iy")
 [sub_resource type="Resource" id="Resource_3d6s6"]
 script = ExtResource("4_nx2w5")
 base = 0.0
-delta = 0.4
-exponent = 1.5
+delta = 0.005
+exponent = 2.1
 min_value = 0.0
 max_value = inf
 
